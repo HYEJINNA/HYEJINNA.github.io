@@ -1735,6 +1735,756 @@ Name: survived, dtype: int64
 
 <pre><code>모형 정확도 : 0.675
 </code></pre>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-06T00:00:00.000Z" title="2022. 7. 6. 오전 9:00:00">2022-07-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T11:41:42.803Z" title="2022. 7. 6. 오후 8:41:42">2022-07-06</time></span><span class="level-item">34 minutes read (About 5172 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/06/day0706_1200/">XGboost &amp; LightGBM</a></h1><div class="content"><h2 id="XGboost-amp-LightGBM-2016-2017"><a href="#XGboost-amp-LightGBM-2016-2017" class="headerlink" title="XGboost &amp; LightGBM (2016-2017)"></a>XGboost &amp; LightGBM (2016-2017)</h2><ul>
+<li>전통적인 머신러닝 알고리즘의 융합</li>
+</ul>
+<ul>
+<li>선형회귀 릿지 라쏘, 과적합 방지 위한 규제</li>
+<li>결정트리의 핵심적인 알고리즘</li>
+<li>경사하강법</li>
+<li>부스팅 기법</li>
+</ul>
+<ul>
+<li>문제점 : 파라미터의 개수가 매우 많음</li>
+<li>왜 많이 쓸까요?</li>
+</ul>
+<ul>
+<li>모델학습 속도 </li>
+<li>성능 </li>
+<li>가장 좋은 모델이란, 학습속도는 빠르면서 성능은 좋은 것(지금까지 나온 알고리즘보다)</li>
+</ul>
+<ul>
+<li>Python</li>
+</ul>
+<ul>
+<li>JAVA, C, C++</li>
+<li>C, C++ &#x2F; r data.table 패키지</li>
+</ul>
+<ul>
+<li>큰 회사들 개발</li>
+</ul>
+<ul>
+<li>첫 번째 옵션, 우리가 자체적으로 배포하자-&gt; Pyhthon Wrapper API</li>
+<li>R, 머신러닝 프레임워크 종류 다양</li>
+<li>파이썬 머신러닝 &#x3D; Scikit-Learn에서 쉽게 쓸 수 있도록 개발, Scikit-Learn</li>
+</ul>
+<p> 참고 <a target="_blank" rel="noopener" href="https://xgboost.readthedocs.io/en/stable/python/python_intro.html">https://xgboost.readthedocs.io/en/stable/python/python_intro.html</a> </p>
+<h1 id="XGboost-Scikit-Learn-API방식-amp-python-Wrapper-방식"><a href="#XGboost-Scikit-Learn-API방식-amp-python-Wrapper-방식" class="headerlink" title="XGboost (Scikit-Learn API방식 &amp; python Wrapper 방식)"></a>XGboost (Scikit-Learn API방식 &amp; python Wrapper 방식)</h1><h3 id="python-Wrapper-방식"><a href="#python-Wrapper-방식" class="headerlink" title="python Wrapper 방식"></a>python Wrapper 방식</h3><ul>
+<li>X_train, y_train</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb </span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns </span><br><span class="line"></span><br><span class="line"><span class="comment"># 데이터 분리</span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line"><span class="comment"># titanic.info()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># X, 독립변수, y 종속변수</span></span><br><span class="line">X = titanic[[<span class="string">&#x27;pclass&#x27;</span>, <span class="string">&#x27;parch&#x27;</span>, <span class="string">&#x27;fare&#x27;</span>]]</span><br><span class="line">y = titanic[<span class="string">&#x27;survived&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 훈련데이터, 테스트 데이터 분리</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, </span><br><span class="line">                                                    y, </span><br><span class="line">                                                    stratify = y, </span><br><span class="line">                                                    test_size = <span class="number">0.3</span>, </span><br><span class="line">                                                    random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">X_train.shape, X_test.shape, y_train.shape, y_test.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>((623, 3), (268, 3), (623,), (268,))
+</code></pre>
+<ul>
+<li>여기가 핵심</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dtrain = xgb.DMatrix(data = X_train, label = y_train)</span><br><span class="line">dtest = xgb.DMatrix(data=X_test, label=y_test)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dtrain)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;xgboost.core.DMatrix object at 0x7fc937b31ad0&gt;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#max_depth = 트리의 깊이</span></span><br><span class="line"><span class="comment">#n_estimator = 트리의 수</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">&#x27;max_depth&#x27;</span> : <span class="number">3</span>, </span><br><span class="line">    <span class="string">&#x27;n_estimators&#x27;</span> : <span class="number">100</span>, </span><br><span class="line">    <span class="string">&#x27;eta&#x27;</span> : <span class="number">0.1</span>, </span><br><span class="line">    <span class="string">&#x27;objective&#x27;</span> : <span class="string">&#x27;binary:logistic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">num_rounds = <span class="number">400</span></span><br><span class="line"></span><br><span class="line">w_list = [(dtrain, <span class="string">&#x27;train&#x27;</span>), (dtest, <span class="string">&#x27;test&#x27;</span>)]</span><br><span class="line">xgb_ml = xgb.train(params = params, </span><br><span class="line">                   dtrain = dtrain, </span><br><span class="line">                   num_boost_round = <span class="number">400</span>, </span><br><span class="line">                   early_stopping_rounds = <span class="number">100</span>, </span><br><span class="line">                   evals = w_list)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[0]	train-error:0.260032	test-error:0.302239
+Multiple eval metrics have been passed: &#39;test-error&#39; will be used for early stopping.
+
+Will train until test-error hasn&#39;t improved in 100 rounds.
+[1]	train-error:0.260032	test-error:0.302239
+[2]	train-error:0.260032	test-error:0.302239
+[3]	train-error:0.260032	test-error:0.302239
+[4]	train-error:0.260032	test-error:0.302239
+[5]	train-error:0.260032	test-error:0.302239
+[6]	train-error:0.260032	test-error:0.302239
+[7]	train-error:0.260032	test-error:0.302239
+[8]	train-error:0.260032	test-error:0.302239
+[9]	train-error:0.260032	test-error:0.302239
+[10]	train-error:0.260032	test-error:0.302239
+[11]	train-error:0.260032	test-error:0.302239
+[12]	train-error:0.260032	test-error:0.302239
+[13]	train-error:0.247191	test-error:0.298507
+[14]	train-error:0.247191	test-error:0.298507
+[15]	train-error:0.248796	test-error:0.302239
+[16]	train-error:0.248796	test-error:0.302239
+[17]	train-error:0.248796	test-error:0.302239
+[18]	train-error:0.248796	test-error:0.302239
+[19]	train-error:0.248796	test-error:0.302239
+[20]	train-error:0.248796	test-error:0.302239
+[21]	train-error:0.248796	test-error:0.302239
+[22]	train-error:0.248796	test-error:0.302239
+[23]	train-error:0.248796	test-error:0.302239
+[24]	train-error:0.248796	test-error:0.302239
+[25]	train-error:0.248796	test-error:0.302239
+[26]	train-error:0.248796	test-error:0.302239
+[27]	train-error:0.248796	test-error:0.302239
+[28]	train-error:0.247191	test-error:0.302239
+[29]	train-error:0.247191	test-error:0.302239
+[30]	train-error:0.247191	test-error:0.302239
+[31]	train-error:0.243981	test-error:0.298507
+[32]	train-error:0.247191	test-error:0.302239
+[33]	train-error:0.243981	test-error:0.298507
+[34]	train-error:0.243981	test-error:0.298507
+[35]	train-error:0.242376	test-error:0.294776
+[36]	train-error:0.24077	test-error:0.294776
+[37]	train-error:0.24077	test-error:0.294776
+[38]	train-error:0.24077	test-error:0.294776
+[39]	train-error:0.24077	test-error:0.294776
+[40]	train-error:0.24077	test-error:0.294776
+[41]	train-error:0.24077	test-error:0.294776
+[42]	train-error:0.24077	test-error:0.294776
+[43]	train-error:0.24077	test-error:0.294776
+[44]	train-error:0.24077	test-error:0.302239
+[45]	train-error:0.24077	test-error:0.302239
+[46]	train-error:0.24077	test-error:0.302239
+[47]	train-error:0.24077	test-error:0.302239
+[48]	train-error:0.24077	test-error:0.302239
+[49]	train-error:0.24077	test-error:0.302239
+[50]	train-error:0.24077	test-error:0.302239
+[51]	train-error:0.24077	test-error:0.302239
+[52]	train-error:0.23435	test-error:0.302239
+[53]	train-error:0.23435	test-error:0.302239
+[54]	train-error:0.232745	test-error:0.298507
+[55]	train-error:0.229535	test-error:0.298507
+[56]	train-error:0.229535	test-error:0.298507
+[57]	train-error:0.229535	test-error:0.298507
+[58]	train-error:0.229535	test-error:0.298507
+[59]	train-error:0.227929	test-error:0.294776
+[60]	train-error:0.227929	test-error:0.298507
+[61]	train-error:0.227929	test-error:0.298507
+[62]	train-error:0.227929	test-error:0.298507
+[63]	train-error:0.227929	test-error:0.298507
+[64]	train-error:0.227929	test-error:0.298507
+[65]	train-error:0.227929	test-error:0.298507
+[66]	train-error:0.227929	test-error:0.298507
+[67]	train-error:0.227929	test-error:0.298507
+[68]	train-error:0.227929	test-error:0.298507
+[69]	train-error:0.227929	test-error:0.298507
+[70]	train-error:0.227929	test-error:0.298507
+[71]	train-error:0.227929	test-error:0.298507
+[72]	train-error:0.227929	test-error:0.302239
+[73]	train-error:0.227929	test-error:0.302239
+[74]	train-error:0.229535	test-error:0.30597
+[75]	train-error:0.229535	test-error:0.30597
+[76]	train-error:0.229535	test-error:0.30597
+[77]	train-error:0.229535	test-error:0.30597
+[78]	train-error:0.229535	test-error:0.30597
+[79]	train-error:0.229535	test-error:0.30597
+[80]	train-error:0.229535	test-error:0.30597
+[81]	train-error:0.229535	test-error:0.30597
+[82]	train-error:0.229535	test-error:0.30597
+[83]	train-error:0.229535	test-error:0.30597
+[84]	train-error:0.229535	test-error:0.30597
+[85]	train-error:0.229535	test-error:0.30597
+[86]	train-error:0.229535	test-error:0.30597
+[87]	train-error:0.229535	test-error:0.30597
+[88]	train-error:0.229535	test-error:0.30597
+[89]	train-error:0.229535	test-error:0.30597
+[90]	train-error:0.229535	test-error:0.30597
+[91]	train-error:0.229535	test-error:0.30597
+[92]	train-error:0.229535	test-error:0.30597
+[93]	train-error:0.229535	test-error:0.30597
+[94]	train-error:0.227929	test-error:0.313433
+[95]	train-error:0.226324	test-error:0.313433
+[96]	train-error:0.223114	test-error:0.317164
+[97]	train-error:0.223114	test-error:0.317164
+[98]	train-error:0.223114	test-error:0.317164
+[99]	train-error:0.223114	test-error:0.317164
+[100]	train-error:0.223114	test-error:0.317164
+[101]	train-error:0.223114	test-error:0.317164
+[102]	train-error:0.223114	test-error:0.317164
+[103]	train-error:0.223114	test-error:0.317164
+[104]	train-error:0.223114	test-error:0.317164
+[105]	train-error:0.223114	test-error:0.317164
+[106]	train-error:0.223114	test-error:0.317164
+[107]	train-error:0.223114	test-error:0.317164
+[108]	train-error:0.223114	test-error:0.317164
+[109]	train-error:0.223114	test-error:0.317164
+[110]	train-error:0.223114	test-error:0.317164
+[111]	train-error:0.223114	test-error:0.317164
+[112]	train-error:0.223114	test-error:0.317164
+[113]	train-error:0.223114	test-error:0.317164
+[114]	train-error:0.223114	test-error:0.317164
+[115]	train-error:0.223114	test-error:0.317164
+[116]	train-error:0.223114	test-error:0.317164
+[117]	train-error:0.223114	test-error:0.317164
+[118]	train-error:0.223114	test-error:0.317164
+[119]	train-error:0.223114	test-error:0.317164
+[120]	train-error:0.223114	test-error:0.317164
+[121]	train-error:0.223114	test-error:0.317164
+[122]	train-error:0.223114	test-error:0.317164
+[123]	train-error:0.223114	test-error:0.317164
+[124]	train-error:0.224719	test-error:0.317164
+[125]	train-error:0.224719	test-error:0.317164
+[126]	train-error:0.224719	test-error:0.317164
+[127]	train-error:0.221509	test-error:0.317164
+[128]	train-error:0.223114	test-error:0.317164
+[129]	train-error:0.219904	test-error:0.313433
+[130]	train-error:0.215088	test-error:0.313433
+[131]	train-error:0.215088	test-error:0.313433
+[132]	train-error:0.215088	test-error:0.313433
+[133]	train-error:0.215088	test-error:0.313433
+[134]	train-error:0.215088	test-error:0.313433
+[135]	train-error:0.215088	test-error:0.313433
+Stopping. Best iteration:
+[35]	train-error:0.242376	test-error:0.294776
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 평가</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line">pred_probs = xgb_ml.predict(dtest)</span><br><span class="line">y_pred = [<span class="number">1</span> <span class="keyword">if</span> x&gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> pred_probs]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.6865671641791045
+</code></pre>
+<h3 id="Scikit-Learn-API방식"><a href="#Scikit-Learn-API방식" class="headerlink" title="Scikit-Learn API방식"></a>Scikit-Learn API방식</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> xgboost <span class="keyword">import</span> XGBClassifier <span class="comment"># API </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># dt = DecisionTreeClassifier()</span></span><br><span class="line">xgb_model = XGBClassifier(objective = <span class="string">&#x27;binary:logistic&#x27;</span>, </span><br><span class="line">                          n_estimators=<span class="number">100</span>, </span><br><span class="line">                          max_depth=<span class="number">3</span>, </span><br><span class="line">                          learning_rate = <span class="number">0.1</span>, </span><br><span class="line">                          num_rounds = <span class="number">400</span>,</span><br><span class="line">                          random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">w_list = [(X_train, y_train), (X_test, y_test)]</span><br><span class="line"></span><br><span class="line">xgb_model.fit(X_train, y_train, eval_set = w_list, eval_metric=<span class="string">&#x27;error&#x27;</span>, verbose=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">y_probas = xgb_model.predict_proba(X_test)</span><br><span class="line">y_pred = [<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> pred_probs]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>[0]	validation_0-error:0.260032	validation_1-error:0.302239
+[1]	validation_0-error:0.260032	validation_1-error:0.302239
+[2]	validation_0-error:0.260032	validation_1-error:0.302239
+[3]	validation_0-error:0.260032	validation_1-error:0.302239
+[4]	validation_0-error:0.260032	validation_1-error:0.302239
+[5]	validation_0-error:0.260032	validation_1-error:0.302239
+[6]	validation_0-error:0.260032	validation_1-error:0.302239
+[7]	validation_0-error:0.260032	validation_1-error:0.302239
+[8]	validation_0-error:0.260032	validation_1-error:0.302239
+[9]	validation_0-error:0.260032	validation_1-error:0.302239
+[10]	validation_0-error:0.260032	validation_1-error:0.302239
+[11]	validation_0-error:0.260032	validation_1-error:0.302239
+[12]	validation_0-error:0.260032	validation_1-error:0.302239
+[13]	validation_0-error:0.247191	validation_1-error:0.298507
+[14]	validation_0-error:0.247191	validation_1-error:0.298507
+[15]	validation_0-error:0.248796	validation_1-error:0.302239
+[16]	validation_0-error:0.248796	validation_1-error:0.302239
+[17]	validation_0-error:0.248796	validation_1-error:0.302239
+[18]	validation_0-error:0.248796	validation_1-error:0.302239
+[19]	validation_0-error:0.248796	validation_1-error:0.302239
+[20]	validation_0-error:0.248796	validation_1-error:0.302239
+[21]	validation_0-error:0.248796	validation_1-error:0.302239
+[22]	validation_0-error:0.248796	validation_1-error:0.302239
+[23]	validation_0-error:0.248796	validation_1-error:0.302239
+[24]	validation_0-error:0.248796	validation_1-error:0.302239
+[25]	validation_0-error:0.248796	validation_1-error:0.302239
+[26]	validation_0-error:0.248796	validation_1-error:0.302239
+[27]	validation_0-error:0.248796	validation_1-error:0.302239
+[28]	validation_0-error:0.247191	validation_1-error:0.302239
+[29]	validation_0-error:0.247191	validation_1-error:0.302239
+[30]	validation_0-error:0.247191	validation_1-error:0.302239
+[31]	validation_0-error:0.243981	validation_1-error:0.298507
+[32]	validation_0-error:0.247191	validation_1-error:0.302239
+[33]	validation_0-error:0.243981	validation_1-error:0.298507
+[34]	validation_0-error:0.243981	validation_1-error:0.298507
+[35]	validation_0-error:0.242376	validation_1-error:0.294776
+[36]	validation_0-error:0.24077	validation_1-error:0.294776
+[37]	validation_0-error:0.24077	validation_1-error:0.294776
+[38]	validation_0-error:0.24077	validation_1-error:0.294776
+[39]	validation_0-error:0.24077	validation_1-error:0.294776
+[40]	validation_0-error:0.24077	validation_1-error:0.294776
+[41]	validation_0-error:0.24077	validation_1-error:0.294776
+[42]	validation_0-error:0.24077	validation_1-error:0.294776
+[43]	validation_0-error:0.24077	validation_1-error:0.294776
+[44]	validation_0-error:0.24077	validation_1-error:0.302239
+[45]	validation_0-error:0.24077	validation_1-error:0.302239
+[46]	validation_0-error:0.24077	validation_1-error:0.302239
+[47]	validation_0-error:0.24077	validation_1-error:0.302239
+[48]	validation_0-error:0.24077	validation_1-error:0.302239
+[49]	validation_0-error:0.24077	validation_1-error:0.302239
+[50]	validation_0-error:0.24077	validation_1-error:0.302239
+[51]	validation_0-error:0.24077	validation_1-error:0.302239
+[52]	validation_0-error:0.23435	validation_1-error:0.302239
+[53]	validation_0-error:0.23435	validation_1-error:0.302239
+[54]	validation_0-error:0.232745	validation_1-error:0.298507
+[55]	validation_0-error:0.229535	validation_1-error:0.298507
+[56]	validation_0-error:0.229535	validation_1-error:0.298507
+[57]	validation_0-error:0.229535	validation_1-error:0.298507
+[58]	validation_0-error:0.229535	validation_1-error:0.298507
+[59]	validation_0-error:0.227929	validation_1-error:0.294776
+[60]	validation_0-error:0.227929	validation_1-error:0.298507
+[61]	validation_0-error:0.227929	validation_1-error:0.298507
+[62]	validation_0-error:0.227929	validation_1-error:0.298507
+[63]	validation_0-error:0.227929	validation_1-error:0.298507
+[64]	validation_0-error:0.227929	validation_1-error:0.298507
+[65]	validation_0-error:0.227929	validation_1-error:0.298507
+[66]	validation_0-error:0.227929	validation_1-error:0.298507
+[67]	validation_0-error:0.227929	validation_1-error:0.298507
+[68]	validation_0-error:0.227929	validation_1-error:0.298507
+[69]	validation_0-error:0.227929	validation_1-error:0.298507
+[70]	validation_0-error:0.227929	validation_1-error:0.298507
+[71]	validation_0-error:0.227929	validation_1-error:0.298507
+[72]	validation_0-error:0.227929	validation_1-error:0.302239
+[73]	validation_0-error:0.227929	validation_1-error:0.302239
+[74]	validation_0-error:0.229535	validation_1-error:0.30597
+[75]	validation_0-error:0.229535	validation_1-error:0.30597
+[76]	validation_0-error:0.229535	validation_1-error:0.30597
+[77]	validation_0-error:0.229535	validation_1-error:0.30597
+[78]	validation_0-error:0.229535	validation_1-error:0.30597
+[79]	validation_0-error:0.229535	validation_1-error:0.30597
+[80]	validation_0-error:0.229535	validation_1-error:0.30597
+[81]	validation_0-error:0.229535	validation_1-error:0.30597
+[82]	validation_0-error:0.229535	validation_1-error:0.30597
+[83]	validation_0-error:0.229535	validation_1-error:0.30597
+[84]	validation_0-error:0.229535	validation_1-error:0.30597
+[85]	validation_0-error:0.229535	validation_1-error:0.30597
+[86]	validation_0-error:0.229535	validation_1-error:0.30597
+[87]	validation_0-error:0.229535	validation_1-error:0.30597
+[88]	validation_0-error:0.229535	validation_1-error:0.30597
+[89]	validation_0-error:0.229535	validation_1-error:0.30597
+[90]	validation_0-error:0.229535	validation_1-error:0.30597
+[91]	validation_0-error:0.229535	validation_1-error:0.30597
+[92]	validation_0-error:0.229535	validation_1-error:0.30597
+[93]	validation_0-error:0.229535	validation_1-error:0.30597
+[94]	validation_0-error:0.227929	validation_1-error:0.313433
+[95]	validation_0-error:0.226324	validation_1-error:0.313433
+[96]	validation_0-error:0.223114	validation_1-error:0.317164
+[97]	validation_0-error:0.223114	validation_1-error:0.317164
+[98]	validation_0-error:0.223114	validation_1-error:0.317164
+[99]	validation_0-error:0.223114	validation_1-error:0.317164
+
+
+
+
+
+0.6865671641791045
+</code></pre>
+<ul>
+<li>p275 &#x3D; Scikit-Learn API방식</li>
+<li>Scikit-Learn API방식, python Wrapper 방식 비교하기</li>
+</ul>
+<h1 id="lightGBM-Python-Wrapper-방식-amp-LightGBM-Scikit-Learn-API방식"><a href="#lightGBM-Python-Wrapper-방식-amp-LightGBM-Scikit-Learn-API방식" class="headerlink" title="lightGBM Python Wrapper 방식 &amp; LightGBM Scikit-Learn API방식"></a>lightGBM Python Wrapper 방식 &amp; LightGBM Scikit-Learn API방식</h1><h2 id="lightGBM-Python-Wrapper-방식"><a href="#lightGBM-Python-Wrapper-방식" class="headerlink" title="lightGBM Python Wrapper 방식"></a>lightGBM Python Wrapper 방식</h2><p>참고 <a target="_blank" rel="noopener" href="https://lightgbm.readthedocs.io/en/latest/Parameters.html">https://lightgbm.readthedocs.io/en/latest/Parameters.html</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lightgbm <span class="keyword">as</span> lgb </span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split </span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns </span><br><span class="line"></span><br><span class="line"><span class="comment"># tips 데이터셋 </span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">X = titanic[[<span class="string">&#x27;pclass&#x27;</span>, <span class="string">&#x27;parch&#x27;</span>, <span class="string">&#x27;fare&#x27;</span>]]</span><br><span class="line">y = titanic[<span class="string">&#x27;survived&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 훈련데이터, 테스트 데이터 분리</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, stratify = y, test_size = <span class="number">0.3</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># XGBoost 코드와 유사하다. </span></span><br><span class="line">dtrain = lgb.Dataset(data = X_train, label = y_train)</span><br><span class="line">dtest = lgb.Dataset(data = X_test, label = y_test)</span><br><span class="line"></span><br><span class="line">params = &#123;<span class="string">&#x27;max_depth&#x27;</span>:<span class="number">3</span>,</span><br><span class="line">          <span class="string">&#x27;n_estimators&#x27;</span>:<span class="number">100</span>,</span><br><span class="line">          <span class="string">&#x27;learning_rate&#x27;</span>: <span class="number">0.1</span>,</span><br><span class="line">          <span class="string">&#x27;objective&#x27;</span>:<span class="string">&#x27;binary&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;metric&#x27;</span> : <span class="string">&#x27;binary_error&#x27;</span>, </span><br><span class="line">          <span class="string">&#x27;num_boost_round&#x27;</span> : <span class="number">400</span>, </span><br><span class="line">          <span class="string">&#x27;verbose&#x27;</span> : <span class="number">1</span>&#125; </span><br><span class="line"></span><br><span class="line">w_list = [dtrain, dtest]</span><br><span class="line">lgb_ml = lgb.train(params=params, train_set = dtrain,\</span><br><span class="line">                  early_stopping_rounds=<span class="number">100</span>, valid_sets= w_list)</span><br><span class="line"></span><br><span class="line">pred_probs = lgb_ml.predict(X_test)</span><br><span class="line">y_pred=[<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> pred_probs]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br></pre></td></tr></table></figure>
+
+<pre><code>/usr/local/lib/python3.7/dist-packages/lightgbm/engine.py:118: UserWarning: Found `num_boost_round` in params. Will use it instead of argument
+  warnings.warn(&quot;Found `&#123;&#125;` in params. Will use it instead of argument&quot;.format(alias))
+
+
+[1]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+Training until validation scores don&#39;t improve for 100 rounds.
+[2]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+[3]	training&#39;s binary_error: 0.354735	valid_1&#39;s binary_error: 0.369403
+[4]	training&#39;s binary_error: 0.29695	valid_1&#39;s binary_error: 0.354478
+[5]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[6]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[7]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[8]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[9]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[10]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.309701
+[11]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[12]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[13]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[14]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[15]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[16]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[17]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[18]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[19]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[20]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[21]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[22]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[23]	training&#39;s binary_error: 0.271268	valid_1&#39;s binary_error: 0.313433
+[24]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[25]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[26]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[27]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[28]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[29]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[30]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[31]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[32]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[33]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[34]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[35]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[36]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[37]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[38]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[39]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.309701
+[40]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[41]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[42]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[43]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[44]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[45]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[46]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[47]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[48]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[49]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[50]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[51]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[52]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[53]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[54]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[55]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[56]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[57]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[58]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[59]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[60]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[61]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[62]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[63]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[64]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[65]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[66]	training&#39;s binary_error: 0.243981	valid_1&#39;s binary_error: 0.309701
+[67]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[68]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[69]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[70]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[71]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[72]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[73]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[74]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[75]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[76]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[77]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[78]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[79]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[80]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[81]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[82]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[83]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[84]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[85]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[86]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[87]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[88]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[89]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[90]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[91]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[92]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[93]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[94]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[95]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[96]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[97]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[98]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[99]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[100]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[102]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[103]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[104]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[105]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[106]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.313433
+[107]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[108]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[109]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[110]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[111]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[112]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[113]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[114]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[115]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[116]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[117]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[118]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[119]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[120]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[121]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[122]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[123]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[124]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[125]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[126]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[127]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[128]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[129]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[130]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[131]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[132]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[133]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[134]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[135]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[136]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[137]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[138]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[139]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[140]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[141]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[142]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[143]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[144]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.320896
+[145]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[146]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[147]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[148]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[149]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[150]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[151]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[152]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[153]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[154]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[155]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[156]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[157]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[158]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[159]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[160]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[161]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[162]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[163]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[164]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[165]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[166]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[167]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[168]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[169]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[170]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[171]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[172]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[173]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[174]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[175]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[176]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[177]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[178]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[179]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[180]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[181]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[182]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[183]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[184]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[185]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[186]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[187]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[188]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[189]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[190]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[191]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[192]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[193]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[194]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[195]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[196]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[197]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[198]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[199]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[200]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[201]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+Early stopping, best iteration is:
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+
+
+
+
+
+0.6940298507462687
+</code></pre>
+<h2 id="LightGBM-Scikit-Learn-API방식"><a href="#LightGBM-Scikit-Learn-API방식" class="headerlink" title="LightGBM Scikit-Learn API방식"></a>LightGBM Scikit-Learn API방식</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lightgbm <span class="keyword">import</span> LGBMClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"></span><br><span class="line"><span class="comment"># model </span></span><br><span class="line">w_list = [dtrain, dtest]</span><br><span class="line">model = LGBMClassifier(objective = <span class="string">&#x27;binary&#x27;</span>, </span><br><span class="line">                       metric = <span class="string">&#x27;binary_error&#x27;</span>,</span><br><span class="line">                       n_estimators=<span class="number">100</span>, </span><br><span class="line">                       learning_rate=<span class="number">0.1</span>, </span><br><span class="line">                       max_depth=<span class="number">3</span>, </span><br><span class="line">                       num_boost_round = <span class="number">400</span>,</span><br><span class="line">                       random_state = <span class="number">32</span>)</span><br><span class="line">model.fit(X_train, </span><br><span class="line">          y_train, </span><br><span class="line">          eval_set = [(X_train, y_train), (X_test, y_test)], </span><br><span class="line">          verbose=<span class="number">1</span>,</span><br><span class="line">          early_stopping_rounds = <span class="number">100</span>)</span><br><span class="line">y_probas = model.predict_proba(X_test) </span><br><span class="line">y_pred=[<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> y_probas[:, <span class="number">1</span>]] <span class="comment"># 예측 라벨(0과 1로 예측)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>/usr/local/lib/python3.7/dist-packages/lightgbm/engine.py:118: UserWarning: Found `num_boost_round` in params. Will use it instead of argument
+  warnings.warn(&quot;Found `&#123;&#125;` in params. Will use it instead of argument&quot;.format(alias))
+
+
+[1]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+Training until validation scores don&#39;t improve for 100 rounds.
+[2]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+[3]	training&#39;s binary_error: 0.354735	valid_1&#39;s binary_error: 0.369403
+[4]	training&#39;s binary_error: 0.29695	valid_1&#39;s binary_error: 0.354478
+[5]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[6]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[7]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[8]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[9]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[10]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.309701
+[11]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[12]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[13]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[14]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[15]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[16]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[17]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[18]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[19]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[20]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[21]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[22]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[23]	training&#39;s binary_error: 0.271268	valid_1&#39;s binary_error: 0.313433
+[24]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[25]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[26]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[27]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[28]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[29]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[30]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[31]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[32]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[33]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[34]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[35]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[36]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[37]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[38]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[39]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.309701
+[40]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[41]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[42]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[43]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[44]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[45]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[46]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[47]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[48]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[49]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[50]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[51]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[52]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[53]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[54]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[55]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[56]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[57]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[58]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[59]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[60]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[61]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[62]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[63]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[64]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[65]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[66]	training&#39;s binary_error: 0.243981	valid_1&#39;s binary_error: 0.309701
+[67]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[68]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[69]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[70]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[71]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[72]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[73]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[74]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[75]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[76]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[77]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[78]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[79]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[80]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[81]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[82]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[83]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[84]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[85]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[86]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[87]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[88]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[89]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[90]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[91]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[92]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[93]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[94]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[95]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[96]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[97]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[98]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[99]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[100]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[102]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[103]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[104]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[105]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[106]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.313433
+[107]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[108]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[109]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[110]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[111]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[112]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[113]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[114]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[115]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[116]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[117]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[118]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[119]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[120]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[121]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[122]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[123]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[124]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[125]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[126]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[127]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[128]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[129]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[130]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[131]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[132]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[133]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[134]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[135]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[136]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[137]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[138]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[139]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[140]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[141]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[142]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[143]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[144]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.320896
+[145]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[146]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[147]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[148]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[149]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[150]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[151]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[152]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[153]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[154]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[155]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[156]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[157]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[158]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[159]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[160]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[161]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[162]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[163]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[164]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[165]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[166]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[167]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[168]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[169]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[170]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[171]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[172]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[173]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[174]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[175]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[176]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[177]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[178]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[179]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[180]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[181]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[182]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[183]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[184]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[185]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[186]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[187]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[188]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[189]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[190]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[191]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[192]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[193]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[194]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[195]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[196]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[197]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[198]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[199]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[200]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[201]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+Early stopping, best iteration is:
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+
+
+
+
+
+0.6940298507462687
+</code></pre>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-05T00:00:00.000Z" title="2022. 7. 5. 오전 9:00:00">2022-07-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T03:28:35.861Z" title="2022. 7. 6. 오후 12:28:35">2022-07-06</time></span><span class="level-item">an hour read (About 6835 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/05/PyCaret_Sample/">PyCaret</a></h1><div class="content"><ul>
 <li>PyCaret 설치</li>
 </ul>
@@ -6523,2467 +7273,7 @@ Name: Species, dtype: int64
 
 
 <p><img src="/images/day0630ml/output_88_0.png"></p>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-29T00:00:00.000Z" title="2022. 6. 29. 오전 9:00:00">2022-06-29</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T03:28:35.871Z" title="2022. 7. 6. 오후 12:28:35">2022-07-06</time></span><span class="level-item">24 minutes read (About 3654 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/29/day0629/">pandas &amp; numpy</a></h1><div class="content"><h2 id="라이브러리-불러오기"><a href="#라이브러리-불러오기" class="headerlink" title="라이브러리 불러오기"></a>라이브러리 불러오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;pandas version:&quot;</span>, pd.__version__)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;numpy version:&quot;</span>, np.__version__)</span><br></pre></td></tr></table></figure>
-
-<pre><code>pandas version: 1.3.5
-numpy version: 1.21.6
-</code></pre>
-<h2 id="데이터-불러오기"><a href="#데이터-불러오기" class="headerlink" title="데이터 불러오기"></a>데이터 불러오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> drive</span><br><span class="line">drive.mount(<span class="string">&#x27;/content/drive&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>Mounted at /content/drive
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATA_PATH = <span class="string">&#x27;/content/drive/MyDrive/Colab Notebooks/human_AI/Basic/Chapter 3. pandas/data/Lemonade2016.csv&#x27;</span></span><br><span class="line">lemonade = pd.read_csv(DATA_PATH)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(lemonade))</span><br><span class="line">lemonade.info() <span class="comment">#str</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 32 entries, 0 to 31
-Data columns (total 7 columns):
- #   Column       Non-Null Count  Dtype  
----  ------       --------------  -----  
- 0   Date         31 non-null     object 
- 1   Location     32 non-null     object 
- 2   Lemon        32 non-null     int64  
- 3   Orange       32 non-null     int64  
- 4   Temperature  32 non-null     int64  
- 5   Leaflets     31 non-null     float64
- 6   Price        32 non-null     float64
-dtypes: float64(2), int64(3), object(2)
-memory usage: 1.9+ KB
-</code></pre>
-<ul>
-<li>데이터 맛보기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.head())</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price
-0  7/1/2016     Park     97      67           70      90.0   0.25
-1  7/2/2016     Park     98      67           72      90.0   0.25
-2  7/3/2016     Park    110      77           71     104.0   0.25
-3  7/4/2016    Beach    134      99           76      98.0   0.25
-4  7/5/2016    Beach    159     118           78     135.0   0.25
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.tail())</span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date Location  Lemon  Orange  Temperature  Leaflets  Price
-27  7/27/2016     Park    104      68           80      99.0   0.35
-28  7/28/2016     Park     96      63           82      90.0   0.35
-29  7/29/2016     Park    100      66           81      95.0   0.35
-30  7/30/2016    Beach     88      57           82      81.0   0.35
-31  7/31/2016    Beach     76      47           82      68.0   0.35
-</code></pre>
-<ul>
-<li>기술 통계량 보는 함수 </li>
-<li>dscreibe( )</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.describe())</span><br></pre></td></tr></table></figure>
-
-<pre><code>            Lemon      Orange  Temperature    Leaflets      Price
-count   32.000000   32.000000    32.000000   31.000000  32.000000
-mean   116.156250   80.000000    78.968750  108.548387   0.354688
-std     25.823357   21.863211     4.067847   20.117718   0.113137
-min     71.000000   42.000000    70.000000   68.000000   0.250000
-25%     98.000000   66.750000    77.000000   90.000000   0.250000
-50%    113.500000   76.500000    80.500000  108.000000   0.350000
-75%    131.750000   95.000000    82.000000  124.000000   0.500000
-max    176.000000  129.000000    84.000000  158.000000   0.500000
-</code></pre>
-<ul>
-<li>범주형 데이터 빈도수 구하기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Location&#x27;</span>] </span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>0      Park
-1      Park
-2      Park
-3     Beach
-4     Beach
-5     Beach
-6     Beach
-7     Beach
-8     Beach
-9     Beach
-10    Beach
-11    Beach
-12    Beach
-13    Beach
-14    Beach
-15    Beach
-16    Beach
-17    Beach
-18     Park
-19     Park
-20     Park
-21     Park
-22     Park
-23     Park
-24     Park
-25     Park
-26     Park
-27     Park
-28     Park
-29     Park
-30    Beach
-31    Beach
-Name: Location, dtype: object
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Location&#x27;</span>].value_counts()</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>Beach    17
-Park     15
-Name: Location, dtype: int64
-</code></pre>
-<p>value_counts()는 판다스에서 시리즈에 있음</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(lemonade[<span class="string">&#x27;Location&#x27;</span>]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>&lt;class &#39;pandas.core.series.Series&#39;&gt;
-</code></pre>
-<h2 id="행과-열-다루기"><a href="#행과-열-다루기" class="headerlink" title="행과 열 다루기"></a>행과 열 다루기</h2><ul>
-<li>Sold(판매량) 컬럼 (&#x3D;피쳐&#x3D;feature)을 추가</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Sold&#x27;</span>] = <span class="number">0</span>  <span class="comment">#lemonade.Sold으로도 가능하지만, 메서드인지 칼럼인지 헷갈리는 경우가 있음</span></span><br><span class="line"><span class="built_in">print</span>(lemonade.head(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold
-0  7/1/2016     Park     97      67           70      90.0   0.25     0
-1  7/2/2016     Park     98      67           72      90.0   0.25     0
-2  7/3/2016     Park    110      77           71     104.0   0.25     0
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Sold&#x27;</span>] = lemonade[<span class="string">&#x27;Lemon&#x27;</span>] + lemonade[<span class="string">&#x27;Orange&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(lemonade.head(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold
-0  7/1/2016     Park     97      67           70      90.0   0.25   164
-1  7/2/2016     Park     98      67           72      90.0   0.25   165
-2  7/3/2016     Park    110      77           71     104.0   0.25   187
-</code></pre>
-<ul>
-<li>Revenue(매출) &#x3D; 단가 x 판매량</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Revenue&#x27;</span>] = <span class="number">0</span></span><br><span class="line"><span class="built_in">print</span>(lemonade.head(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
-0  7/1/2016     Park     97      67           70      90.0   0.25   164   
-1  7/2/2016     Park     98      67           72      90.0   0.25   165   
-2  7/3/2016     Park    110      77           71     104.0   0.25   187   
-
-   Revenue  
-0        0  
-1        0  
-2        0  
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Revenue&#x27;</span>] = lemonade[<span class="string">&#x27;Price&#x27;</span>] * lemonade[<span class="string">&#x27;Sold&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(lemonade.head(<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
-0  7/1/2016     Park     97      67           70      90.0   0.25   164   
-1  7/2/2016     Park     98      67           72      90.0   0.25   165   
-2  7/3/2016     Park    110      77           71     104.0   0.25   187   
-
-   Revenue  
-0    41.00  
-1    41.25  
-2    46.75  
-</code></pre>
-<ul>
-<li>drop 함수 사용해서 열 제거</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 컬럼 제거 </span></span><br><span class="line">col_drop = lemonade.drop(<span class="string">&#x27;Sold&#x27;</span>, axis=<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(col_drop.head()) </span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Revenue
-0  7/1/2016     Park     97      67           70      90.0   0.25    41.00
-1  7/2/2016     Park     98      67           72      90.0   0.25    41.25
-2  7/3/2016     Park    110      77           71     104.0   0.25    46.75
-3  7/4/2016    Beach    134      99           76      98.0   0.25    58.25
-4  7/5/2016    Beach    159     118           78     135.0   0.25    69.25
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 행 제거</span></span><br><span class="line">row_drop = lemonade.drop(<span class="number">2</span>, axis = <span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(row_drop.head()) </span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
-0  7/1/2016     Park     97      67           70      90.0   0.25   164   
-1  7/2/2016     Park     98      67           72      90.0   0.25   165   
-3  7/4/2016    Beach    134      99           76      98.0   0.25   233   
-4  7/5/2016    Beach    159     118           78     135.0   0.25   277   
-5  7/6/2016    Beach    103      69           82      90.0   0.25   172   
-
-   Revenue  
-0    41.00  
-1    41.25  
-3    58.25  
-4    69.25  
-5    43.00  
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 범위 제거</span></span><br><span class="line">row_drop = lemonade.drop([<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>], axis = <span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(row_drop.head()) </span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
-3  7/4/2016    Beach    134      99           76      98.0   0.25   233   
-4  7/5/2016    Beach    159     118           78     135.0   0.25   277   
-5  7/6/2016    Beach    103      69           82      90.0   0.25   172   
-6  7/6/2016    Beach    103      69           82      90.0   0.25   172   
-7  7/7/2016    Beach    143     101           81     135.0   0.25   244   
-
-   Revenue  
-3    58.25  
-4    69.25  
-5    43.00  
-6    43.00  
-7    61.00  
-</code></pre>
-<h2 id="데이터-인덱싱-문자가-있어-다루기-어려움"><a href="#데이터-인덱싱-문자가-있어-다루기-어려움" class="headerlink" title="데이터 인덱싱 (문자가 있어 다루기 어려움)"></a>데이터 인덱싱 (문자가 있어 다루기 어려움)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[<span class="number">4</span>:<span class="number">7</span>])</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location  Lemon  Orange  Temperature  Leaflets  Price  Sold  \
-4  7/5/2016    Beach    159     118           78     135.0   0.25   277   
-5  7/6/2016    Beach    103      69           82      90.0   0.25   172   
-6  7/6/2016    Beach    103      69           82      90.0   0.25   172   
-
-   Revenue  
-4    69.25  
-5    43.00  
-6    43.00  
-</code></pre>
-<ul>
-<li>특정 값만 추출</li>
-<li>filter</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># lemonade[데이터 컬럼 == 특정값]</span></span><br><span class="line">lemonade[<span class="string">&#x27;Location&#x27;</span>] == <span class="string">&#x27;Beach&#x27;</span></span><br><span class="line"></span><br><span class="line">lemonade[조건식 &amp; 조건식]</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>0     False
-1     False
-2     False
-3      True
-4      True
-5      True
-6      True
-7      True
-8      True
-9      True
-10     True
-11     True
-12     True
-13     True
-14     True
-15     True
-16     True
-17     True
-18    False
-19    False
-20    False
-21    False
-22    False
-23    False
-24    False
-25    False
-26    False
-27    False
-28    False
-29    False
-30     True
-31     True
-Name: Location, dtype: bool
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade[lemonade[<span class="string">&#x27;Location&#x27;</span>] == <span class="string">&#x27;Beach&#x27;</span>]</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-9290165e-8ef6-46f3-aac5-16d67164dc30">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Lemon</th>
-      <th>Orange</th>
-      <th>Temperature</th>
-      <th>Leaflets</th>
-      <th>Price</th>
-      <th>Sold</th>
-      <th>Revenue</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>3</th>
-      <td>7/4/2016</td>
-      <td>Beach</td>
-      <td>134</td>
-      <td>99</td>
-      <td>76</td>
-      <td>98.0</td>
-      <td>0.25</td>
-      <td>233</td>
-      <td>58.25</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>7/5/2016</td>
-      <td>Beach</td>
-      <td>159</td>
-      <td>118</td>
-      <td>78</td>
-      <td>135.0</td>
-      <td>0.25</td>
-      <td>277</td>
-      <td>69.25</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>7/6/2016</td>
-      <td>Beach</td>
-      <td>103</td>
-      <td>69</td>
-      <td>82</td>
-      <td>90.0</td>
-      <td>0.25</td>
-      <td>172</td>
-      <td>43.00</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7/6/2016</td>
-      <td>Beach</td>
-      <td>103</td>
-      <td>69</td>
-      <td>82</td>
-      <td>90.0</td>
-      <td>0.25</td>
-      <td>172</td>
-      <td>43.00</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>7/7/2016</td>
-      <td>Beach</td>
-      <td>143</td>
-      <td>101</td>
-      <td>81</td>
-      <td>135.0</td>
-      <td>0.25</td>
-      <td>244</td>
-      <td>61.00</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>NaN</td>
-      <td>Beach</td>
-      <td>123</td>
-      <td>86</td>
-      <td>82</td>
-      <td>113.0</td>
-      <td>0.25</td>
-      <td>209</td>
-      <td>52.25</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>7/9/2016</td>
-      <td>Beach</td>
-      <td>134</td>
-      <td>95</td>
-      <td>80</td>
-      <td>126.0</td>
-      <td>0.25</td>
-      <td>229</td>
-      <td>57.25</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>7/10/2016</td>
-      <td>Beach</td>
-      <td>140</td>
-      <td>98</td>
-      <td>82</td>
-      <td>131.0</td>
-      <td>0.25</td>
-      <td>238</td>
-      <td>59.50</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>7/11/2016</td>
-      <td>Beach</td>
-      <td>162</td>
-      <td>120</td>
-      <td>83</td>
-      <td>135.0</td>
-      <td>0.25</td>
-      <td>282</td>
-      <td>70.50</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>7/12/2016</td>
-      <td>Beach</td>
-      <td>130</td>
-      <td>95</td>
-      <td>84</td>
-      <td>99.0</td>
-      <td>0.25</td>
-      <td>225</td>
-      <td>56.25</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>7/13/2016</td>
-      <td>Beach</td>
-      <td>109</td>
-      <td>75</td>
-      <td>77</td>
-      <td>99.0</td>
-      <td>0.25</td>
-      <td>184</td>
-      <td>46.00</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>7/14/2016</td>
-      <td>Beach</td>
-      <td>122</td>
-      <td>85</td>
-      <td>78</td>
-      <td>113.0</td>
-      <td>0.25</td>
-      <td>207</td>
-      <td>51.75</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>7/15/2016</td>
-      <td>Beach</td>
-      <td>98</td>
-      <td>62</td>
-      <td>75</td>
-      <td>108.0</td>
-      <td>0.50</td>
-      <td>160</td>
-      <td>80.00</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>7/16/2016</td>
-      <td>Beach</td>
-      <td>81</td>
-      <td>50</td>
-      <td>74</td>
-      <td>90.0</td>
-      <td>0.50</td>
-      <td>131</td>
-      <td>65.50</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>7/17/2016</td>
-      <td>Beach</td>
-      <td>115</td>
-      <td>76</td>
-      <td>77</td>
-      <td>126.0</td>
-      <td>0.50</td>
-      <td>191</td>
-      <td>95.50</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>7/30/2016</td>
-      <td>Beach</td>
-      <td>88</td>
-      <td>57</td>
-      <td>82</td>
-      <td>81.0</td>
-      <td>0.35</td>
-      <td>145</td>
-      <td>50.75</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>7/31/2016</td>
-      <td>Beach</td>
-      <td>76</td>
-      <td>47</td>
-      <td>82</td>
-      <td>68.0</td>
-      <td>0.35</td>
-      <td>123</td>
-      <td>43.05</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-9290165e-8ef6-46f3-aac5-16d67164dc30')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-9290165e-8ef6-46f3-aac5-16d67164dc30 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-9290165e-8ef6-46f3-aac5-16d67164dc30&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade[<span class="string">&#x27;Temperature&#x27;</span>] &gt;=<span class="number">80</span>, lemonade[<span class="string">&#x27;Orange&#x27;</span>] &gt;= <span class="number">100</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(0     False
- 1     False
- 2     False
- 3     False
- 4     False
- 5      True
- 6      True
- 7      True
- 8      True
- 9      True
- 10     True
- 11     True
- 12     True
- 13    False
- 14    False
- 15    False
- 16    False
- 17    False
- 18     True
- 19    False
- 20    False
- 21    False
- 22     True
- 23     True
- 24     True
- 25     True
- 26     True
- 27     True
- 28     True
- 29     True
- 30     True
- 31     True
- Name: Temperature, dtype: bool, 0     False
- 1     False
- 2     False
- 3     False
- 4      True
- 5     False
- 6     False
- 7      True
- 8     False
- 9     False
- 10    False
- 11     True
- 12    False
- 13    False
- 14    False
- 15    False
- 16    False
- 17    False
- 18    False
- 19    False
- 20    False
- 21    False
- 22    False
- 23    False
- 24    False
- 25     True
- 26     True
- 27    False
- 28    False
- 29    False
- 30    False
- 31    False
- Name: Orange, dtype: bool)
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade[(lemonade[<span class="string">&#x27;Temperature&#x27;</span>]&gt;=<span class="number">80</span>) &amp; (lemonade[<span class="string">&#x27;Orange&#x27;</span>]&gt;=<span class="number">100</span>)]</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-7e4faf7d-9bd3-42bd-87ae-91187983c261">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Lemon</th>
-      <th>Orange</th>
-      <th>Temperature</th>
-      <th>Leaflets</th>
-      <th>Price</th>
-      <th>Sold</th>
-      <th>Revenue</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>7</th>
-      <td>7/7/2016</td>
-      <td>Beach</td>
-      <td>143</td>
-      <td>101</td>
-      <td>81</td>
-      <td>135.0</td>
-      <td>0.25</td>
-      <td>244</td>
-      <td>61.00</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>7/11/2016</td>
-      <td>Beach</td>
-      <td>162</td>
-      <td>120</td>
-      <td>83</td>
-      <td>135.0</td>
-      <td>0.25</td>
-      <td>282</td>
-      <td>70.50</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>7/25/2016</td>
-      <td>Park</td>
-      <td>156</td>
-      <td>113</td>
-      <td>84</td>
-      <td>135.0</td>
-      <td>0.50</td>
-      <td>269</td>
-      <td>134.50</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>7/26/2016</td>
-      <td>Park</td>
-      <td>176</td>
-      <td>129</td>
-      <td>83</td>
-      <td>158.0</td>
-      <td>0.35</td>
-      <td>305</td>
-      <td>106.75</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-7e4faf7d-9bd3-42bd-87ae-91187983c261')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-7e4faf7d-9bd3-42bd-87ae-91187983c261 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-7e4faf7d-9bd3-42bd-87ae-91187983c261&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade[(lemonade[<span class="string">&#x27;Temperature&#x27;</span>] &gt;= <span class="number">80</span>) &amp; (lemonade[<span class="string">&#x27;Orange&#x27;</span>] &gt;= <span class="number">100</span>) &amp; (lemonade[<span class="string">&#x27;Location&#x27;</span>] == <span class="string">&quot;Park&quot;</span>)]</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-c2c4436e-205d-409a-8b79-dd8120fe890c">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Lemon</th>
-      <th>Orange</th>
-      <th>Temperature</th>
-      <th>Leaflets</th>
-      <th>Price</th>
-      <th>Sold</th>
-      <th>Revenue</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>25</th>
-      <td>7/25/2016</td>
-      <td>Park</td>
-      <td>156</td>
-      <td>113</td>
-      <td>84</td>
-      <td>135.0</td>
-      <td>0.50</td>
-      <td>269</td>
-      <td>134.50</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>7/26/2016</td>
-      <td>Park</td>
-      <td>176</td>
-      <td>129</td>
-      <td>83</td>
-      <td>158.0</td>
-      <td>0.35</td>
-      <td>305</td>
-      <td>106.75</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-c2c4436e-205d-409a-8b79-dd8120fe890c')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-c2c4436e-205d-409a-8b79-dd8120fe890c button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-c2c4436e-205d-409a-8b79-dd8120fe890c&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade.loc[lemonade[<span class="string">&#x27;Temperature&#x27;</span>] &gt;= <span class="number">80</span>, [<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Sold&#x27;</span>]]</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-6218cadb-b920-4a88-91cc-bd612c230913">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Sold</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>5</th>
-      <td>7/6/2016</td>
-      <td>172</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7/6/2016</td>
-      <td>172</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>7/7/2016</td>
-      <td>244</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>NaN</td>
-      <td>209</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>7/9/2016</td>
-      <td>229</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>7/10/2016</td>
-      <td>238</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>7/11/2016</td>
-      <td>282</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>7/12/2016</td>
-      <td>225</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>7/18/2016</td>
-      <td>223</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>7/22/2016</td>
-      <td>187</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>7/23/2016</td>
-      <td>202</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>7/24/2016</td>
-      <td>203</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>7/25/2016</td>
-      <td>269</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>7/26/2016</td>
-      <td>305</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>7/27/2016</td>
-      <td>172</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>7/28/2016</td>
-      <td>159</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>7/29/2016</td>
-      <td>166</td>
-    </tr>
-    <tr>
-      <th>30</th>
-      <td>7/30/2016</td>
-      <td>145</td>
-    </tr>
-    <tr>
-      <th>31</th>
-      <td>7/31/2016</td>
-      <td>123</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-6218cadb-b920-4a88-91cc-bd612c230913')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-6218cadb-b920-4a88-91cc-bd612c230913 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-6218cadb-b920-4a88-91cc-bd612c230913&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-<h2 id="iloc-vs-loc"><a href="#iloc-vs-loc" class="headerlink" title="iloc vs loc"></a>iloc vs loc</h2><p>-문법상의 차이</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade.head()</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-e647b034-9b2e-4cef-bd5b-3a9ff7f4827e">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Lemon</th>
-      <th>Orange</th>
-      <th>Temperature</th>
-      <th>Leaflets</th>
-      <th>Price</th>
-      <th>Sold</th>
-      <th>Revenue</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>7/1/2016</td>
-      <td>Park</td>
-      <td>97</td>
-      <td>67</td>
-      <td>70</td>
-      <td>90.0</td>
-      <td>0.25</td>
-      <td>164</td>
-      <td>41.00</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>7/2/2016</td>
-      <td>Park</td>
-      <td>98</td>
-      <td>67</td>
-      <td>72</td>
-      <td>90.0</td>
-      <td>0.25</td>
-      <td>165</td>
-      <td>41.25</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>7/3/2016</td>
-      <td>Park</td>
-      <td>110</td>
-      <td>77</td>
-      <td>71</td>
-      <td>104.0</td>
-      <td>0.25</td>
-      <td>187</td>
-      <td>46.75</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>7/4/2016</td>
-      <td>Beach</td>
-      <td>134</td>
-      <td>99</td>
-      <td>76</td>
-      <td>98.0</td>
-      <td>0.25</td>
-      <td>233</td>
-      <td>58.25</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>7/5/2016</td>
-      <td>Beach</td>
-      <td>159</td>
-      <td>118</td>
-      <td>78</td>
-      <td>135.0</td>
-      <td>0.25</td>
-      <td>277</td>
-      <td>69.25</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-e647b034-9b2e-4cef-bd5b-3a9ff7f4827e')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-e647b034-9b2e-4cef-bd5b-3a9ff7f4827e button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-e647b034-9b2e-4cef-bd5b-3a9ff7f4827e&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-<ul>
-<li>iloc</li>
-</ul>
-<ul>
-<li>숫자만 들어간다</li>
-<li>필터링시 사용이 용이하지 않다</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.iloc[<span class="number">0</span>:<span class="number">3</span>,<span class="number">0</span>:<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location
-0  7/1/2016     Park
-1  7/2/2016     Park
-2  7/3/2016     Park
-</code></pre>
-<ul>
-<li>loc: 숫자 (X)</li>
-</ul>
-<ul>
-<li>라벨&#x3D; 글자(숫자,문자 동시)</li>
-<li>사용 추천</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade.loc[<span class="number">0</span>:<span class="number">2</span>,[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Location&#x27;</span>]])</span><br></pre></td></tr></table></figure>
-
-<pre><code>       Date Location
-0  7/1/2016     Park
-1  7/2/2016     Park
-2  7/3/2016     Park
-</code></pre>
-<h2 id="데이터-정렬"><a href="#데이터-정렬" class="headerlink" title="데이터 정렬"></a>데이터 정렬</h2><ul>
-<li>sort_values()</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Temperature&#x27;</span>, <span class="string">&#x27;Revenue&#x27;</span>]].sort_values(by=[<span class="string">&#x27;Revenue&#x27;</span>]).head(<span class="number">10</span>))</span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date  Temperature  Revenue
-0    7/1/2016           70    41.00
-1    7/2/2016           72    41.25
-6    7/6/2016           82    43.00
-5    7/6/2016           82    43.00
-31  7/31/2016           82    43.05
-13  7/13/2016           77    46.00
-2    7/3/2016           71    46.75
-30  7/30/2016           82    50.75
-14  7/14/2016           78    51.75
-8         NaN           82    52.25
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lemonade[[<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Temperature&#x27;</span>, <span class="string">&#x27;Revenue&#x27;</span>]].sort_values(by=[<span class="string">&#x27;Temperature&#x27;</span>, <span class="string">&#x27;Revenue&#x27;</span>], ascending = [<span class="literal">True</span>, <span class="literal">False</span>]).head(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
-
-<pre><code>         Date  Temperature  Revenue
-20  7/20/2016           70    56.50
-0    7/1/2016           70    41.00
-2    7/3/2016           71    46.75
-1    7/2/2016           72    41.25
-16  7/16/2016           74    65.50
-</code></pre>
-<h2 id="Gruop-by"><a href="#Gruop-by" class="headerlink" title="Gruop by"></a>Gruop by</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = lemonade.groupby(by=<span class="string">&#x27;Location&#x27;</span>).count()</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(df))</span><br></pre></td></tr></table></figure>
-
-<pre><code>          Date  Lemon  Orange  Temperature  Leaflets  Price  Sold  Revenue
-Location                                                                  
-Beach       16     17      17           17        17     17    17       17
-Park        15     15      15           15        14     15    15       15
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[[<span class="string">&#x27;Date&#x27;</span>,<span class="string">&#x27;Lemon&#x27;</span>]]</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-4534bfe8-0348-4685-b720-325ccdb7b17b">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Lemon</th>
-    </tr>
-    <tr>
-      <th>Location</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Beach</th>
-      <td>16</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <th>Park</th>
-      <td>15</td>
-      <td>15</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-4534bfe8-0348-4685-b720-325ccdb7b17b')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-4534bfe8-0348-4685-b720-325ccdb7b17b button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-4534bfe8-0348-4685-b720-325ccdb7b17b&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df = lemonade.groupby(by=<span class="string">&#x27;Location&#x27;</span>).count()</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(df))</span><br></pre></td></tr></table></figure>
-
-<pre><code>          Date  Lemon  Orange  Temperature  Leaflets  Price  Sold  Revenue
-Location                                                                  
-Beach       16     17      17           17        17     17    17       17
-Park        15     15      15           15        14     15    15       15
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">df[[<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Lemon&#x27;</span>]]</span><br><span class="line"><span class="built_in">print</span>(df.iloc[<span class="number">0</span>:<span class="number">1</span>, <span class="number">0</span>:<span class="number">2</span>])</span><br><span class="line"><span class="built_in">print</span>(df.loc[<span class="string">&#x27;Park&#x27;</span>, [<span class="string">&#x27;Date&#x27;</span>, <span class="string">&#x27;Lemon&#x27;</span>]])</span><br></pre></td></tr></table></figure>
-
-<pre><code>          Date  Lemon  Orange  Temperature  Leaflets  Price  Sold  Revenue
-Location                                                                  
-Beach       16     17      17           17        17     17    17       17
-Park        15     15      15           15        14     15    15       15
-&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-          Date  Lemon
-Location             
-Beach       16     17
-Date     15
-Lemon    15
-Name: Park, dtype: int64
-</code></pre>
-<ul>
-<li>간단한 피벗테이블 만들기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade.groupby(<span class="string">&#x27;Location&#x27;</span>)[<span class="string">&#x27;Revenue&#x27;</span>].agg([<span class="built_in">max</span>, <span class="built_in">min</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-b0b9e563-4843-4bac-9605-063c3d0d884c">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>max</th>
-      <th>min</th>
-    </tr>
-    <tr>
-      <th>Location</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Beach</th>
-      <td>95.5</td>
-      <td>43.0</td>
-    </tr>
-    <tr>
-      <th>Park</th>
-      <td>134.5</td>
-      <td>41.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-b0b9e563-4843-4bac-9605-063c3d0d884c')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-b0b9e563-4843-4bac-9605-063c3d0d884c button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-b0b9e563-4843-4bac-9605-063c3d0d884c&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade.groupby(<span class="string">&#x27;Location&#x27;</span>)[<span class="string">&#x27;Revenue&#x27;</span>].agg([<span class="built_in">max</span>, <span class="built_in">min</span>,<span class="built_in">sum</span>,np.mean])</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-4b341231-bf81-4fe6-bfca-1f4b378cea62">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>max</th>
-      <th>min</th>
-      <th>sum</th>
-      <th>mean</th>
-    </tr>
-    <tr>
-      <th>Location</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Beach</th>
-      <td>95.5</td>
-      <td>43.0</td>
-      <td>1002.8</td>
-      <td>58.988235</td>
-    </tr>
-    <tr>
-      <th>Park</th>
-      <td>134.5</td>
-      <td>41.0</td>
-      <td>1178.2</td>
-      <td>78.546667</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-4b341231-bf81-4fe6-bfca-1f4b378cea62')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-4b341231-bf81-4fe6-bfca-1f4b378cea62 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-4b341231-bf81-4fe6-bfca-1f4b378cea62&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade.groupby(<span class="string">&#x27;Location&#x27;</span>)[[<span class="string">&#x27;Revenue&#x27;</span>,<span class="string">&#x27;Sold&#x27;</span>,<span class="string">&#x27;Temperature&#x27;</span>]].agg([<span class="built_in">max</span>, <span class="built_in">min</span>,<span class="built_in">sum</span>,np.mean])</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-f37d9c3f-ae7a-4f8e-b1a0-bbfdbf687e75">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead tr th &#123;
-    text-align: left;
-&#125;
-
-.dataframe thead tr:last-of-type th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th colspan="4" halign="left">Revenue</th>
-      <th colspan="4" halign="left">Sold</th>
-      <th colspan="4" halign="left">Temperature</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>max</th>
-      <th>min</th>
-      <th>sum</th>
-      <th>mean</th>
-      <th>max</th>
-      <th>min</th>
-      <th>sum</th>
-      <th>mean</th>
-      <th>max</th>
-      <th>min</th>
-      <th>sum</th>
-      <th>mean</th>
-    </tr>
-    <tr>
-      <th>Location</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Beach</th>
-      <td>95.5</td>
-      <td>43.0</td>
-      <td>1002.8</td>
-      <td>58.988235</td>
-      <td>282</td>
-      <td>123</td>
-      <td>3422</td>
-      <td>201.294118</td>
-      <td>84</td>
-      <td>74</td>
-      <td>1355</td>
-      <td>79.705882</td>
-    </tr>
-    <tr>
-      <th>Park</th>
-      <td>134.5</td>
-      <td>41.0</td>
-      <td>1178.2</td>
-      <td>78.546667</td>
-      <td>305</td>
-      <td>113</td>
-      <td>2855</td>
-      <td>190.333333</td>
-      <td>84</td>
-      <td>70</td>
-      <td>1172</td>
-      <td>78.133333</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-f37d9c3f-ae7a-4f8e-b1a0-bbfdbf687e75')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-f37d9c3f-ae7a-4f8e-b1a0-bbfdbf687e75 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-f37d9c3f-ae7a-4f8e-b1a0-bbfdbf687e75&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade.head() <span class="comment">#Location은 컬럼명</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-6161dcd9-ff28-4df5-a237-49a77b1964fe">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Lemon</th>
-      <th>Orange</th>
-      <th>Temperature</th>
-      <th>Leaflets</th>
-      <th>Price</th>
-      <th>Sold</th>
-      <th>Revenue</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>7/1/2016</td>
-      <td>Park</td>
-      <td>97</td>
-      <td>67</td>
-      <td>70</td>
-      <td>90.0</td>
-      <td>0.25</td>
-      <td>164</td>
-      <td>41.00</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>7/2/2016</td>
-      <td>Park</td>
-      <td>98</td>
-      <td>67</td>
-      <td>72</td>
-      <td>90.0</td>
-      <td>0.25</td>
-      <td>165</td>
-      <td>41.25</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>7/3/2016</td>
-      <td>Park</td>
-      <td>110</td>
-      <td>77</td>
-      <td>71</td>
-      <td>104.0</td>
-      <td>0.25</td>
-      <td>187</td>
-      <td>46.75</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>7/4/2016</td>
-      <td>Beach</td>
-      <td>134</td>
-      <td>99</td>
-      <td>76</td>
-      <td>98.0</td>
-      <td>0.25</td>
-      <td>233</td>
-      <td>58.25</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>7/5/2016</td>
-      <td>Beach</td>
-      <td>159</td>
-      <td>118</td>
-      <td>78</td>
-      <td>135.0</td>
-      <td>0.25</td>
-      <td>277</td>
-      <td>69.25</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-6161dcd9-ff28-4df5-a237-49a77b1964fe')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-6161dcd9-ff28-4df5-a237-49a77b1964fe button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-6161dcd9-ff28-4df5-a237-49a77b1964fe&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade.groupby(<span class="string">&#x27;Location&#x27;</span>)[<span class="string">&#x27;Revenue&#x27;</span>].agg([<span class="built_in">max</span>, <span class="built_in">min</span>,<span class="built_in">sum</span>,np.mean])</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-afc12970-5a1e-4a8c-b2d7-739c95cb66e8">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>max</th>
-      <th>min</th>
-      <th>sum</th>
-      <th>mean</th>
-    </tr>
-    <tr>
-      <th>Location</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Beach</th>
-      <td>95.5</td>
-      <td>43.0</td>
-      <td>1002.8</td>
-      <td>58.988235</td>
-    </tr>
-    <tr>
-      <th>Park</th>
-      <td>134.5</td>
-      <td>41.0</td>
-      <td>1178.2</td>
-      <td>78.546667</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-afc12970-5a1e-4a8c-b2d7-739c95cb66e8')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-afc12970-5a1e-4a8c-b2d7-739c95cb66e8 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-afc12970-5a1e-4a8c-b2d7-739c95cb66e8&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lemonade.groupby([<span class="string">&#x27;Location&#x27;</span>, <span class="string">&#x27;Price&#x27;</span>])[<span class="string">&#x27;Orange&#x27;</span>].agg([<span class="built_in">max</span>, <span class="built_in">min</span>, <span class="built_in">sum</span>, np.mean])</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-2d8c5d53-8bd7-4554-a754-1e2344d548be">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>max</th>
-      <th>min</th>
-      <th>sum</th>
-      <th>mean</th>
-    </tr>
-    <tr>
-      <th>Location</th>
-      <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="3" valign="top">Beach</th>
-      <th>0.25</th>
-      <td>120</td>
-      <td>69</td>
-      <td>1110</td>
-      <td>92.500000</td>
-    </tr>
-    <tr>
-      <th>0.35</th>
-      <td>57</td>
-      <td>47</td>
-      <td>104</td>
-      <td>52.000000</td>
-    </tr>
-    <tr>
-      <th>0.50</th>
-      <td>76</td>
-      <td>50</td>
-      <td>188</td>
-      <td>62.666667</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">Park</th>
-      <th>0.25</th>
-      <td>77</td>
-      <td>67</td>
-      <td>211</td>
-      <td>70.333333</td>
-    </tr>
-    <tr>
-      <th>0.35</th>
-      <td>129</td>
-      <td>63</td>
-      <td>326</td>
-      <td>81.500000</td>
-    </tr>
-    <tr>
-      <th>0.50</th>
-      <td>113</td>
-      <td>42</td>
-      <td>621</td>
-      <td>77.625000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-2d8c5d53-8bd7-4554-a754-1e2344d548be')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-2d8c5d53-8bd7-4554-a754-1e2344d548be button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-2d8c5d53-8bd7-4554-a754-1e2344d548be&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.output.renderOutput(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">22</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T03:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/test/">test from labtop</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T00:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706_seborn/">seaborn</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T00:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/PyCaret_Sample/">PyCaret</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T00:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705/">랜덤포레스트 &amp; 그레이디언트 부스팅 &amp; 주성분 분석</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-04T00:00:00.000Z">2022-07-04</time></p><p class="title"><a href="/2022/07/04/day0704/">확률적경사하강법 &amp; 결정트리</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">23</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T03:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/test/">test from labtop</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T00:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706_seborn/">seaborn</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T00:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706_1200/">XGboost &amp; LightGBM</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T00:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/PyCaret_Sample/">PyCaret</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T00:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705/">랜덤포레스트 &amp; 그레이디언트 부스팅 &amp; 주성분 분석</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,

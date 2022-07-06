@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>XGboost &amp; LightGBM - 내 블로그</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="내 블로그"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="내 블로그"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="XGboost &amp;amp; LightGBM (2016-2017) 전통적인 머신러닝 알고리즘의 융합   선형회귀 릿지 라쏘, 과적합 방지 위한 규제 결정트리의 핵심적인 알고리즘 경사하강법 부스팅 기법   문제점 : 파라미터의 개수가 매우 많음 왜 많이 쓸까요?   모델학습 속도  성능  가장 좋은 모델이란, 학습속도는 빠르면서 성능은 좋은 것(지금까지 나온 알"><meta property="og:type" content="blog"><meta property="og:title" content="XGboost &amp; LightGBM"><meta property="og:url" content="https://hyejinna.github.io/2022/07/06/day0706_1200/"><meta property="og:site_name" content="내 블로그"><meta property="og:description" content="XGboost &amp;amp; LightGBM (2016-2017) 전통적인 머신러닝 알고리즘의 융합   선형회귀 릿지 라쏘, 과적합 방지 위한 규제 결정트리의 핵심적인 알고리즘 경사하강법 부스팅 기법   문제점 : 파라미터의 개수가 매우 많음 왜 많이 쓸까요?   모델학습 속도  성능  가장 좋은 모델이란, 학습속도는 빠르면서 성능은 좋은 것(지금까지 나온 알"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://hyejinna.github.io/img/og_image.png"><meta property="article:published_time" content="2022-07-06T00:00:00.000Z"><meta property="article:modified_time" content="2022-07-06T11:41:42.803Z"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://hyejinna.github.io/2022/07/06/day0706_1200/"},"headline":"XGboost & LightGBM","image":["https://hyejinna.github.io/img/og_image.png"],"datePublished":"2022-07-06T00:00:00.000Z","dateModified":"2022-07-06T11:41:42.803Z","author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"내 블로그","logo":{"@type":"ImageObject","url":"https://hyejinna.github.io/img/logo.svg"}},"description":"XGboost &amp; LightGBM (2016-2017) 전통적인 머신러닝 알고리즘의 융합   선형회귀 릿지 라쏘, 과적합 방지 위한 규제 결정트리의 핵심적인 알고리즘 경사하강법 부스팅 기법   문제점 : 파라미터의 개수가 매우 많음 왜 많이 쓸까요?   모델학습 속도  성능  가장 좋은 모델이란, 학습속도는 빠르면서 성능은 좋은 것(지금까지 나온 알"}</script><link rel="canonical" href="https://hyejinna.github.io/2022/07/06/day0706_1200/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-06T00:00:00.000Z" title="2022. 7. 6. 오전 9:00:00">2022-07-06</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T11:41:42.803Z" title="2022. 7. 6. 오후 8:41:42">2022-07-06</time></span><span class="level-item">34 minutes read (About 5172 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">XGboost &amp; LightGBM</h1><div class="content"><h2 id="XGboost-amp-LightGBM-2016-2017"><a href="#XGboost-amp-LightGBM-2016-2017" class="headerlink" title="XGboost &amp; LightGBM (2016-2017)"></a>XGboost &amp; LightGBM (2016-2017)</h2><ul>
+<li>전통적인 머신러닝 알고리즘의 융합</li>
+</ul>
+<ul>
+<li>선형회귀 릿지 라쏘, 과적합 방지 위한 규제</li>
+<li>결정트리의 핵심적인 알고리즘</li>
+<li>경사하강법</li>
+<li>부스팅 기법</li>
+</ul>
+<ul>
+<li>문제점 : 파라미터의 개수가 매우 많음</li>
+<li>왜 많이 쓸까요?</li>
+</ul>
+<ul>
+<li>모델학습 속도 </li>
+<li>성능 </li>
+<li>가장 좋은 모델이란, 학습속도는 빠르면서 성능은 좋은 것(지금까지 나온 알고리즘보다)</li>
+</ul>
+<ul>
+<li>Python</li>
+</ul>
+<ul>
+<li>JAVA, C, C++</li>
+<li>C, C++ &#x2F; r data.table 패키지</li>
+</ul>
+<ul>
+<li>큰 회사들 개발</li>
+</ul>
+<ul>
+<li>첫 번째 옵션, 우리가 자체적으로 배포하자-&gt; Pyhthon Wrapper API</li>
+<li>R, 머신러닝 프레임워크 종류 다양</li>
+<li>파이썬 머신러닝 &#x3D; Scikit-Learn에서 쉽게 쓸 수 있도록 개발, Scikit-Learn</li>
+</ul>
+<p> 참고 <a target="_blank" rel="noopener" href="https://xgboost.readthedocs.io/en/stable/python/python_intro.html">https://xgboost.readthedocs.io/en/stable/python/python_intro.html</a> </p>
+<h1 id="XGboost-Scikit-Learn-API방식-amp-python-Wrapper-방식"><a href="#XGboost-Scikit-Learn-API방식-amp-python-Wrapper-방식" class="headerlink" title="XGboost (Scikit-Learn API방식 &amp; python Wrapper 방식)"></a>XGboost (Scikit-Learn API방식 &amp; python Wrapper 방식)</h1><h3 id="python-Wrapper-방식"><a href="#python-Wrapper-방식" class="headerlink" title="python Wrapper 방식"></a>python Wrapper 방식</h3><ul>
+<li>X_train, y_train</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xgboost <span class="keyword">as</span> xgb </span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns </span><br><span class="line"></span><br><span class="line"><span class="comment"># 데이터 분리</span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line"><span class="comment"># titanic.info()</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># X, 독립변수, y 종속변수</span></span><br><span class="line">X = titanic[[<span class="string">&#x27;pclass&#x27;</span>, <span class="string">&#x27;parch&#x27;</span>, <span class="string">&#x27;fare&#x27;</span>]]</span><br><span class="line">y = titanic[<span class="string">&#x27;survived&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 훈련데이터, 테스트 데이터 분리</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, </span><br><span class="line">                                                    y, </span><br><span class="line">                                                    stratify = y, </span><br><span class="line">                                                    test_size = <span class="number">0.3</span>, </span><br><span class="line">                                                    random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">X_train.shape, X_test.shape, y_train.shape, y_test.shape</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>((623, 3), (268, 3), (623,), (268,))
+</code></pre>
+<ul>
+<li>여기가 핵심</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dtrain = xgb.DMatrix(data = X_train, label = y_train)</span><br><span class="line">dtest = xgb.DMatrix(data=X_test, label=y_test)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(dtrain)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;xgboost.core.DMatrix object at 0x7fc937b31ad0&gt;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#max_depth = 트리의 깊이</span></span><br><span class="line"><span class="comment">#n_estimator = 트리의 수</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">params = &#123;</span><br><span class="line">    <span class="string">&#x27;max_depth&#x27;</span> : <span class="number">3</span>, </span><br><span class="line">    <span class="string">&#x27;n_estimators&#x27;</span> : <span class="number">100</span>, </span><br><span class="line">    <span class="string">&#x27;eta&#x27;</span> : <span class="number">0.1</span>, </span><br><span class="line">    <span class="string">&#x27;objective&#x27;</span> : <span class="string">&#x27;binary:logistic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">num_rounds = <span class="number">400</span></span><br><span class="line"></span><br><span class="line">w_list = [(dtrain, <span class="string">&#x27;train&#x27;</span>), (dtest, <span class="string">&#x27;test&#x27;</span>)]</span><br><span class="line">xgb_ml = xgb.train(params = params, </span><br><span class="line">                   dtrain = dtrain, </span><br><span class="line">                   num_boost_round = <span class="number">400</span>, </span><br><span class="line">                   early_stopping_rounds = <span class="number">100</span>, </span><br><span class="line">                   evals = w_list)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[0]	train-error:0.260032	test-error:0.302239
+Multiple eval metrics have been passed: &#39;test-error&#39; will be used for early stopping.
+
+Will train until test-error hasn&#39;t improved in 100 rounds.
+[1]	train-error:0.260032	test-error:0.302239
+[2]	train-error:0.260032	test-error:0.302239
+[3]	train-error:0.260032	test-error:0.302239
+[4]	train-error:0.260032	test-error:0.302239
+[5]	train-error:0.260032	test-error:0.302239
+[6]	train-error:0.260032	test-error:0.302239
+[7]	train-error:0.260032	test-error:0.302239
+[8]	train-error:0.260032	test-error:0.302239
+[9]	train-error:0.260032	test-error:0.302239
+[10]	train-error:0.260032	test-error:0.302239
+[11]	train-error:0.260032	test-error:0.302239
+[12]	train-error:0.260032	test-error:0.302239
+[13]	train-error:0.247191	test-error:0.298507
+[14]	train-error:0.247191	test-error:0.298507
+[15]	train-error:0.248796	test-error:0.302239
+[16]	train-error:0.248796	test-error:0.302239
+[17]	train-error:0.248796	test-error:0.302239
+[18]	train-error:0.248796	test-error:0.302239
+[19]	train-error:0.248796	test-error:0.302239
+[20]	train-error:0.248796	test-error:0.302239
+[21]	train-error:0.248796	test-error:0.302239
+[22]	train-error:0.248796	test-error:0.302239
+[23]	train-error:0.248796	test-error:0.302239
+[24]	train-error:0.248796	test-error:0.302239
+[25]	train-error:0.248796	test-error:0.302239
+[26]	train-error:0.248796	test-error:0.302239
+[27]	train-error:0.248796	test-error:0.302239
+[28]	train-error:0.247191	test-error:0.302239
+[29]	train-error:0.247191	test-error:0.302239
+[30]	train-error:0.247191	test-error:0.302239
+[31]	train-error:0.243981	test-error:0.298507
+[32]	train-error:0.247191	test-error:0.302239
+[33]	train-error:0.243981	test-error:0.298507
+[34]	train-error:0.243981	test-error:0.298507
+[35]	train-error:0.242376	test-error:0.294776
+[36]	train-error:0.24077	test-error:0.294776
+[37]	train-error:0.24077	test-error:0.294776
+[38]	train-error:0.24077	test-error:0.294776
+[39]	train-error:0.24077	test-error:0.294776
+[40]	train-error:0.24077	test-error:0.294776
+[41]	train-error:0.24077	test-error:0.294776
+[42]	train-error:0.24077	test-error:0.294776
+[43]	train-error:0.24077	test-error:0.294776
+[44]	train-error:0.24077	test-error:0.302239
+[45]	train-error:0.24077	test-error:0.302239
+[46]	train-error:0.24077	test-error:0.302239
+[47]	train-error:0.24077	test-error:0.302239
+[48]	train-error:0.24077	test-error:0.302239
+[49]	train-error:0.24077	test-error:0.302239
+[50]	train-error:0.24077	test-error:0.302239
+[51]	train-error:0.24077	test-error:0.302239
+[52]	train-error:0.23435	test-error:0.302239
+[53]	train-error:0.23435	test-error:0.302239
+[54]	train-error:0.232745	test-error:0.298507
+[55]	train-error:0.229535	test-error:0.298507
+[56]	train-error:0.229535	test-error:0.298507
+[57]	train-error:0.229535	test-error:0.298507
+[58]	train-error:0.229535	test-error:0.298507
+[59]	train-error:0.227929	test-error:0.294776
+[60]	train-error:0.227929	test-error:0.298507
+[61]	train-error:0.227929	test-error:0.298507
+[62]	train-error:0.227929	test-error:0.298507
+[63]	train-error:0.227929	test-error:0.298507
+[64]	train-error:0.227929	test-error:0.298507
+[65]	train-error:0.227929	test-error:0.298507
+[66]	train-error:0.227929	test-error:0.298507
+[67]	train-error:0.227929	test-error:0.298507
+[68]	train-error:0.227929	test-error:0.298507
+[69]	train-error:0.227929	test-error:0.298507
+[70]	train-error:0.227929	test-error:0.298507
+[71]	train-error:0.227929	test-error:0.298507
+[72]	train-error:0.227929	test-error:0.302239
+[73]	train-error:0.227929	test-error:0.302239
+[74]	train-error:0.229535	test-error:0.30597
+[75]	train-error:0.229535	test-error:0.30597
+[76]	train-error:0.229535	test-error:0.30597
+[77]	train-error:0.229535	test-error:0.30597
+[78]	train-error:0.229535	test-error:0.30597
+[79]	train-error:0.229535	test-error:0.30597
+[80]	train-error:0.229535	test-error:0.30597
+[81]	train-error:0.229535	test-error:0.30597
+[82]	train-error:0.229535	test-error:0.30597
+[83]	train-error:0.229535	test-error:0.30597
+[84]	train-error:0.229535	test-error:0.30597
+[85]	train-error:0.229535	test-error:0.30597
+[86]	train-error:0.229535	test-error:0.30597
+[87]	train-error:0.229535	test-error:0.30597
+[88]	train-error:0.229535	test-error:0.30597
+[89]	train-error:0.229535	test-error:0.30597
+[90]	train-error:0.229535	test-error:0.30597
+[91]	train-error:0.229535	test-error:0.30597
+[92]	train-error:0.229535	test-error:0.30597
+[93]	train-error:0.229535	test-error:0.30597
+[94]	train-error:0.227929	test-error:0.313433
+[95]	train-error:0.226324	test-error:0.313433
+[96]	train-error:0.223114	test-error:0.317164
+[97]	train-error:0.223114	test-error:0.317164
+[98]	train-error:0.223114	test-error:0.317164
+[99]	train-error:0.223114	test-error:0.317164
+[100]	train-error:0.223114	test-error:0.317164
+[101]	train-error:0.223114	test-error:0.317164
+[102]	train-error:0.223114	test-error:0.317164
+[103]	train-error:0.223114	test-error:0.317164
+[104]	train-error:0.223114	test-error:0.317164
+[105]	train-error:0.223114	test-error:0.317164
+[106]	train-error:0.223114	test-error:0.317164
+[107]	train-error:0.223114	test-error:0.317164
+[108]	train-error:0.223114	test-error:0.317164
+[109]	train-error:0.223114	test-error:0.317164
+[110]	train-error:0.223114	test-error:0.317164
+[111]	train-error:0.223114	test-error:0.317164
+[112]	train-error:0.223114	test-error:0.317164
+[113]	train-error:0.223114	test-error:0.317164
+[114]	train-error:0.223114	test-error:0.317164
+[115]	train-error:0.223114	test-error:0.317164
+[116]	train-error:0.223114	test-error:0.317164
+[117]	train-error:0.223114	test-error:0.317164
+[118]	train-error:0.223114	test-error:0.317164
+[119]	train-error:0.223114	test-error:0.317164
+[120]	train-error:0.223114	test-error:0.317164
+[121]	train-error:0.223114	test-error:0.317164
+[122]	train-error:0.223114	test-error:0.317164
+[123]	train-error:0.223114	test-error:0.317164
+[124]	train-error:0.224719	test-error:0.317164
+[125]	train-error:0.224719	test-error:0.317164
+[126]	train-error:0.224719	test-error:0.317164
+[127]	train-error:0.221509	test-error:0.317164
+[128]	train-error:0.223114	test-error:0.317164
+[129]	train-error:0.219904	test-error:0.313433
+[130]	train-error:0.215088	test-error:0.313433
+[131]	train-error:0.215088	test-error:0.313433
+[132]	train-error:0.215088	test-error:0.313433
+[133]	train-error:0.215088	test-error:0.313433
+[134]	train-error:0.215088	test-error:0.313433
+[135]	train-error:0.215088	test-error:0.313433
+Stopping. Best iteration:
+[35]	train-error:0.242376	test-error:0.294776
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 평가</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line">pred_probs = xgb_ml.predict(dtest)</span><br><span class="line">y_pred = [<span class="number">1</span> <span class="keyword">if</span> x&gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> pred_probs]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>0.6865671641791045
+</code></pre>
+<h3 id="Scikit-Learn-API방식"><a href="#Scikit-Learn-API방식" class="headerlink" title="Scikit-Learn API방식"></a>Scikit-Learn API방식</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">from</span> xgboost <span class="keyword">import</span> XGBClassifier <span class="comment"># API </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># dt = DecisionTreeClassifier()</span></span><br><span class="line">xgb_model = XGBClassifier(objective = <span class="string">&#x27;binary:logistic&#x27;</span>, </span><br><span class="line">                          n_estimators=<span class="number">100</span>, </span><br><span class="line">                          max_depth=<span class="number">3</span>, </span><br><span class="line">                          learning_rate = <span class="number">0.1</span>, </span><br><span class="line">                          num_rounds = <span class="number">400</span>,</span><br><span class="line">                          random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">w_list = [(X_train, y_train), (X_test, y_test)]</span><br><span class="line"></span><br><span class="line">xgb_model.fit(X_train, y_train, eval_set = w_list, eval_metric=<span class="string">&#x27;error&#x27;</span>, verbose=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">y_probas = xgb_model.predict_proba(X_test)</span><br><span class="line">y_pred = [<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> pred_probs]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>[0]	validation_0-error:0.260032	validation_1-error:0.302239
+[1]	validation_0-error:0.260032	validation_1-error:0.302239
+[2]	validation_0-error:0.260032	validation_1-error:0.302239
+[3]	validation_0-error:0.260032	validation_1-error:0.302239
+[4]	validation_0-error:0.260032	validation_1-error:0.302239
+[5]	validation_0-error:0.260032	validation_1-error:0.302239
+[6]	validation_0-error:0.260032	validation_1-error:0.302239
+[7]	validation_0-error:0.260032	validation_1-error:0.302239
+[8]	validation_0-error:0.260032	validation_1-error:0.302239
+[9]	validation_0-error:0.260032	validation_1-error:0.302239
+[10]	validation_0-error:0.260032	validation_1-error:0.302239
+[11]	validation_0-error:0.260032	validation_1-error:0.302239
+[12]	validation_0-error:0.260032	validation_1-error:0.302239
+[13]	validation_0-error:0.247191	validation_1-error:0.298507
+[14]	validation_0-error:0.247191	validation_1-error:0.298507
+[15]	validation_0-error:0.248796	validation_1-error:0.302239
+[16]	validation_0-error:0.248796	validation_1-error:0.302239
+[17]	validation_0-error:0.248796	validation_1-error:0.302239
+[18]	validation_0-error:0.248796	validation_1-error:0.302239
+[19]	validation_0-error:0.248796	validation_1-error:0.302239
+[20]	validation_0-error:0.248796	validation_1-error:0.302239
+[21]	validation_0-error:0.248796	validation_1-error:0.302239
+[22]	validation_0-error:0.248796	validation_1-error:0.302239
+[23]	validation_0-error:0.248796	validation_1-error:0.302239
+[24]	validation_0-error:0.248796	validation_1-error:0.302239
+[25]	validation_0-error:0.248796	validation_1-error:0.302239
+[26]	validation_0-error:0.248796	validation_1-error:0.302239
+[27]	validation_0-error:0.248796	validation_1-error:0.302239
+[28]	validation_0-error:0.247191	validation_1-error:0.302239
+[29]	validation_0-error:0.247191	validation_1-error:0.302239
+[30]	validation_0-error:0.247191	validation_1-error:0.302239
+[31]	validation_0-error:0.243981	validation_1-error:0.298507
+[32]	validation_0-error:0.247191	validation_1-error:0.302239
+[33]	validation_0-error:0.243981	validation_1-error:0.298507
+[34]	validation_0-error:0.243981	validation_1-error:0.298507
+[35]	validation_0-error:0.242376	validation_1-error:0.294776
+[36]	validation_0-error:0.24077	validation_1-error:0.294776
+[37]	validation_0-error:0.24077	validation_1-error:0.294776
+[38]	validation_0-error:0.24077	validation_1-error:0.294776
+[39]	validation_0-error:0.24077	validation_1-error:0.294776
+[40]	validation_0-error:0.24077	validation_1-error:0.294776
+[41]	validation_0-error:0.24077	validation_1-error:0.294776
+[42]	validation_0-error:0.24077	validation_1-error:0.294776
+[43]	validation_0-error:0.24077	validation_1-error:0.294776
+[44]	validation_0-error:0.24077	validation_1-error:0.302239
+[45]	validation_0-error:0.24077	validation_1-error:0.302239
+[46]	validation_0-error:0.24077	validation_1-error:0.302239
+[47]	validation_0-error:0.24077	validation_1-error:0.302239
+[48]	validation_0-error:0.24077	validation_1-error:0.302239
+[49]	validation_0-error:0.24077	validation_1-error:0.302239
+[50]	validation_0-error:0.24077	validation_1-error:0.302239
+[51]	validation_0-error:0.24077	validation_1-error:0.302239
+[52]	validation_0-error:0.23435	validation_1-error:0.302239
+[53]	validation_0-error:0.23435	validation_1-error:0.302239
+[54]	validation_0-error:0.232745	validation_1-error:0.298507
+[55]	validation_0-error:0.229535	validation_1-error:0.298507
+[56]	validation_0-error:0.229535	validation_1-error:0.298507
+[57]	validation_0-error:0.229535	validation_1-error:0.298507
+[58]	validation_0-error:0.229535	validation_1-error:0.298507
+[59]	validation_0-error:0.227929	validation_1-error:0.294776
+[60]	validation_0-error:0.227929	validation_1-error:0.298507
+[61]	validation_0-error:0.227929	validation_1-error:0.298507
+[62]	validation_0-error:0.227929	validation_1-error:0.298507
+[63]	validation_0-error:0.227929	validation_1-error:0.298507
+[64]	validation_0-error:0.227929	validation_1-error:0.298507
+[65]	validation_0-error:0.227929	validation_1-error:0.298507
+[66]	validation_0-error:0.227929	validation_1-error:0.298507
+[67]	validation_0-error:0.227929	validation_1-error:0.298507
+[68]	validation_0-error:0.227929	validation_1-error:0.298507
+[69]	validation_0-error:0.227929	validation_1-error:0.298507
+[70]	validation_0-error:0.227929	validation_1-error:0.298507
+[71]	validation_0-error:0.227929	validation_1-error:0.298507
+[72]	validation_0-error:0.227929	validation_1-error:0.302239
+[73]	validation_0-error:0.227929	validation_1-error:0.302239
+[74]	validation_0-error:0.229535	validation_1-error:0.30597
+[75]	validation_0-error:0.229535	validation_1-error:0.30597
+[76]	validation_0-error:0.229535	validation_1-error:0.30597
+[77]	validation_0-error:0.229535	validation_1-error:0.30597
+[78]	validation_0-error:0.229535	validation_1-error:0.30597
+[79]	validation_0-error:0.229535	validation_1-error:0.30597
+[80]	validation_0-error:0.229535	validation_1-error:0.30597
+[81]	validation_0-error:0.229535	validation_1-error:0.30597
+[82]	validation_0-error:0.229535	validation_1-error:0.30597
+[83]	validation_0-error:0.229535	validation_1-error:0.30597
+[84]	validation_0-error:0.229535	validation_1-error:0.30597
+[85]	validation_0-error:0.229535	validation_1-error:0.30597
+[86]	validation_0-error:0.229535	validation_1-error:0.30597
+[87]	validation_0-error:0.229535	validation_1-error:0.30597
+[88]	validation_0-error:0.229535	validation_1-error:0.30597
+[89]	validation_0-error:0.229535	validation_1-error:0.30597
+[90]	validation_0-error:0.229535	validation_1-error:0.30597
+[91]	validation_0-error:0.229535	validation_1-error:0.30597
+[92]	validation_0-error:0.229535	validation_1-error:0.30597
+[93]	validation_0-error:0.229535	validation_1-error:0.30597
+[94]	validation_0-error:0.227929	validation_1-error:0.313433
+[95]	validation_0-error:0.226324	validation_1-error:0.313433
+[96]	validation_0-error:0.223114	validation_1-error:0.317164
+[97]	validation_0-error:0.223114	validation_1-error:0.317164
+[98]	validation_0-error:0.223114	validation_1-error:0.317164
+[99]	validation_0-error:0.223114	validation_1-error:0.317164
+
+
+
+
+
+0.6865671641791045
+</code></pre>
+<ul>
+<li>p275 &#x3D; Scikit-Learn API방식</li>
+<li>Scikit-Learn API방식, python Wrapper 방식 비교하기</li>
+</ul>
+<h1 id="lightGBM-Python-Wrapper-방식-amp-LightGBM-Scikit-Learn-API방식"><a href="#lightGBM-Python-Wrapper-방식-amp-LightGBM-Scikit-Learn-API방식" class="headerlink" title="lightGBM Python Wrapper 방식 &amp; LightGBM Scikit-Learn API방식"></a>lightGBM Python Wrapper 방식 &amp; LightGBM Scikit-Learn API방식</h1><h2 id="lightGBM-Python-Wrapper-방식"><a href="#lightGBM-Python-Wrapper-방식" class="headerlink" title="lightGBM Python Wrapper 방식"></a>lightGBM Python Wrapper 방식</h2><p>참고 <a target="_blank" rel="noopener" href="https://lightgbm.readthedocs.io/en/latest/Parameters.html">https://lightgbm.readthedocs.io/en/latest/Parameters.html</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> lightgbm <span class="keyword">as</span> lgb </span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split </span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns </span><br><span class="line"></span><br><span class="line"><span class="comment"># tips 데이터셋 </span></span><br><span class="line">titanic = sns.load_dataset(<span class="string">&#x27;titanic&#x27;</span>)</span><br><span class="line"></span><br><span class="line">X = titanic[[<span class="string">&#x27;pclass&#x27;</span>, <span class="string">&#x27;parch&#x27;</span>, <span class="string">&#x27;fare&#x27;</span>]]</span><br><span class="line">y = titanic[<span class="string">&#x27;survived&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 훈련데이터, 테스트 데이터 분리</span></span><br><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, stratify = y, test_size = <span class="number">0.3</span>, random_state=<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># XGBoost 코드와 유사하다. </span></span><br><span class="line">dtrain = lgb.Dataset(data = X_train, label = y_train)</span><br><span class="line">dtest = lgb.Dataset(data = X_test, label = y_test)</span><br><span class="line"></span><br><span class="line">params = &#123;<span class="string">&#x27;max_depth&#x27;</span>:<span class="number">3</span>,</span><br><span class="line">          <span class="string">&#x27;n_estimators&#x27;</span>:<span class="number">100</span>,</span><br><span class="line">          <span class="string">&#x27;learning_rate&#x27;</span>: <span class="number">0.1</span>,</span><br><span class="line">          <span class="string">&#x27;objective&#x27;</span>:<span class="string">&#x27;binary&#x27;</span>,</span><br><span class="line">          <span class="string">&#x27;metric&#x27;</span> : <span class="string">&#x27;binary_error&#x27;</span>, </span><br><span class="line">          <span class="string">&#x27;num_boost_round&#x27;</span> : <span class="number">400</span>, </span><br><span class="line">          <span class="string">&#x27;verbose&#x27;</span> : <span class="number">1</span>&#125; </span><br><span class="line"></span><br><span class="line">w_list = [dtrain, dtest]</span><br><span class="line">lgb_ml = lgb.train(params=params, train_set = dtrain,\</span><br><span class="line">                  early_stopping_rounds=<span class="number">100</span>, valid_sets= w_list)</span><br><span class="line"></span><br><span class="line">pred_probs = lgb_ml.predict(X_test)</span><br><span class="line">y_pred=[<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> pred_probs]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br></pre></td></tr></table></figure>
+
+<pre><code>/usr/local/lib/python3.7/dist-packages/lightgbm/engine.py:118: UserWarning: Found `num_boost_round` in params. Will use it instead of argument
+  warnings.warn(&quot;Found `&#123;&#125;` in params. Will use it instead of argument&quot;.format(alias))
+
+
+[1]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+Training until validation scores don&#39;t improve for 100 rounds.
+[2]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+[3]	training&#39;s binary_error: 0.354735	valid_1&#39;s binary_error: 0.369403
+[4]	training&#39;s binary_error: 0.29695	valid_1&#39;s binary_error: 0.354478
+[5]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[6]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[7]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[8]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[9]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[10]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.309701
+[11]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[12]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[13]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[14]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[15]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[16]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[17]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[18]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[19]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[20]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[21]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[22]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[23]	training&#39;s binary_error: 0.271268	valid_1&#39;s binary_error: 0.313433
+[24]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[25]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[26]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[27]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[28]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[29]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[30]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[31]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[32]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[33]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[34]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[35]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[36]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[37]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[38]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[39]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.309701
+[40]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[41]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[42]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[43]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[44]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[45]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[46]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[47]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[48]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[49]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[50]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[51]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[52]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[53]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[54]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[55]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[56]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[57]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[58]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[59]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[60]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[61]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[62]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[63]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[64]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[65]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[66]	training&#39;s binary_error: 0.243981	valid_1&#39;s binary_error: 0.309701
+[67]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[68]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[69]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[70]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[71]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[72]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[73]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[74]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[75]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[76]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[77]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[78]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[79]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[80]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[81]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[82]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[83]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[84]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[85]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[86]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[87]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[88]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[89]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[90]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[91]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[92]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[93]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[94]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[95]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[96]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[97]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[98]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[99]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[100]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[102]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[103]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[104]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[105]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[106]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.313433
+[107]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[108]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[109]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[110]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[111]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[112]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[113]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[114]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[115]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[116]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[117]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[118]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[119]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[120]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[121]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[122]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[123]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[124]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[125]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[126]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[127]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[128]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[129]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[130]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[131]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[132]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[133]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[134]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[135]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[136]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[137]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[138]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[139]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[140]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[141]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[142]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[143]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[144]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.320896
+[145]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[146]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[147]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[148]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[149]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[150]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[151]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[152]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[153]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[154]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[155]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[156]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[157]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[158]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[159]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[160]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[161]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[162]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[163]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[164]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[165]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[166]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[167]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[168]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[169]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[170]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[171]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[172]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[173]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[174]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[175]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[176]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[177]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[178]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[179]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[180]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[181]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[182]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[183]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[184]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[185]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[186]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[187]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[188]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[189]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[190]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[191]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[192]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[193]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[194]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[195]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[196]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[197]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[198]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[199]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[200]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[201]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+Early stopping, best iteration is:
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+
+
+
+
+
+0.6940298507462687
+</code></pre>
+<h2 id="LightGBM-Scikit-Learn-API방식"><a href="#LightGBM-Scikit-Learn-API방식" class="headerlink" title="LightGBM Scikit-Learn API방식"></a>LightGBM Scikit-Learn API방식</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lightgbm <span class="keyword">import</span> LGBMClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"></span><br><span class="line"><span class="comment"># model </span></span><br><span class="line">w_list = [dtrain, dtest]</span><br><span class="line">model = LGBMClassifier(objective = <span class="string">&#x27;binary&#x27;</span>, </span><br><span class="line">                       metric = <span class="string">&#x27;binary_error&#x27;</span>,</span><br><span class="line">                       n_estimators=<span class="number">100</span>, </span><br><span class="line">                       learning_rate=<span class="number">0.1</span>, </span><br><span class="line">                       max_depth=<span class="number">3</span>, </span><br><span class="line">                       num_boost_round = <span class="number">400</span>,</span><br><span class="line">                       random_state = <span class="number">32</span>)</span><br><span class="line">model.fit(X_train, </span><br><span class="line">          y_train, </span><br><span class="line">          eval_set = [(X_train, y_train), (X_test, y_test)], </span><br><span class="line">          verbose=<span class="number">1</span>,</span><br><span class="line">          early_stopping_rounds = <span class="number">100</span>)</span><br><span class="line">y_probas = model.predict_proba(X_test) </span><br><span class="line">y_pred=[<span class="number">1</span> <span class="keyword">if</span> x &gt; <span class="number">0.5</span> <span class="keyword">else</span> <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> y_probas[:, <span class="number">1</span>]] <span class="comment"># 예측 라벨(0과 1로 예측)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 예측 라벨과 실제 라벨 사이의 정확도 측정</span></span><br><span class="line">accuracy_score(y_pred, y_test)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>/usr/local/lib/python3.7/dist-packages/lightgbm/engine.py:118: UserWarning: Found `num_boost_round` in params. Will use it instead of argument
+  warnings.warn(&quot;Found `&#123;&#125;` in params. Will use it instead of argument&quot;.format(alias))
+
+
+[1]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+Training until validation scores don&#39;t improve for 100 rounds.
+[2]	training&#39;s binary_error: 0.383628	valid_1&#39;s binary_error: 0.384328
+[3]	training&#39;s binary_error: 0.354735	valid_1&#39;s binary_error: 0.369403
+[4]	training&#39;s binary_error: 0.29695	valid_1&#39;s binary_error: 0.354478
+[5]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[6]	training&#39;s binary_error: 0.272873	valid_1&#39;s binary_error: 0.33209
+[7]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[8]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.317164
+[9]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[10]	training&#39;s binary_error: 0.269663	valid_1&#39;s binary_error: 0.309701
+[11]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[12]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[13]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[14]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[15]	training&#39;s binary_error: 0.264848	valid_1&#39;s binary_error: 0.309701
+[16]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[17]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[18]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[19]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[20]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[21]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[22]	training&#39;s binary_error: 0.266453	valid_1&#39;s binary_error: 0.313433
+[23]	training&#39;s binary_error: 0.271268	valid_1&#39;s binary_error: 0.313433
+[24]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[25]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[26]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[27]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[28]	training&#39;s binary_error: 0.258427	valid_1&#39;s binary_error: 0.309701
+[29]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[30]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[31]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[32]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[33]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[34]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[35]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[36]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.309701
+[37]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[38]	training&#39;s binary_error: 0.255217	valid_1&#39;s binary_error: 0.317164
+[39]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.309701
+[40]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[41]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[42]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[43]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[44]	training&#39;s binary_error: 0.248796	valid_1&#39;s binary_error: 0.313433
+[45]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[46]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[47]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[48]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[49]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[50]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[51]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[52]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[53]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[54]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[55]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[56]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[57]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[58]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[59]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[60]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[61]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[62]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[63]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[64]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[65]	training&#39;s binary_error: 0.247191	valid_1&#39;s binary_error: 0.313433
+[66]	training&#39;s binary_error: 0.243981	valid_1&#39;s binary_error: 0.309701
+[67]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[68]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[69]	training&#39;s binary_error: 0.23435	valid_1&#39;s binary_error: 0.309701
+[70]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[71]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[72]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[73]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[74]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[75]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[76]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[77]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[78]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[79]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[80]	training&#39;s binary_error: 0.232745	valid_1&#39;s binary_error: 0.313433
+[81]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[82]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[83]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[84]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[85]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[86]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[87]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[88]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[89]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[90]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[91]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[92]	training&#39;s binary_error: 0.229535	valid_1&#39;s binary_error: 0.309701
+[93]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[94]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[95]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[96]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[97]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[98]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[99]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[100]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[102]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+[103]	training&#39;s binary_error: 0.227929	valid_1&#39;s binary_error: 0.309701
+[104]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[105]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.317164
+[106]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.313433
+[107]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[108]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[109]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[110]	training&#39;s binary_error: 0.224719	valid_1&#39;s binary_error: 0.317164
+[111]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[112]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[113]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[114]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[115]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[116]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[117]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[118]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[119]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[120]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[121]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[122]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[123]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[124]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[125]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[126]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[127]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[128]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[129]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[130]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[131]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[132]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[133]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[134]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[135]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[136]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[137]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[138]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.309701
+[139]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[140]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[141]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[142]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[143]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.309701
+[144]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.320896
+[145]	training&#39;s binary_error: 0.223114	valid_1&#39;s binary_error: 0.313433
+[146]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[147]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[148]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[149]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[150]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[151]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[152]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.313433
+[153]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[154]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[155]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[156]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[157]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[158]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[159]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[160]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[161]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[162]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[163]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[164]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[165]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[166]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[167]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[168]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[169]	training&#39;s binary_error: 0.219904	valid_1&#39;s binary_error: 0.324627
+[170]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[171]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[172]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[173]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[174]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[175]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[176]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[177]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[178]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[179]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[180]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[181]	training&#39;s binary_error: 0.221509	valid_1&#39;s binary_error: 0.328358
+[182]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[183]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[184]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[185]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[186]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[187]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[188]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[189]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[190]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[191]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[192]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[193]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[194]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[195]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[196]	training&#39;s binary_error: 0.216693	valid_1&#39;s binary_error: 0.320896
+[197]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[198]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[199]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[200]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+[201]	training&#39;s binary_error: 0.215088	valid_1&#39;s binary_error: 0.317164
+Early stopping, best iteration is:
+[101]	training&#39;s binary_error: 0.23114	valid_1&#39;s binary_error: 0.30597
+
+
+
+
+
+0.6940298507462687
+</code></pre>
+</div><div class="article-licensing box"><div class="licensing-title"><p>XGboost &amp; LightGBM</p><p><a href="https://hyejinna.github.io/2022/07/06/day0706_1200/">https://hyejinna.github.io/2022/07/06/day0706_1200/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>John Doe</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-07-06</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2022-07-06</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">Like this article? Support the author with</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>Afdian.net</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>Alipay</span><span class="qrcode"><img src="/" alt="Alipay"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>Buy me a coffee</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>Wechat</span><span class="qrcode"><img src="/" alt="Wechat"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/07/06/day0706_seborn/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">seaborn</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/07/05/PyCaret_Sample/"><span class="level-item">PyCaret</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">23</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T03:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/test/">test from labtop</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T00:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706_seborn/">seaborn</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T00:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706_1200/">XGboost &amp; LightGBM</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T00:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/PyCaret_Sample/">PyCaret</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-05T00:00:00.000Z">2022-07-05</time></p><p class="title"><a href="/2022/07/05/day0705/">랜덤포레스트 &amp; 그레이디언트 부스팅 &amp; 주성분 분석</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
