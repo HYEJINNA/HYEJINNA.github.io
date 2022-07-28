@@ -102,6 +102,92 @@
 </ol>
 <p><img src="/images/0727WSL_setting/Untitled%2025.png"></p>
 <p><a target="_blank" rel="noopener" href="https://www.notion.so/220727-656bffb2247148cb8bf781924c421d5f">220727 가상환경설치</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-27T00:00:00.000Z" title="2022. 7. 27. 오전 9:00:00">2022-07-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-28T04:47:30.517Z" title="2022. 7. 28. 오후 1:47:30">2022-07-28</time></span><span class="level-item">3 minutes read (About 383 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/27/220727%20env/">가상환경설치</a></h1><div class="content"><ol>
+<li>C드라이브에 새폴더 만들기</li>
+</ol>
+<p><img src="/images/0727_env/Untitled.png"></p>
+<ol start="2">
+<li>WSL 접속</li>
+</ol>
+<p><img src="/images/0727_env/Untitled%201.png"></p>
+<p>추후 리눅스 기본 명령어 공부하기</p>
+<p>   3. </p>
+<p><img src="/images/0727_env/Untitled%202.png"></p>
+<p>code . 입력&#x2F;실행하여 VS code로 접속</p>
+<ol start="4">
+<li>터미널 열면 기존에 보던 화면과 조금 다름</li>
+</ol>
+<p><img src="/images/0727_env/Untitled%203.png"></p>
+<p><strong>본격적으로 가상환경 설치</strong></p>
+<p>   5. </p>
+<blockquote>
+<p>sudo apt install python3-pip</p>
+</blockquote>
+<p><img src="/images/0727_env/Untitled%204.png"></p>
+<p>에러있다면 </p>
+<p>  6. </p>
+<blockquote>
+<p>sudo apt-get update</p>
+</blockquote>
+<p><img src="/images/0727_env/Untitled%205.png"></p>
+<p>실행 완료 후 다시 입력하고 실행하면 잘된다hexo</p>
+<p>다시 하단 명령 입력 </p>
+<blockquote>
+<p>sudo apt install python3-pip</p>
+</blockquote>
+<p><img src="/images/0727_env/Untitled%206.png"></p>
+<p>설치 완료 되면  </p>
+<p>  7. </p>
+<blockquote>
+<p>sudo pip3 install virtualenv</p>
+</blockquote>
+<p><img src="/images/0727_env/Untitled%207.png"></p>
+<p>  8. </p>
+<blockquote>
+<p>virtualenv venv</p>
+</blockquote>
+<blockquote>
+<p>source venv&#x2F;bin&#x2F;activate</p>
+</blockquote>
+<p><img src="/images/0727_env/Untitled%208.png"></p>
+<ol start="9">
+<li><strong>환경변수 설정</strong></li>
+</ol>
+<blockquote>
+<p>pwd 로 현재경로 확인</p>
+</blockquote>
+<p>&#x2F;mnt&#x2F;c&#x2F;dataEngineering 기억하기</p>
+<p><img src="/images/0727_env/Untitled%209.png"></p>
+<p>*평상시에 vi편집기 연습 많이 할 것 </p>
+<p>  10. </p>
+<blockquote>
+<p><strong>vi ~&#x2F;.bashrc</strong></p>
+</blockquote>
+<p><img src="/images/0727_env/Untitled%2010.png"></p>
+<p>맨 하단에 가서  <strong>i 누르고</strong> <strong>키보드로</strong> 공란가서 엔터 (마우스로는 안됨)</p>
+<p>  11. </p>
+<p>“# 환경변수설정” </p>
+<p>export AIRFLOW_HOME&#x3D;&#x2F;mnt&#x2F;c&#x2F;dataEngineering</p>
+<p>입력하기  &#x2F; 참고) 입력한 사항을 지우려면 d 두번 누르면 없어짐</p>
+<p><img src="/images/0727_env/Untitled%2011.png"></p>
+<p>  12. </p>
+<p>esc 누르면 나간다  +  “- - INSERT - -” 없어짐</p>
+<p><img src="/images/0727_env/Untitled%2012.png"></p>
+<p>그다음 shift 세미콜론 하고</p>
+<p><strong>:wq!</strong> 입력&gt; 엔터 (<strong>저장하고 나가기</strong> )</p>
+<p>참고) <strong>:q!</strong> 입력&gt; 엔터 하면 <strong>저장 안하고 나가기</strong> </p>
+<ol start="13">
+<li></li>
+</ol>
+<blockquote>
+<p><strong>source ~&#x2F;.bashrc</strong> 하면 <strong>반영</strong>됨</p>
+</blockquote>
+<p>실제 반영되었는지 확인하려면 </p>
+<blockquote>
+<p>echo $AIRFLOW_HOME 실행하면 경로확인됨</p>
+</blockquote>
+<p><img src="/images/0727_env/Untitled%2013.png"></p>
+<p>가상환경 설치완료됨</p>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-14T00:00:00.000Z" title="2022. 7. 14. 오전 9:00:00">2022-07-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-22T12:01:37.492Z" title="2022. 7. 22. 오후 9:01:37">2022-07-22</time></span><span class="level-item">4 minutes read (About 643 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/14/0220714/">seborn 라이브러리</a></h1><div class="content"><h2 id="Visualizing-statistical-relationships"><a href="#Visualizing-statistical-relationships" class="headerlink" title="Visualizing statistical relationships"></a>Visualizing statistical relationships</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.set_theme(style=<span class="string">&quot;darkgrid&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 
@@ -6610,142 +6696,7 @@ memory usage: 203.2 KB
 
 <pre><code>0.8683865773302731
 </code></pre>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-01T00:00:00.000Z" title="2022. 7. 1. 오전 9:00:00">2022-07-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T03:28:35.874Z" title="2022. 7. 6. 오후 12:28:35">2022-07-06</time></span><span class="level-item">7 minutes read (About 1084 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/01/day0701_ch03/">최근접 이웃회귀2</a></h1><div class="content"><h2 id="데이터-불러오기"><a href="#데이터-불러오기" class="headerlink" title="데이터 불러오기"></a>데이터 불러오기</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">perch_length = np.array(</span><br><span class="line">    [<span class="number">8.4</span>, <span class="number">13.7</span>, <span class="number">15.0</span>, <span class="number">16.2</span>, <span class="number">17.4</span>, <span class="number">18.0</span>, <span class="number">18.7</span>, <span class="number">19.0</span>, <span class="number">19.6</span>, <span class="number">20.0</span>, </span><br><span class="line">     <span class="number">21.0</span>, <span class="number">21.0</span>, <span class="number">21.0</span>, <span class="number">21.3</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.0</span>, <span class="number">22.5</span>, </span><br><span class="line">     <span class="number">22.5</span>, <span class="number">22.7</span>, <span class="number">23.0</span>, <span class="number">23.5</span>, <span class="number">24.0</span>, <span class="number">24.0</span>, <span class="number">24.6</span>, <span class="number">25.0</span>, <span class="number">25.6</span>, <span class="number">26.5</span>, </span><br><span class="line">     <span class="number">27.3</span>, <span class="number">27.5</span>, <span class="number">27.5</span>, <span class="number">27.5</span>, <span class="number">28.0</span>, <span class="number">28.7</span>, <span class="number">30.0</span>, <span class="number">32.8</span>, <span class="number">34.5</span>, <span class="number">35.0</span>, </span><br><span class="line">     <span class="number">36.5</span>, <span class="number">36.0</span>, <span class="number">37.0</span>, <span class="number">37.0</span>, <span class="number">39.0</span>, <span class="number">39.0</span>, <span class="number">39.0</span>, <span class="number">40.0</span>, <span class="number">40.0</span>, <span class="number">40.0</span>, </span><br><span class="line">     <span class="number">40.0</span>, <span class="number">42.0</span>, <span class="number">43.0</span>, <span class="number">43.0</span>, <span class="number">43.5</span>, <span class="number">44.0</span>]</span><br><span class="line">     )</span><br><span class="line">perch_weight = np.array(</span><br><span class="line">    [<span class="number">5.9</span>, <span class="number">32.0</span>, <span class="number">40.0</span>, <span class="number">51.5</span>, <span class="number">70.0</span>, <span class="number">100.0</span>, <span class="number">78.0</span>, <span class="number">80.0</span>, <span class="number">85.0</span>, <span class="number">85.0</span>, </span><br><span class="line">     <span class="number">110.0</span>, <span class="number">115.0</span>, <span class="number">125.0</span>, <span class="number">130.0</span>, <span class="number">120.0</span>, <span class="number">120.0</span>, <span class="number">130.0</span>, <span class="number">135.0</span>, <span class="number">110.0</span>, </span><br><span class="line">     <span class="number">130.0</span>, <span class="number">150.0</span>, <span class="number">145.0</span>, <span class="number">150.0</span>, <span class="number">170.0</span>, <span class="number">225.0</span>, <span class="number">145.0</span>, <span class="number">188.0</span>, <span class="number">180.0</span>, </span><br><span class="line">     <span class="number">197.0</span>, <span class="number">218.0</span>, <span class="number">300.0</span>, <span class="number">260.0</span>, <span class="number">265.0</span>, <span class="number">250.0</span>, <span class="number">250.0</span>, <span class="number">300.0</span>, <span class="number">320.0</span>, </span><br><span class="line">     <span class="number">514.0</span>, <span class="number">556.0</span>, <span class="number">840.0</span>, <span class="number">685.0</span>, <span class="number">700.0</span>, <span class="number">700.0</span>, <span class="number">690.0</span>, <span class="number">900.0</span>, <span class="number">650.0</span>, </span><br><span class="line">     <span class="number">820.0</span>, <span class="number">850.0</span>, <span class="number">900.0</span>, <span class="number">1015.0</span>, <span class="number">820.0</span>, <span class="number">1100.0</span>, <span class="number">1000.0</span>, <span class="number">1100.0</span>, </span><br><span class="line">     <span class="number">1000.0</span>, <span class="number">1000.0</span>]</span><br><span class="line">     )</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(perch_length.shape, perch_weight.shape)</span><br><span class="line">      </span><br></pre></td></tr></table></figure>
-
-<pre><code>(56,) (56,)
-</code></pre>
-<h2 id="훈련-세트와-테스트-세트로-나눈-후-1차원-gt-2차원-배열로-변환"><a href="#훈련-세트와-테스트-세트로-나눈-후-1차원-gt-2차원-배열로-변환" class="headerlink" title="훈련 세트와 테스트 세트로 나눈 후, 1차원 -&gt; 2차원 배열로 변환"></a>훈련 세트와 테스트 세트로 나눈 후, 1차원 -&gt; 2차원 배열로 변환</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split </span><br><span class="line"></span><br><span class="line">train_input, test_input, train_target, test_target = train_test_split(</span><br><span class="line">    perch_length, perch_weight, random_state = <span class="number">42</span>)</span><br><span class="line"></span><br><span class="line">train_input.shape, test_input.shape, train_target.shape, test_target.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>((42,), (14,), (42,), (14,))
-</code></pre>
-<ul>
-<li>1차원 -&gt; 2차원 배열</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">train_input = train_input.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">test_input = test_input.reshape(-<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">train_input.shape, test_input.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>((42, 1), (14, 1))
-</code></pre>
-<h2 id="데이터-시각화-gt-데이터-재가공"><a href="#데이터-시각화-gt-데이터-재가공" class="headerlink" title="데이터 시각화 -&gt; 데이터 재가공"></a>데이터 시각화 -&gt; 데이터 재가공</h2><ul>
-<li>모델링</li>
-</ul>
-<p>최근접 이웃개수를 3개로 하는 모델을 훈련한다 (기본값은 5개)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsRegressor</span><br><span class="line">knr = KNeighborsRegressor(n_neighbors=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 모형훈련</span></span><br><span class="line">knr.fit(train_input, train_target)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>KNeighborsRegressor(n_neighbors=3)
-</code></pre>
-<ul>
-<li>모델 평가</li>
-</ul>
-<h2 id="모델-예측"><a href="#모델-예측" class="headerlink" title="모델 예측"></a>모델 예측</h2><ul>
-<li>서비스를 함</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 농어의 길이50cm -&gt; 농어의 무게?</span></span><br><span class="line"><span class="built_in">print</span>(knr.predict([[<span class="number">50</span>]]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>[1033.33333333]
-</code></pre>
-<p>모델은 50cm농어의 무게를 1,033g정도로 예측했다. 그런데 이 농어의 실제 무게는 훨씬 더 많이 나간다. 어디서 문제가 발생한 것인가?</p>
-<h2 id="모형-평가를-위한-시각화"><a href="#모형-평가를-위한-시각화" class="headerlink" title="모형 평가를 위한 시각화"></a>모형 평가를 위한 시각화</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scipy.spatial <span class="keyword">import</span> distance</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 50cm 농어의 이웃을 3개</span></span><br><span class="line">distance, indexes = knr.kneighbors([[<span class="number">50</span>]]) <span class="comment">#kneighbors()메서드:가장 가까운 이웃까지의 거리와 이웃의 샘플을 얻을 수 있음</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(distance, indexes)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[[6. 7. 7.]] [[34  8 14]]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 훈련세트의 산점도를 그린다</span></span><br><span class="line">plt.scatter(train_input, train_target)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 훈련세트 중에서 이웃 샘플만 다시 그린다</span></span><br><span class="line">plt.scatter(train_input[indexes], train_target[indexes], marker=<span class="string">&#x27;D&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 50cm 농어데이터</span></span><br><span class="line">plt.scatter(<span class="number">50</span>, <span class="number">1033</span>, marker=<span class="string">&#x27;^&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;length&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;weight&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/0701_ch03/output_15_0.png"></p>
-<ul>
-<li>k-최근접 이웃회귀는 가장 가까운 샘플을 찾아 타깃을 평균한다</li>
-<li>따라서 새로운 샘플이 훈련세트의 범위를 벗어나면 엉뚱한 값을 예측할 수 있다</li>
-<li>예를 들어 길이가 100cm인 농어도 여전히 1033g으로 예측한다</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">distance, indexes = knr.kneighbors([[<span class="number">100</span>]])</span><br><span class="line">plt.scatter(train_input, train_target)</span><br><span class="line"></span><br><span class="line">plt.scatter(train_input[indexes], train_target[indexes], marker=<span class="string">&#x27;D&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.scatter(<span class="number">100</span>, <span class="number">1033</span>, marker=<span class="string">&#x27;^&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;length&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;weight&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/0701_ch03/output_17_0.png"></p>
-<h2 id="선형회귀"><a href="#선형회귀" class="headerlink" title="선형회귀"></a>선형회귀</h2><ul>
-<li>p136</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python</span></span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"></span><br><span class="line">lr = LinearRegression()</span><br><span class="line"></span><br><span class="line">lr.fit(train_input, train_target)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 50cm 농어에 대해 예측</span></span><br><span class="line"><span class="built_in">print</span>(lr.predict([[<span class="number">50</span>]]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>[1241.83860323]
-</code></pre>
-<h2 id="선형회귀의-모형"><a href="#선형회귀의-모형" class="headerlink" title="선형회귀의 모형"></a>선형회귀의 모형</h2><ul>
-<li>기울기,  절편</li>
-<li>coef_ : 기울기, 계수(coefficient) 또는 가중치(weight)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lr.coef_, lr.intercept_)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[39.01714496] -709.0186449535477
-</code></pre>
-<ul>
-<li>시각화</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(train_input, train_target)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 15에서 50까지 1차방정식 그래프를 그린다 </span></span><br><span class="line">plt.plot([<span class="number">15</span>,<span class="number">50</span>], [<span class="number">15</span>*lr.coef_+lr.intercept_, <span class="number">50</span>*lr.coef_+lr.intercept_])</span><br><span class="line"></span><br><span class="line"><span class="comment">#50cm 농어 데이터 </span></span><br><span class="line">plt.scatter(<span class="number">50</span>, <span class="number">1241.8</span>, marker=<span class="string">&#x27;^&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;length&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;weight&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/0701_ch03/output_23_0.png"></p>
-<ul>
-<li>직선대로 예측하면 농어의 무게가 0g이하로 내려갈텐데 현실에서는 있을 수 없는일이다</li>
-<li>농어의 길이와 무게에 대한 산점도를 자세히 보면 일직선이라기 보다는 왼쪽 위로 조금 구부러진 곡선에 가깝다 &#x3D; 2차방정식</li>
-</ul>
-<h2 id="선형-회귀"><a href="#선형-회귀" class="headerlink" title="선형 회귀"></a>선형 회귀</h2><ul>
-<li>다항 회귀</li>
-<li>농어 1cm &#x3D; -650g</li>
-<li>직선의 기울기 대신, 곡선의 기울기를 쓰자</li>
-<li>직선 &#x3D; 1차방정식, 곡선 &#x3D; 2차방정식</li>
-<li>$y &#x3D; ax^2 + bx + b$</li>
-<li>$무게 &#x3D; a길이^2 + b길이 + 절편$</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># p140</span></span><br><span class="line">train_poly = np.column_stack((train_input ** <span class="number">2</span>, train_input)) <span class="comment">#train_input ** 2: train_input을 제곱 / column_stack():1 차원 배열을 2 차원 배열에 열로 쌓습니다.</span></span><br><span class="line">test_poly = np.column_stack((test_input **<span class="number">2</span>, test_input))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 데이터셋 크기 확인</span></span><br><span class="line"><span class="built_in">print</span>(train_poly.shape, test_poly.shape)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; --------train poly --------&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot; --------test poy --------&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>(42, 2) (14, 2)
- --------train poly --------
- --------test poy --------
-</code></pre>
-<ul>
-<li>주목할 부분: 2차방정식의 그래프를 찾기위해 훈련세트에 제곱항을 추가했지만, 타깃값은 그대로 사용한다는 것</li>
-<li>목표하는 값은 어떠한 그래프를 훈련하든지 바꿀필요가 없다 **</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lr = LinearRegression()</span><br><span class="line">lr.fit(train_poly, train_target)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 이 모델에 농어의 길이의 제곱과 원래의 길이를 함께 넣어줘야 한다 **</span></span><br><span class="line"><span class="built_in">print</span>(lr.predict([[<span class="number">50</span>**<span class="number">2</span>, <span class="number">50</span>]]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>[1573.98423528]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lr.coef_, lr.intercept_)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[  1.01433211 -21.55792498] 116.0502107827827
-</code></pre>
-<ul>
-<li>시각화</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 구각별 직선을 그리기 위해 15에서 49까지 정수배열을 만든다</span></span><br><span class="line">point = np.arange(<span class="number">15</span>, <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">plt.scatter(train_input, train_target)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 15에서 49까지 2차방정식 그래프를 그린다 **</span></span><br><span class="line">plt.plot(point, <span class="number">1.01</span>*point**<span class="number">2</span> - <span class="number">21.6</span>*point + <span class="number">116.05</span>)</span><br><span class="line"></span><br><span class="line">plt.scatter(<span class="number">50</span>, <span class="number">1574</span>, marker=<span class="string">&#x27;^&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;length&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;weight&#x27;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/0701_ch03/output_31_0.png"></p>
-<ul>
-<li>점수확인</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lr.score(train_poly,train_target))</span><br><span class="line"><span class="built_in">print</span>(lr.score(test_poly, test_target))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.9706807451768623
-0.9775935108325122
-</code></pre>
-<ul>
-<li>훈련세트와 테스트세트의 점수가 크게 높아졌다</li>
-<li>하지만 여전치 테스트 세트의 점수가 조금 더 높다</li>
-<li>과소적합이 아직 남아있다</li>
-</ul>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">26</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20WSL(ubuntu)/">WSL(ubuntu)셋팅</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-14T00:00:00.000Z">2022-07-14</time></p><p class="title"><a href="/2022/07/14/0220714/">seborn 라이브러리</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-07T00:00:00.000Z">2022-07-07</time></p><p class="title"><a href="/2022/07/07/lecture-in-humanedu/">캐글입문</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T11:39:54.239Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706_1200/">XGboost &amp; LightGBM</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T03:00:00.000Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/test/">test from labtop</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">27</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20WSL(ubuntu)/">WSL(ubuntu)셋팅</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20env/">가상환경설치</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-14T00:00:00.000Z">2022-07-14</time></p><p class="title"><a href="/2022/07/14/0220714/">seborn 라이브러리</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-07T00:00:00.000Z">2022-07-07</time></p><p class="title"><a href="/2022/07/07/lecture-in-humanedu/">캐글입문</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T11:39:54.239Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706_1200/">XGboost &amp; LightGBM</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
