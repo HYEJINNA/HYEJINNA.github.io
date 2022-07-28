@@ -1,5 +1,86 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>내 블로그</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="내 블로그"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="내 블로그"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="내 블로그"><meta property="og:url" content="https://hyejinna.github.io/"><meta property="og:site_name" content="내 블로그"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://hyejinna.github.io/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://HYEJINNA.github.io"},"headline":"내 블로그","image":["https://hyejinna.github.io/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"내 블로그","logo":{"@type":"ImageObject","url":"https://hyejinna.github.io/img/logo.svg"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-27T00:00:00.000Z" title="2022. 7. 27. 오전 9:00:00">2022-07-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-27T03:39:22.496Z" title="2022. 7. 27. 오후 12:39:22">2022-07-27</time></span><span class="level-item">5 minutes read (About 787 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/27/220727%20WSL(ubuntu)/">WSL(ubuntu)셋팅</a></h1><div class="content"><p><strong>실무예제로 배우는 데이터 공학교재</strong></p>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>내 블로그</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="내 블로그"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="내 블로그"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="내 블로그"><meta property="og:url" content="https://hyejinna.github.io/"><meta property="og:site_name" content="내 블로그"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://hyejinna.github.io/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://HYEJINNA.github.io"},"headline":"내 블로그","image":["https://hyejinna.github.io/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"내 블로그","logo":{"@type":"ImageObject","url":"https://hyejinna.github.io/img/logo.svg"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item is-active" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-28T00:00:00.000Z" title="2022. 7. 28. 오전 9:00:00">2022-07-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-28T08:35:00.777Z" title="2022. 7. 28. 오후 5:35:00">2022-07-28</time></span><span class="level-item">6 minutes read (About 864 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/28/0728%20airflow/">Apache Airflow 데이터 파이프라인 구축</a></h1><div class="content"><h2 id="Apache-Airflow"><a href="#Apache-Airflow" class="headerlink" title="Apache Airflow ?"></a><strong>Apache Airflow ?</strong></h2><p>Apache Airflow is an open source platform to <strong>programmatically author, schedule, and monitor</strong></p>
+<p>workflows.  </p>
+<p>Apache Airflow는 <strong>프로그래밍 방식으로 워크플로우를 작성, 예약 및 모니터링</strong>하는 오픈 소스 플랫폼이다.  이 작업은 실시간 데이터 처리이며, 현업에서 많이 쓰고 있다.</p>
+<p>   1. </p>
+<blockquote>
+<p>pip3 install faker pandas 설치</p>
+</blockquote>
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled.png)</p>
+<p>설치 완료 후 VS code로 </p>
+<blockquote>
+<p><strong>code .</strong></p>
+</blockquote>
+<pre><code>2. 
+</code></pre>
+<p>먼저 가상환경에 들어가기 </p>
+<p>human@DESKTOP-8BF1BS3:~&#x2F;airflow$ source venv&#x2F;bin&#x2F;activate</p>
+<p>   3. </p>
+<p>파이썬 파일 만들고, 내용 입력 후 실행 결과 확인 </p>
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%201.png)</p>
+<p>   4. </p>
+<p><strong>Ubuntu</strong> 열어서 airflowr파일이 있는 경로 찾고  <strong>VS code</strong>로 들어가기 </p>
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%202.png)</p>
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%203.png)</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PacktPublishing/Data-Engineering-with-Python">https://github.com/PacktPublishing/Data-Engineering-with-Python</a></p>
+<p>너무 긴 코드는 참고하기  </p>
+<pre><code>5. 
+</code></pre>
+<p>  <strong>1) read_df.py 파일 만들고 실행</strong> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.csv&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        myreader = csv.DictReader(f)</span><br><span class="line">        headers = <span class="built_in">next</span>(myreader)</span><br><span class="line">        <span class="keyword">for</span> row <span class="keyword">in</span> myreader:</span><br><span class="line">            <span class="built_in">print</span>(row[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%204.png)</p>
+<p> <strong>2) write_df.py 파일 만들고  실행</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> faker <span class="keyword">import</span> Faker</span><br><span class="line"><span class="keyword">import</span> csv </span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    output = <span class="built_in">open</span>(<span class="string">&#x27;data.csv&#x27;</span>, <span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">    fake = Faker()</span><br><span class="line">    header = [<span class="string">&#x27;name&#x27;</span>, <span class="string">&#x27;age&#x27;</span>, <span class="string">&#x27;street&#x27;</span>, <span class="string">&#x27;city&#x27;</span>, <span class="string">&#x27;state&#x27;</span>, <span class="string">&#x27;zip&#x27;</span>, <span class="string">&#x27;lng&#x27;</span>, <span class="string">&#x27;lat&#x27;</span>]</span><br><span class="line">    mywriter = csv.writer(output)</span><br><span class="line">    mywriter.writerow(header)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">        mywriter.writerow([fake.name(),fake.random_int(<span class="built_in">min</span>=<span class="number">18</span>, <span class="built_in">max</span>=<span class="number">80</span>, step=<span class="number">1</span>), </span><br><span class="line">        fake.street_address(), fake.city(),fake.state(),fake.zipcode(),fake.longitude(),</span><br><span class="line">        fake.latitude()])</span><br><span class="line">    output.close()</span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%205.png)</p>
+<p>왼쪽 탐색기 쪽에 <strong>data.csv</strong> 파일이 출력되었다</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/PacktPublishing/Data-Engineering-with-Python">https://github.com/PacktPublishing/Data-Engineering-with-Python</a></p>
+<p>너무 긴 코드는 참고하기  </p>
+<p>   <strong>3) write_json.py 파일 만들고</strong>  <strong>실행</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> faker <span class="keyword">import</span> Faker</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    output = <span class="built_in">open</span>(<span class="string">&#x27;data.json&#x27;</span>,<span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">    fake = Faker()</span><br><span class="line">    alldata = &#123;&#125;</span><br><span class="line">    alldata[<span class="string">&#x27;records&#x27;</span>]=[]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">        data=&#123;<span class="string">&quot;name&quot;</span>:fake.name(),<span class="string">&quot;age&quot;</span>:fake.random_int(<span class="built_in">min</span>=<span class="number">18</span>, <span class="built_in">max</span>=<span class="number">80</span>, step=<span class="number">1</span>),<span class="string">&quot;street&quot;</span>:fake.street_address(),<span class="string">&quot;city&quot;</span>:fake.city(),<span class="string">&quot;state&quot;</span>:fake.state(),<span class="string">&quot;zip&quot;</span>:fake.zipcode(),<span class="string">&quot;lng&quot;</span>:<span class="built_in">float</span>(fake.longitude()),<span class="string">&quot;lat&quot;</span>:<span class="built_in">float</span>(fake.latitude())&#125;</span><br><span class="line">        alldata[<span class="string">&#x27;records&#x27;</span>].append(data)</span><br><span class="line"></span><br><span class="line">    json.dump(alldata,output)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%206.png)</p>
+<p>왼쪽 탐색기 쪽에 <strong>data.json</strong> 파일이 출력되었다 </p>
+<pre><code>**4) read_json.py 파일 만들고  실행** 
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> json </span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> pandas.io.json <span class="keyword">as</span> pd_JSON</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_json</span>():</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.json&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        data = json.load(f)</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">type</span>(data))</span><br><span class="line">    <span class="built_in">print</span>(data[<span class="string">&#x27;records&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_pandas</span>():</span><br><span class="line">    df = pd.read_json(<span class="string">&#x27;data.json&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;기본 방법은 조금 복잡해요! :\n&quot;</span>, df.head())</span><br><span class="line"></span><br><span class="line">    f = <span class="built_in">open</span>(<span class="string">&#x27;data.json&#x27;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">    data = pd_JSON.loads(f.read())</span><br><span class="line">    <span class="comment"># print(data)</span></span><br><span class="line">    df = pd.json_normalize(data, record_path=<span class="string">&#x27;records&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;다른 방법도 복잡해요 :\n&quot;</span>, df.head())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># read_json()</span></span><br><span class="line">    read_pandas()</span><br></pre></td></tr></table></figure>
+
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%207.png)</p>
+<p>p51</p>
+<p>본격적으로 아파치 에어플로 데이터 파이프라인 구축 해보자 </p>
+<pre><code>6. 코딩 
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime <span class="keyword">as</span> dt</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> airflow <span class="keyword">import</span> DAG</span><br><span class="line"><span class="keyword">from</span> airflow.operators.bash <span class="keyword">import</span> BashOperator</span><br><span class="line"><span class="keyword">from</span> airflow.operators.python <span class="keyword">import</span> PythonOperator</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">csvToJson</span>():</span><br><span class="line">    df=pd.read_csv(<span class="string">&#x27;data.csv&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i,r <span class="keyword">in</span> df.iterrows():</span><br><span class="line">        <span class="built_in">print</span>(r[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">    df.to_json(<span class="string">&#x27;fromAirflow.json&#x27;</span>,orient=<span class="string">&#x27;records&#x27;</span>)</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">default_args = &#123;</span><br><span class="line">    <span class="string">&#x27;owner&#x27;</span>: <span class="string">&#x27;evan&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;start_date&#x27;</span>: dt.datetime(<span class="number">2022</span>, <span class="number">7</span>, <span class="number">27</span>),</span><br><span class="line">    <span class="string">&#x27;retries&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="string">&#x27;retry_delay&#x27;</span>: dt.timedelta(minutes=<span class="number">1</span>),</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> DAG(<span class="string">&#x27;MyCSVDAG&#x27;</span>,</span><br><span class="line">         default_args=default_args,</span><br><span class="line">         schedule_interval=timedelta(minutes=<span class="number">1</span>),      <span class="comment"># &#x27;0 * * * *&#x27;,</span></span><br><span class="line">         ) <span class="keyword">as</span> dag:</span><br><span class="line"></span><br><span class="line">    print_starting = BashOperator(task_id=<span class="string">&#x27;starting&#x27;</span>,</span><br><span class="line">                               bash_command=<span class="string">&#x27;echo &quot;I am reading the CSV now.....&quot;&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    csvJson = PythonOperator(task_id=<span class="string">&#x27;convertCSVtoJson&#x27;</span>,</span><br><span class="line">                                 python_callable=csvToJson)</span><br><span class="line"></span><br><span class="line">print_starting &gt;&gt; csvJson</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li><strong>airflow.cgf</strong> 에서 52번째 load_examples &#x3D; True 에서 True 를 False로 변경</li>
+</ol>
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%208.png)</p>
+<p>   8. </p>
+<p>그 다음 하단 순서대로 입력 후 실행  </p>
+<blockquote>
+<p><strong>airflow db reset</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>airflow db dbinit</strong> </p>
+</blockquote>
+<blockquote>
+<p><strong>airflow webserver  -p 8081</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>airflow scheduler</strong>  실행하면  ****</p>
+</blockquote>
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%209.png)</p>
+<p>에어플로 GUI를 열면 방금 만든 <strong>MyCSVDAG</strong>가 생성되어 있다</p>
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%2010.png)</p>
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%2011.png)</p>
+<p>코드도 보인다 </p>
+<p>![](images&#x2F;0728 airflow&#x2F;Untitled%2012.png)</p>
+<p>참고자료 :</p>
+<p><strong><a target="_blank" rel="noopener" href="https://dschloe.github.io/python/data_engineering/ch03_reading_writing_file/airflow_csv2json_sample/">Airflow 데이터 파이프라인 구축 예제</a></strong></p>
+<p><a target="_blank" rel="noopener" href="https://dschloe.github.io/python/data_engineering/ch03_reading_writing_file/airflow_csv2json_sample/">https://dschloe.github.io/python/data_engineering&#x2F;ch03_reading_writing_file&#x2F;airflow_csv2json_sample&#x2F;</a></p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-27T00:00:00.000Z" title="2022. 7. 27. 오전 9:00:00">2022-07-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-28T08:35:00.767Z" title="2022. 7. 28. 오후 5:35:00">2022-07-28</time></span><span class="level-item">5 minutes read (About 787 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/27/220727%20WSL(ubuntu)/">WSL(ubuntu)셋팅</a></h1><div class="content"><p><strong>실무예제로 배우는 데이터 공학교재</strong></p>
 <p>카프카 - 개발자</p>
 <p>에어플로 - 머신러닝 학습자</p>
 <p>다음주는 웹사이트 만들고 배포하는 방법을 배울 예정</p>
@@ -10,7 +91,7 @@
 <p><img src="/images/0727WSL_setting/Untitled%201.png"></p>
 <p>버전 21H2으로 확인 </p>
 <p>너무 낮으면 안됨</p>
-<ol>
+<ol start="2">
 <li>Power Shell  관리자 권한으로 실행하고</li>
 </ol>
 <p><img src="/images/0727WSL_setting/Untitled%202.png"></p>
@@ -22,7 +103,7 @@
 <p><code>[https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)</code> 다운로드</p>
 <p><img src="/images/0727WSL_setting/Untitled%204.png"></p>
 <p>ok &gt; finish</p>
-<ol>
+<ol start="3">
 <li><strong>Microsoft Store</strong> 로 이동하여  <strong>Ubuntu 20.04.4 LTS</strong> 다운로드</li>
 </ol>
 <p><img src="/images/0727WSL_setting/Untitled%205.png"></p>
@@ -32,7 +113,7 @@
 <p>계속 날리고 새로 세팅하면서 배우는 것이다. </p>
 <p><img src="/images/0727WSL_setting/Untitled%207.png"></p>
 <p>아이디, 비번 누르는 화면이 확인안됨</p>
-<ol>
+<ol start="4">
 <li>따라서 먼저 가상환경 설정해야 한다</li>
 </ol>
 <p>다시 powershell 관리자 권한으로 이동</p>
@@ -40,13 +121,13 @@
 <p><code>Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All</code></p>
 <p><img src="/images/0727WSL_setting/Untitled%209.png"></p>
 <p>확인하면 여전히 에러있음</p>
-<ol>
+<ol start="5">
 <li><strong>윈도우즈 기능 켜기&#x2F;끄기</strong> 접속하여, <strong>WINDOWS</strong> <strong>하이퍼바이저 플랫폼</strong> 클릭 후 확인</li>
 </ol>
 <p><img src="/images/0727WSL_setting/Untitled%2010.png"></p>
 <p><img src="/images/0727WSL_setting/Untitled%2011.png"></p>
 <p>누르고 재부팅</p>
-<ol>
+<ol start="6">
 <li>Windows PowerShell 로 다시 접속 &#x2F; 관리자권한실행</li>
 </ol>
 <p><img src="/images/0727WSL_setting/Untitled%2012.png"></p>
@@ -55,7 +136,7 @@
 </blockquote>
 <p><code>으로 버전</code> 세팅</p>
 <p><img src="/images/0727WSL_setting/Untitled%2013.png"></p>
-<ol>
+<ol start="7">
 <li><strong>Ubuntu</strong> 다시 접속</li>
 </ol>
 <p><img src="/images/0727WSL_setting/Untitled%2014.png"></p>
@@ -70,14 +151,14 @@
 <p><img src="/images/0727WSL_setting/Untitled%2018.png"></p>
 <p>다시 설치 </p>
 <p>그래도 버전1인 상태..</p>
-<ol>
+<ol start="8">
 <li>위 작업을 모두 시도 했는데도, 버전2로 확인이  안되면</li>
 </ol>
 <p><strong>Ubuntu 20.04.4 LTS 제거하고 다시 다운로드</strong></p>
 <p> 그후 windows powershell에서 버전확인(wsl -l -v 입력)하면 버전2로 바뀜</p>
 <p><img src="/images/0727WSL_setting/Untitled%2019.png"></p>
 <p>준비완료 </p>
-<h1 id="VS-code와-WSL-연동작업"><a href="#VS-code와-WSL-연동작업" class="headerlink" title="VS code와 WSL 연동작업"></a><strong>VS code와 WSL 연동작업</strong></h1><ol>
+<h1 id="VS-code와-WSL-연동작업"><a href="#VS-code와-WSL-연동작업" class="headerlink" title="VS code와 WSL 연동작업"></a><strong>VS code와 WSL 연동작업</strong></h1><ol start="9">
 <li>시스템 환경 변수 편집으로 접속</li>
 </ol>
 <p><img src="/images/0727WSL_setting/Untitled%2020.png"></p>
@@ -93,11 +174,11 @@
 <p>현재 빅데이터 플랫폼, 웹사이트 구축 구축작업을 하고 있는 것임</p>
 <p>— Configuration &#x2F;&#x2F; 각 설치 프로그램들끼리 환경 변수로 유기적으로 연결시킴</p>
 <p>— 레고 블록</p>
-<ol>
+<ol start="10">
 <li><strong>VS code</strong> 들어가서 <strong>Remote - WSL</strong> 설치하기</li>
 </ol>
 <p><img src="/images/0727WSL_setting/Untitled%2024.png"></p>
-<ol>
+<ol start="11">
 <li><strong>VS code</strong> 창 닫고 , 다시 열면 터미널에 <strong>WSL</strong> 확인됨</li>
 </ol>
 <p><img src="/images/0727WSL_setting/Untitled%2025.png"></p>
@@ -188,6 +269,48 @@
 </blockquote>
 <p><img src="/images/0727_env/Untitled%2013.png"></p>
 <p>가상환경 설치완료됨</p>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-27T00:00:00.000Z" title="2022. 7. 27. 오전 9:00:00">2022-07-27</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-28T08:28:37.851Z" title="2022. 7. 28. 오후 5:28:37">2022-07-28</time></span><span class="level-item">2 minutes read (About 228 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/27/0727%20pkg%20set/">패키지 설치</a></h1><div class="content"><pre><code>1. 먼저 VS code에서 가상환경에 접속하고
+</code></pre>
+<blockquote>
+<p>source venv&#x2F;bin&#x2F;activate</p>
+</blockquote>
+<h1 id="아파치-에어플로-설치하기"><a href="#아파치-에어플로-설치하기" class="headerlink" title="아파치 에어플로 설치하기"></a><strong>아파치 에어플로 설치하기</strong></h1><p>p25</p>
+<pre><code> 2. 아파치 에어플로를 설치하는 명령 입력후 엔터
+</code></pre>
+<blockquote>
+<p>pip3 install ‘apache-airflow[postgres,slack,celery]’</p>
+</blockquote>
+<p>시간이 조금 소요됨</p>
+<p>![](images&#x2F;0727 pkg set&#x2F;Untitled.png)</p>
+<pre><code>   3. 
+</code></pre>
+<blockquote>
+<p>airflow db init 명령으로 데이터 베이스를 초기화한다</p>
+</blockquote>
+<p>![](images&#x2F;0727 pkg set&#x2F;Untitled%201.png)</p>
+<pre><code>4. 1
+</code></pre>
+<blockquote>
+<p>airflow webserver </p>
+</blockquote>
+<p>만 입력하면 기본포트 8080으로 실행된다</p>
+<p>![](images&#x2F;0727 pkg set&#x2F;Untitled%202.png)</p>
+<p>참고)  &gt;airflow webserver -p 8081 로 진입할수도 있음</p>
+<p>커서가 안보일때</p>
+<p>cltr+c 하면 입력할 수 있도록 커서 나옴</p>
+<ol start="4">
+<li>2</li>
+</ol>
+<blockquote>
+<p><code>airflow users create --username airflow --password airflow --firstname evan --lastname airflow --role Admin --email your_email@some.com</code> 입력 후 엔터</p>
+</blockquote>
+<blockquote>
+<p>airflow webserver -p 8081 로 다시 실행하고</p>
+</blockquote>
+<p>웹 주소창에  <a target="_blank" rel="noopener" href="http://localhost:8081/">http://localhost:8081/</a>에 접속하면 에어플로의 GUI를 볼 수 있다</p>
+<p>![](images&#x2F;0727 pkg set&#x2F;Untitled%203.png)</p>
+<p>아이디airflow , 비번 airflow</p>
+<p>![](images&#x2F;0727 pkg set&#x2F;Untitled%204.png)</p>
 </div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-14T00:00:00.000Z" title="2022. 7. 14. 오전 9:00:00">2022-07-14</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-22T12:01:37.492Z" title="2022. 7. 22. 오후 9:01:37">2022-07-22</time></span><span class="level-item">4 minutes read (About 643 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/14/0220714/">seborn 라이브러리</a></h1><div class="content"><h2 id="Visualizing-statistical-relationships"><a href="#Visualizing-statistical-relationships" class="headerlink" title="Visualizing statistical relationships"></a>Visualizing statistical relationships</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line">sns.set_theme(style=<span class="string">&quot;darkgrid&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 
@@ -5230,1473 +5353,7 @@ Unseen Data For Predictions: (1200, 24)
 
 
 
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-05T00:00:00.000Z" title="2022. 7. 5. 오전 9:00:00">2022-07-05</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T03:28:35.878Z" title="2022. 7. 6. 오후 12:28:35">2022-07-06</time></span><span class="level-item">8 minutes read (About 1180 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/05/day0705/">랜덤포레스트 &amp; 그레이디언트 부스팅 &amp; 주성분 분석</a></h1><div class="content"><h2 id="랜덤-포레스트"><a href="#랜덤-포레스트" class="headerlink" title="랜덤 포레스트"></a>랜덤 포레스트</h2><ul>
-<li>Decision Tree (나무 1개)<ul>
-<li>여러개 심음</li>
-<li>샘플링</li>
-<li>Feature Importances</li>
-</ul>
-</li>
-<li>예측해야 할 행의 갯수, 100만개</li>
-<li>컬럼의 갯수 200개 –&gt; 100개<ul>
-<li>나무 100개를 심고 평균을 내자</li>
-<li>나무 1개 당 컬럼을 10개로 </li>
-<li>T1 mae : 20 &#x2F; T2 mae : 30 &#x2F; T3 mae 10, …. <ul>
-<li>T1 ~ T100 mae :  20</li>
-<li>feature importances</li>
-</ul>
-</li>
-<li>샘플링 : 부트스트랩 샘플 (복원 추출)</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 라이브러리 불러오기 </span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd </span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split, cross_validate</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 데이터 불러오기</span></span><br><span class="line">wine = pd.read_csv(<span class="string">&#x27;https://bit.ly/wine_csv_data&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># input, target 분리 </span></span><br><span class="line">data = wine[[<span class="string">&#x27;alcohol&#x27;</span>, <span class="string">&#x27;sugar&#x27;</span>, <span class="string">&#x27;pH&#x27;</span>]].to_numpy()</span><br><span class="line">target = wine[<span class="string">&#x27;class&#x27;</span>].to_numpy()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 훈련데이터, 테스트 데이터 분리</span></span><br><span class="line">train_input, test_input, train_target, test_target = train_test_split(</span><br><span class="line">    data, target, test_size = <span class="number">0.2</span>, random_state = <span class="number">42</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 모델링</span></span><br><span class="line">rf = RandomForestClassifier(n_jobs=-<span class="number">1</span>, random_state = <span class="number">42</span>) <span class="comment">#n_jobs=-1 : 시스템에 있는 모든 코어를 사용</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 모형 평가</span></span><br><span class="line">scores = cross_validate(rf, train_input, train_target, return_train_score = <span class="literal">True</span>, n_jobs =-<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(np.mean(scores[<span class="string">&#x27;train_score&#x27;</span>]), np.mean(scores[<span class="string">&#x27;test_score&#x27;</span>]))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<pre><code>0.9973541965122431 0.8905151032797809
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 특성 중요</span></span><br><span class="line">rf.fit(train_input, train_target)</span><br><span class="line"><span class="comment"># print(rf.feature_importances_)</span></span><br><span class="line"><span class="built_in">print</span>(rf.feature_importances_)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<pre><code>[0.23167441 0.50039841 0.26792718]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># OOB </span></span><br><span class="line">rf = RandomForestClassifier(oob_score = <span class="literal">True</span>, n_jobs = -<span class="number">1</span>, random_state = <span class="number">42</span>)</span><br><span class="line">rf.fit(train_input, train_target)</span><br><span class="line"><span class="built_in">print</span>(rf.oob_score_)</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.8934000384837406
-</code></pre>
-<h2 id="그레이디언트-부스팅"><a href="#그레이디언트-부스팅" class="headerlink" title="그레이디언트 부스팅"></a>그레이디언트 부스팅</h2><ul>
-<li>경사하강법의 원리를 이용함. </li>
-<li>T1 ~ TN 증가하면서 오차를 보정해주며 정확성을 높임</li>
-<li>랜덤포레스트와의 차이점 <ul>
-<li>랜덤포레스트는 각 나무간 상호 연관성 없음</li>
-<li>부스팅은 각 나무간 상호 연관성 있음</li>
-</ul>
-</li>
-<li>단점<ul>
-<li>속도가 너무 느려요</li>
-</ul>
-</li>
-<li>대안<ul>
-<li>XGBoost, LightGBM</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> GradientBoostingClassifier</span><br><span class="line">gb = GradientBoostingClassifier(random_state=<span class="number">42</span>)</span><br><span class="line">scores = cross_validate(gb, train_input, train_target, return_train_score=<span class="literal">True</span>, n_jobs=-<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(np.mean(scores[<span class="string">&#x27;train_score&#x27;</span>]), np.mean(scores[<span class="string">&#x27;test_score&#x27;</span>]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.8881086892152563 0.8720430147331015
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gb = GradientBoostingClassifier(n_estimators = <span class="number">500</span>, learning_rate = <span class="number">0.2</span>, random_state=<span class="number">42</span>)</span><br><span class="line">scores = cross_validate(gb, train_input, train_target, return_train_score=<span class="literal">True</span>, n_jobs=-<span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(np.mean(scores[<span class="string">&#x27;train_score&#x27;</span>]), np.mean(scores[<span class="string">&#x27;test_score&#x27;</span>]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.9464595437171814 0.8780082549788999
-</code></pre>
-<ul>
-<li>특성 중요도</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gb.fit(train_input, train_target)</span><br><span class="line"><span class="built_in">print</span>(gb.feature_importances_)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[0.15872278 0.68010884 0.16116839]
-</code></pre>
-<p> p318</p>
-<h2 id="주성분-분석"><a href="#주성분-분석" class="headerlink" title="주성분 분석"></a>주성분 분석</h2><ul>
-<li>이론적으로 어려움</li>
-<li>좌표계 공간 개념</li>
-<li>직교 + 회전</li>
-<li>공분산 등(통계관련내용)</li>
-<li>Feature Engineering 기법</li>
-<li>StandardScaler()</li>
-<li>현 ML의 문제점 : 컬럼의 갯수 매우 많음</li>
-<li>차원축소</li>
-</ul>
-<ul>
-<li>특성이 많으면 훈련데이터에 쉽게 과대적합된다</li>
-<li>특성을 줄여서 학습모델의 성능을 향상시킨다</li>
-<li>모델의 학습시간을 감소시켜준다</li>
-<li>대표적인 방법론 중 하나가 PCA, EFA</li>
-</ul>
-<ul>
-<li>PCA vs EFA</li>
-</ul>
-<ul>
-<li>EFA(탐색적 요인 분석), Factor Analysis</li>
-</ul>
-<ul>
-<li>예) 국어, 수학, 과학, 영어</li>
-<li>예) 국어40, 수학100, 과학100, 영어30 &#x2F; 위 학생은 언어영역은 수준이 낮은 편이나 수리영역은 매우 수준이 높습니다</li>
-<li>예) 범주형 &amp; 수치데이터</li>
-</ul>
-<ul>
-<li>PCA(주성분분석)</li>
-</ul>
-<ul>
-<li>장비1, 장비2, 장비3, 장비4, ….</li>
-<li>PC1, PC2, PC3, ….PCN</li>
-<li>원래 가지고 있던 정보를 알 수 없음(정보손실)</li>
-<li>범주형 데이터셋에는 사용 안됨</li>
-<li>무조건 수치형 데이터에만 사용</li>
-<li>PCA 실행 전, 반드시 표준화처리(스케일링 실행)</li>
-</ul>
-<p> p.320</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!wget https://bit.ly/fruits_300_data -O fruits_300.npy</span><br></pre></td></tr></table></figure>
-
-<pre><code>--2022-07-05 04:58:41--  https://bit.ly/fruits_300_data
-Resolving bit.ly (bit.ly)... 67.199.248.10, 67.199.248.11
-Connecting to bit.ly (bit.ly)|67.199.248.10|:443... connected.
-HTTP request sent, awaiting response... 301 Moved Permanently
-Location: https://github.com/rickiepark/hg-mldl/raw/master/fruits_300.npy [following]
---2022-07-05 04:58:41--  https://github.com/rickiepark/hg-mldl/raw/master/fruits_300.npy
-Resolving github.com (github.com)... 192.30.255.112
-Connecting to github.com (github.com)|192.30.255.112|:443... connected.
-HTTP request sent, awaiting response... 302 Found
-Location: https://raw.githubusercontent.com/rickiepark/hg-mldl/master/fruits_300.npy [following]
---2022-07-05 04:58:41--  https://raw.githubusercontent.com/rickiepark/hg-mldl/master/fruits_300.npy
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 3000128 (2.9M) [application/octet-stream]
-Saving to: ‘fruits_300.npy’
-
-fruits_300.npy      100%[===================&gt;]   2.86M  --.-KB/s    in 0.04s   
-
-2022-07-05 04:58:41 (64.2 MB/s) - ‘fruits_300.npy’ saved [3000128/3000128]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">fruits = np. load(<span class="string">&#x27;/content/fruits_300.npy&#x27;</span>)</span><br><span class="line">fruits_2d = fruits.reshape(-<span class="number">1</span>, <span class="number">100</span>*<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">fruits_2d.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>(300, 10000)
-</code></pre>
-<ul>
-<li>PCA</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.decomposition <span class="keyword">import</span> PCA</span><br><span class="line">pca = PCA(n_components=<span class="number">50</span>)</span><br><span class="line">pca.fit(fruits_2d)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>PCA(n_components=50)
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(pca.components_.shape)</span><br></pre></td></tr></table></figure>
-
-<pre><code>(50, 10000)
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">draw_fruits</span>(<span class="params">arr, ratio=<span class="number">1</span></span>):</span><br><span class="line">    n = <span class="built_in">len</span>(arr)    <span class="comment"># n은 샘플 개수입니다</span></span><br><span class="line">    <span class="comment"># 한 줄에 10개씩 이미지를 그립니다. 샘플 개수를 10으로 나누어 전체 행 개수를 계산합니다. </span></span><br><span class="line">    rows = <span class="built_in">int</span>(np.ceil(n/<span class="number">10</span>))</span><br><span class="line">    <span class="comment"># 행이 1개 이면 열 개수는 샘플 개수입니다. 그렇지 않으면 10개입니다.</span></span><br><span class="line">    cols = n <span class="keyword">if</span> rows &lt; <span class="number">2</span> <span class="keyword">else</span> <span class="number">10</span></span><br><span class="line">    fig, axs = plt.subplots(rows, cols, </span><br><span class="line">                            figsize=(cols*ratio, rows*ratio), squeeze=<span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(rows):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(cols):</span><br><span class="line">            <span class="keyword">if</span> i*<span class="number">10</span> + j &lt; n:    <span class="comment"># n 개까지만 그립니다.</span></span><br><span class="line">                axs[i, j].imshow(arr[i*<span class="number">10</span> + j], cmap=<span class="string">&#x27;gray_r&#x27;</span>)</span><br><span class="line">            axs[i, j].axis(<span class="string">&#x27;off&#x27;</span>)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">draw_fruits(pca.components_.reshape(-<span class="number">1</span>,<span class="number">100</span>,<span class="number">100</span>))</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/0705/output_22_0.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 머신러닝에서 컬럼갯수를 10000개에서 50개로 줄임</span></span><br><span class="line">fruits_pca = pca.transform(fruits_2d)</span><br><span class="line"><span class="built_in">print</span>(fruits_pca.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<pre><code>(300, 50)
-</code></pre>
-<ul>
-<li>훈련데이터, 테스트 데이터 분리</li>
-</ul>
-<h2 id="설명된-분산"><a href="#설명된-분산" class="headerlink" title="설명된 분산"></a>설명된 분산</h2><ul>
-<li>주성분이 원본데이터의 분산을 얼마나 잘 나타내는지 기록한 값</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.<span class="built_in">sum</span>(pca.explained_variance_ratio_))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.9214955656462601
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(pca.explained_variance_ratio_)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/0705/output_27_0.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.<span class="built_in">sum</span>(pca.explained_variance_ratio_[:]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.9214955656462601
-</code></pre>
-</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-07-04T00:00:00.000Z" title="2022. 7. 4. 오전 9:00:00">2022-07-04</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T03:28:35.877Z" title="2022. 7. 6. 오후 12:28:35">2022-07-06</time></span><span class="level-item">2 hours read (About 15453 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/07/04/day0704/">확률적경사하강법 &amp; 결정트리</a></h1><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 확률적 경사 하강법</span></span><br><span class="line">- 점진적 학습(step, 보폭)</span><br><span class="line">- 학습률</span><br><span class="line">- XGBoost, LightGBM, 딥러닝(이미지분류, 자연어처리, 옵티마이저)</span><br></pre></td></tr></table></figure>
-
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><ul>
-<li>신경망 이미지 데이터, 자연어</li>
-<li>자율주행 하루 데이터 1TB –&gt; 학습</li>
-<li>한꺼번에 다 모델을 학습하기 어려움</li>
-</ul>
-<ul>
-<li>샘플링, 배치, 에포크, 오차가 가장 적은 지점을 찾아야 한다</li>
-</ul>
-<ul>
-<li>결론적으로 확률적 경사 하강법</li>
-</ul>
-<h2 id="손실함수"><a href="#손실함수" class="headerlink" title="손실함수"></a>손실함수</h2><ul>
-<li>로지스틱 손실함수</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">fish = pd.read_csv(<span class="string">&quot;https://bit.ly/fish_csv_data&quot;</span>)</span><br><span class="line">fish.info()</span><br></pre></td></tr></table></figure>
-
-<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 159 entries, 0 to 158
-Data columns (total 6 columns):
- #   Column    Non-Null Count  Dtype  
----  ------    --------------  -----  
- 0   Species   159 non-null    object 
- 1   Weight    159 non-null    float64
- 2   Length    159 non-null    float64
- 3   Diagonal  159 non-null    float64
- 4   Height    159 non-null    float64
- 5   Width     159 non-null    float64
-dtypes: float64(5), object(1)
-memory usage: 7.6+ KB
-</code></pre>
-<ul>
-<li>입력데이터와 타깃데이터 분리</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fish_input = fish[[<span class="string">&#x27;Weight&#x27;</span>,<span class="string">&#x27;Length&#x27;</span>,<span class="string">&#x27;Diagonal&#x27;</span>, <span class="string">&#x27;Height&#x27;</span>, <span class="string">&#x27;Width&#x27;</span>]].to_numpy()</span><br><span class="line">fish_target = fish[[<span class="string">&#x27;Species&#x27;</span>]].to_numpy()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">train_input, test_input, train_target, test_target = train_test_split(</span><br><span class="line">    fish_input, fish_target, random_state=<span class="number">42</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">ss = StandardScaler()</span><br><span class="line">ss.fit(train_input)</span><br><span class="line">train_scaled = ss.transform(train_input)</span><br><span class="line">test_scaled = ss.transform(test_input)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> SGDClassifier</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sc = SGDClassifier(loss=<span class="string">&#x27;log&#x27;</span>, max_iter=<span class="number">10</span>, random_state=<span class="number">42</span>)</span><br><span class="line">sc.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(sc.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(sc.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.773109243697479
-0.775
-
-
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_stochastic_gradient.py:700: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
-  ConvergenceWarning,
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sc.partial_fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(sc.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(sc.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.8151260504201681
-0.85
-
-
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 에포크와 과대/ 과소적합</span></span><br><span class="line">- 에포크 숫자가 적으면 -&gt; 덜 학습</span><br><span class="line">- early_stoping</span><br><span class="line"> + 에포크 숫자를 <span class="number">1000</span>, 손실 <span class="number">10</span>, <span class="number">9</span>, <span class="number">8</span>,,<span class="number">3</span></span><br><span class="line"> + <span class="number">3</span>에 도달한 시점이 <span class="number">150</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">sc = SGDClassifier(loss=<span class="string">&#x27;log&#x27;</span>, random_state = <span class="number">42</span>)</span><br><span class="line">train_score = []</span><br><span class="line">test_score = []</span><br><span class="line"></span><br><span class="line">classes = np.unique(train_target)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 300번 에포크 훈련을 반복</span></span><br><span class="line"><span class="comment"># 훈련 할때마다 train_score, test_score 추가를 한다</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>,<span class="number">300</span>):</span><br><span class="line">  sc.partial_fit(train_scaled, train_target, classes=classes)</span><br><span class="line">  train_score.append(sc.score(train_scaled, train_target)) </span><br><span class="line">  test_score.append(sc.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
-
-<pre><code>/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-/usr/local/lib/python3.7/dist-packages/sklearn/utils/validation.py:993: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line">plt.plot(train_score)</span><br><span class="line">plt.plot(test_score)</span><br><span class="line">plt.legend([<span class="string">&quot;train&quot;</span>, <span class="string">&quot;test&quot;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/0704/output_14_0.png"></p>
-<h2 id="결정트리"><a href="#결정트리" class="headerlink" title="결정트리"></a>결정트리</h2><ul>
-<li>wine데이터 가져오기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">wine = pd.read_csv(<span class="string">&#x27;https://bit.ly/wine_csv_data&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine.head()</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-608990b6-164e-4c58-b650-84617bfdd0a0">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>alcohol</th>
-      <th>sugar</th>
-      <th>pH</th>
-      <th>class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>9.4</td>
-      <td>1.9</td>
-      <td>3.51</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>9.8</td>
-      <td>2.6</td>
-      <td>3.20</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>9.8</td>
-      <td>2.3</td>
-      <td>3.26</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>9.8</td>
-      <td>1.9</td>
-      <td>3.16</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>9.4</td>
-      <td>1.9</td>
-      <td>3.51</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-608990b6-164e-4c58-b650-84617bfdd0a0')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-608990b6-164e-4c58-b650-84617bfdd0a0 button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-608990b6-164e-4c58-b650-84617bfdd0a0&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;images/0704/output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.images/0704/output.renderimages/0704/output(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine.info()</span><br></pre></td></tr></table></figure>
-
-<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 6497 entries, 0 to 6496
-Data columns (total 4 columns):
- #   Column   Non-Null Count  Dtype  
----  ------   --------------  -----  
- 0   alcohol  6497 non-null   float64
- 1   sugar    6497 non-null   float64
- 2   pH       6497 non-null   float64
- 3   class    6497 non-null   float64
-dtypes: float64(4)
-memory usage: 203.2 KB
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wine.describe()</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-  <div id="df-02cb83bf-d4f5-4092-9f7e-747daf214f5f">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-<pre><code>.dataframe tbody tr th &#123;
-    vertical-align: top;
-&#125;
-
-.dataframe thead th &#123;
-    text-align: right;
-&#125;
-</code></pre>
-<p></style></p>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>alcohol</th>
-      <th>sugar</th>
-      <th>pH</th>
-      <th>class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>6497.000000</td>
-      <td>6497.000000</td>
-      <td>6497.000000</td>
-      <td>6497.000000</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>10.491801</td>
-      <td>5.443235</td>
-      <td>3.218501</td>
-      <td>0.753886</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>1.192712</td>
-      <td>4.757804</td>
-      <td>0.160787</td>
-      <td>0.430779</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>8.000000</td>
-      <td>0.600000</td>
-      <td>2.720000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>9.500000</td>
-      <td>1.800000</td>
-      <td>3.110000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>10.300000</td>
-      <td>3.000000</td>
-      <td>3.210000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>11.300000</td>
-      <td>8.100000</td>
-      <td>3.320000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>14.900000</td>
-      <td>65.800000</td>
-      <td>4.010000</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-02cb83bf-d4f5-4092-9f7e-747daf214f5f')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-<p>  &lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&quot;">http://www.w3.org/2000/svg&quot;</a> height&#x3D;”24px”viewBox&#x3D;”0 0 24 24”<br>       width&#x3D;”24px”&gt;<br>    <path d="M0 0h24v24H0V0z" fill="none"/><br>    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/><br>  </svg><br>      </button></p>
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-<pre><code>  &lt;script&gt;
-    const buttonEl =
-      document.querySelector(&#39;#df-02cb83bf-d4f5-4092-9f7e-747daf214f5f button.colab-df-convert&#39;);
-    buttonEl.style.display =
-      google.colab.kernel.accessAllowed ? &#39;block&#39; : &#39;none&#39;;
-
-    async function convertToInteractive(key) &#123;
-      const element = document.querySelector(&#39;#df-02cb83bf-d4f5-4092-9f7e-747daf214f5f&#39;);
-      const dataTable =
-        await google.colab.kernel.invokeFunction(&#39;convertToInteractive&#39;,
-                                                 [key], &#123;&#125;);
-      if (!dataTable) return;
-
-      const docLinkHtml = &#39;Like what you see? Visit the &#39; +
-        &#39;&lt;a target=&quot;_blank&quot; href=https://colab.research.google.com/notebooks/data_table.ipynb&gt;data table notebook&lt;/a&gt;&#39;
-        + &#39; to learn more about interactive tables.&#39;;
-      element.innerHTML = &#39;&#39;;
-      dataTable[&#39;images/0704/output_type&#39;] = &#39;display_data&#39;;
-      await google.colab.images/0704/output.renderimages/0704/output(dataTable, element);
-      const docLink = document.createElement(&#39;div&#39;);
-      docLink.innerHTML = docLinkHtml;
-      element.appendChild(docLink);
-    &#125;
-  &lt;/script&gt;
-&lt;/div&gt;
-</code></pre>
-  </div>
-
-
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = wine[[<span class="string">&#x27;alcohol&#x27;</span>,<span class="string">&#x27;sugar&#x27;</span>,<span class="string">&#x27;pH&#x27;</span>]].to_numpy()</span><br><span class="line">target = wine[<span class="string">&#x27;class&#x27;</span>].to_numpy()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">train_input, test_input, train_target, test_target = train_test_split(</span><br><span class="line">    data, target,test_size=<span class="number">0.2</span>,random_state=<span class="number">42</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(train_input.shape, test_input.shape)</span><br></pre></td></tr></table></figure>
-
-<pre><code>(5197, 3) (1300, 3)
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line">ss = StandardScaler()</span><br><span class="line">ss.fit(train_input)</span><br><span class="line">train_scaled = ss.transform(train_input)</span><br><span class="line">test_scaled = ss.transform(test_input)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line">lr = LogisticRegression()</span><br><span class="line">lr.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(lr.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(lr.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.7808350971714451
-0.7776923076923077
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(lr.coef_, lr.intercept_)</span><br></pre></td></tr></table></figure>
-
-<pre><code>[[ 0.51270274  1.6733911  -0.68767781]] [1.81777902]
-</code></pre>
-<ul>
-<li>모델 만들기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line">dt = DecisionTreeClassifier(random_state=<span class="number">42</span>)</span><br><span class="line">dt.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(dt.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(dt.score(test_scaled, test_target))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.996921300750433
-0.8592307692307692
-</code></pre>
-<p>훈련세트에 대한 점수가 높다 &#x2F; 과대적합</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> plot_tree</span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">7</span>))</span><br><span class="line">plot_tree(dt)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/0704/output_29_0.png"></p>
-<ul>
-<li>모델 만들기 (연습)</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> plot_tree </span><br><span class="line"></span><br><span class="line">dt = DecisionTreeClassifier(max_depth=<span class="number">8</span>, random_state=<span class="number">42</span>)</span><br><span class="line">dt.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(dt.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(dt.score(test_scaled, test_target))</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">7</span>))</span><br><span class="line">plot_tree(dt)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.9003271117952665
-0.8576923076923076
-</code></pre>
-<p><img src="/images/0704/output_31_1.png"></p>
-<h2 id="노드란-무엇인가"><a href="#노드란-무엇인가" class="headerlink" title="노드란 무엇인가?"></a>노드란 무엇인가?</h2><ul>
-<li>0 이면 레드와인</li>
-<li>1 이면 화이트와인</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">7</span>))</span><br><span class="line">plot_tree(dt, max_depth=<span class="number">1</span>, filled=<span class="literal">True</span>, feature_names=[<span class="string">&#x27;alcohol&#x27;</span>,<span class="string">&#x27;sugar&#x27;</span>,<span class="string">&#x27;pH&#x27;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="/images/0704/output_33_0.png"></p>
-<ul>
-<li>불순도</li>
-</ul>
-<ul>
-<li>비율</li>
-<li>레드와인 5:5 화이트와인 (균등하게 섞여 있을때 0.5로 가장높다)</li>
-<li>한 범주 안에서 서로 다른 데이터가 얼마나 섞여 있는지를 나타냄</li>
-<li>흰색과 검은색이 각각 50개 섞여있다</li>
-<li>불순도 최대 0.5</li>
-<li>흰색과 검은색이 완전 100% 분리가 됨</li>
-<li>흰색 노드 불순도 최소 0</li>
-<li>검은색 노드 불순도 최소 0</li>
-</ul>
-<ul>
-<li>엔트로피(Entropy)<br> +불확실한 정도를 의미한다 (0-1사이)</li>
-</ul>
-<ul>
-<li>흰색과 검은색이 각각 50개 섞여있다</li>
-<li>엔트로피 최대 1</li>
-<li>흰색과 검은색이 완전 100%분리됨</li>
-<li>흰색노드 엔트로피 최소0</li>
-<li>검은색노드 엔트로피 최소0</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> plot_tree </span><br><span class="line"></span><br><span class="line">dt = DecisionTreeClassifier(criterion = <span class="string">&#x27;entropy&#x27;</span>, max_depth = <span class="number">1</span>, random_state=<span class="number">42</span>)</span><br><span class="line">dt.fit(train_scaled, train_target)</span><br><span class="line"><span class="built_in">print</span>(dt.score(train_scaled, train_target))</span><br><span class="line"><span class="built_in">print</span>(dt.score(test_scaled, test_target))</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">10</span>,<span class="number">7</span>))</span><br><span class="line">plot_tree(dt, max_depth=<span class="number">1</span>, filled=<span class="literal">True</span>, feature_names=[<span class="string">&#x27;alcohol&#x27;</span>,<span class="string">&#x27;sugar&#x27;</span>,<span class="string">&#x27;pH&#x27;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.7579372715027901
-0.7376923076923076
-</code></pre>
-<p><img src="/images/0704/output_35_1.png"></p>
-<h2 id="특성-중요도"><a href="#특성-중요도" class="headerlink" title="특성 중요도"></a>특성 중요도</h2><ul>
-<li>어떤 특성이 결정트리 모델에 영향을 주었는가?</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(dt.feature_importances_) <span class="comment">#feature_importances_ : 인과관계와는 관계가 없다, 인과관계는 P-Value로 확인한다</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>[0.15533444 0.6675247  0.17714086]
-</code></pre>
-<h2 id="현업에서의-적용"><a href="#현업에서의-적용" class="headerlink" title="현업에서의 적용"></a>현업에서의 적용</h2><ul>
-<li>현업에서 DescisionTreeClassifier(1970년대)</li>
-<li>랜던포레스트, XGboost pamameters, 하이퍼파라미터 매우 많음</li>
-</ul>
-<p>p242</p>
-<h2 id="검증-세트"><a href="#검증-세트" class="headerlink" title="검증 세트"></a>검증 세트</h2><ul>
-<li>훈련세트와 테스트세트</li>
-<li>훈련: 교과서 공부하는 것 훈련세트, 모의평가</li>
-<li>검증: 강남대성 모의고사</li>
-<li>테스트: 6월 &#x2F; 9월</li>
-<li>실전: 수능</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">wine = pd.read_csv(<span class="string">&#x27;https://bit.ly/wine_csv_data&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">data = wine[[<span class="string">&#x27;alcohol&#x27;</span>,<span class="string">&#x27;sugar&#x27;</span>,<span class="string">&#x27;pH&#x27;</span>]].to_numpy()</span><br><span class="line">target = wine[<span class="string">&#x27;class&#x27;</span>].to_numpy()</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 훈련 80%</span></span><br><span class="line"><span class="comment"># 테스트 20%</span></span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line">train_input, test_input, train_target, test_target = train_test_split(</span><br><span class="line">    data, target,test_size=<span class="number">0.2</span>,random_state=<span class="number">42</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">train_input.shape, test_input.shape, train_target.shape, test_target.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>((5197, 3), (1300, 3), (5197,), (1300,))
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 훈련80% </span></span><br><span class="line"><span class="comment"># 검증 20%</span></span><br><span class="line">sub_input, val_input, sub_target, val_target = train_test_split(</span><br><span class="line">    train_input, train_target,test_size=<span class="number">0.2</span>,random_state=<span class="number">42</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">sub_input.shape, val_input.shape, sub_target.shape, val_target.shape</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>((4157, 3), (1040, 3), (4157,), (1040,))
-</code></pre>
-<ul>
-<li>모형 만들기</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</span><br><span class="line">dt=DecisionTreeClassifier(random_state=<span class="number">42</span>)</span><br><span class="line">dt.fit(sub_input, sub_target)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;훈련성과&quot;</span>,dt.score(sub_input, sub_target))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;검증성과&quot;</span>,dt.score(val_input, val_target))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;마지막최종&quot;</span>,dt.score(test_input, test_target))</span><br></pre></td></tr></table></figure>
-
-<pre><code>훈련성과 0.9971133028626413
-검증성과 0.864423076923077
-마지막최종 0.8569230769230769
-</code></pre>
-<h2 id="교차검증"><a href="#교차검증" class="headerlink" title="교차검증"></a>교차검증</h2><ul>
-<li>데이터셋을 반복 분할</li>
-<li>For loop</li>
-<li>샘플링 편향적일 수 있음</li>
-<li>교차검증을 한다고 해서, 정확도가 무조건 올라간다?(x)</li>
-<li>모형을 안정적으로 만들어 준다</li>
-</ul>
-<ul>
-<li>과대 적합 방지</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> KFold</span><br><span class="line"></span><br><span class="line">df = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 데이터를 K폴드로 나눈다</span></span><br><span class="line">folds = KFold(n_splits=<span class="number">5</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">for</span> train_idx, valid_idx <span class="keyword">in</span> folds.split(df):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">f&#x27;훈련데이터:<span class="subst">&#123;df[train_idx]&#125;</span>,검증데이터:<span class="subst">&#123;df[valid_idx]&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<pre><code>훈련데이터:[ 2  3  5  6  7  8  9 10],검증데이터:[1 4]
-훈련데이터:[ 1  2  4  5  6  8  9 10],검증데이터:[3 7]
-훈련데이터:[ 1  2  3  4  6  7  9 10],검증데이터:[5 8]
-훈련데이터:[ 1  2  3  4  5  7  8 10],검증데이터:[6 9]
-훈련데이터:[1 3 4 5 6 7 8 9],검증데이터:[ 2 10]
-</code></pre>
-<ul>
-<li>교차검증 함수</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_validate</span><br><span class="line">scores = cross_validate(dt, train_input, train_target)</span><br><span class="line"><span class="built_in">print</span>(scores)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;평균&quot;</span>, np.mean(scores[<span class="string">&#x27;test_score&#x27;</span>]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>&#123;&#39;fit_time&#39;: array([0.01242208, 0.0106051 , 0.01989627, 0.01051641, 0.01058054]), &#39;score_time&#39;: array([0.00130367, 0.00125098, 0.0013361 , 0.00134611, 0.00127673]), &#39;test_score&#39;: array([0.86923077, 0.84615385, 0.87680462, 0.84889317, 0.83541867])&#125;
-평균 0.855300214703487
-</code></pre>
-<ul>
-<li>StratifiedKFold 사용 (이것까지 들어가면 좋은 코드)</li>
-<li>참조할만한 좋은 코드를 찾는 것도 실력</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> StratifiedKFold</span><br><span class="line">splitter = StratifiedKFold(n_splits=<span class="number">10</span>, shuffle = <span class="literal">True</span>, random_state=<span class="number">42</span>)</span><br><span class="line">scores = cross_validate(dt, train_input, train_target, cv = splitter)</span><br><span class="line"><span class="built_in">print</span>(scores)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;평균:&quot;</span>, np.mean(scores[<span class="string">&#x27;test_score&#x27;</span>]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>&#123;&#39;fit_time&#39;: array([0.0142889 , 0.01287746, 0.01375127, 0.01249719, 0.01662874,
-       0.01322246, 0.01277661, 0.01421905, 0.0130713 , 0.01299787]), &#39;score_time&#39;: array([0.00124955, 0.00112534, 0.0013597 , 0.00117397, 0.00105834,
-       0.00120282, 0.0014286 , 0.00127149, 0.00107288, 0.00111914]), &#39;test_score&#39;: array([0.83461538, 0.87884615, 0.85384615, 0.85384615, 0.84615385,
-       0.87307692, 0.85961538, 0.85549133, 0.85163776, 0.86705202])&#125;
-평균: 0.8574181117533719
-</code></pre>
-<h2 id="하이퍼-파라미터-튜닝"><a href="#하이퍼-파라미터-튜닝" class="headerlink" title="하이퍼 파라미터 튜닝"></a>하이퍼 파라미터 튜닝</h2><ul>
-<li>그리드 서치 (용어기억)</li>
-</ul>
-<ul>
-<li>사람이 수동적으로 입력</li>
-<li>Max_Depth:[1,3,7]</li>
-</ul>
-<ul>
-<li>랜덤 서치 (용어기억)</li>
-</ul>
-<ul>
-<li>사람이 범위만 지정</li>
-<li>Max_Depth: 1-10 &#x2F; by random</li>
-</ul>
-<ul>
-<li>베이지안 옵티마이제이션</li>
-<li>사람의 개입 없이 하이퍼 파라미터 튜닝을 자동으로 수행하는 기술을 AutoML이라고 한다</li>
-</ul>
-<ul>
-<li>예)PyCaret</li>
-</ul>
-<ul>
-<li>각 모델마다 적게는 1-2개에서 , 많게는 5-6개의 매개변수를 제공한다</li>
-</ul>
-<ul>
-<li>XGBoost 100개….?</li>
-</ul>
-<ul>
-<li>하이퍼파라미터와 동시에 교차검증을 수행</li>
-</ul>
-<ul>
-<li>미친짓</li>
-</ul>
-<p>교차검증 5번<br>교차검증 1회 실행시 Max Depth 3번 적용</p>
-<ul>
-<li><p>총 결괏값 3 X 5 나온다</p>
-</li>
-<li><p>Max Depth &#x3D; 1,3,7</p>
-</li>
-<li><p>Criterion &#x3D; gini, entropy</p>
-</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</span><br><span class="line">params = &#123;<span class="string">&#x27;min_impurity_decrease&#x27;</span>:[<span class="number">0.0001</span>, <span class="number">0.0002</span>, <span class="number">0.0003</span>, <span class="number">0.0004</span>, <span class="number">0.0005</span>]&#125;</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gs = GridSearchCV(DecisionTreeClassifier(random_state=<span class="number">42</span>), params, n_jobs=-<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gs.fit(train_input, train_target)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>GridSearchCV(estimator=DecisionTreeClassifier(random_state=42), n_jobs=-1,
-             param_grid=&#123;&#39;min_impurity_decrease&#39;: [0.0001, 0.0002, 0.0003,
-                                                   0.0004, 0.0005]&#125;)
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dt = gs.best_estimator_</span><br><span class="line"><span class="built_in">print</span>(dt.score(train_input, train_target))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.9615162593804117
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(gs.best_params_)</span><br></pre></td></tr></table></figure>
-
-<pre><code>&#123;&#39;min_impurity_decrease&#39;: 0.0001&#125;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(gs.cv_results_[<span class="string">&#x27;mean_test_score&#x27;</span>])</span><br></pre></td></tr></table></figure>
-
-<pre><code>[0.86819297 0.86453617 0.86492226 0.86780891 0.86761605]
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">best_index=np.argmax(gs.cv_results_[<span class="string">&#x27;mean_test_score&#x27;</span>])</span><br><span class="line"><span class="built_in">print</span>(gs.cv_results_[<span class="string">&#x27;params&#x27;</span>][best_index])</span><br></pre></td></tr></table></figure>
-
-<pre><code>&#123;&#39;min_impurity_decrease&#39;: 0.0001&#125;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;<span class="string">&#x27;min_impurity_decrease&#x27;</span>:np.arange(<span class="number">0.0001</span>, <span class="number">0.001</span>, <span class="number">0.0001</span>),</span><br><span class="line">          <span class="string">&#x27;max_depth&#x27;</span>:<span class="built_in">range</span>(<span class="number">5</span>,<span class="number">20</span>,<span class="number">1</span>),</span><br><span class="line">          <span class="string">&#x27;min_samples_split&#x27;</span>:<span class="built_in">range</span>(<span class="number">2</span>,<span class="number">100</span>,<span class="number">10</span>)&#125; </span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gs = GridSearchCV(DecisionTreeClassifier(random_state=<span class="number">42</span>), params, n_jobs=-<span class="number">1</span>)</span><br><span class="line">gs.fit(train_input, train_target)</span><br></pre></td></tr></table></figure>
-
-
-
-
-<pre><code>GridSearchCV(estimator=DecisionTreeClassifier(random_state=42), n_jobs=-1,
-             param_grid=&#123;&#39;max_depth&#39;: range(5, 20),
-                         &#39;min_impurity_decrease&#39;: array([0.0001, 0.0002, 0.0003, 0.0004, 0.0005, 0.0006, 0.0007, 0.0008,
-       0.0009]),
-                         &#39;min_samples_split&#39;: range(2, 100, 10)&#125;)
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(gs.best_params_)</span><br></pre></td></tr></table></figure>
-
-<pre><code>&#123;&#39;max_depth&#39;: 14, &#39;min_impurity_decrease&#39;: 0.0004, &#39;min_samples_split&#39;: 12&#125;
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.<span class="built_in">max</span>(gs.cv_results_[<span class="string">&#x27;mean_test_score&#x27;</span>]))</span><br></pre></td></tr></table></figure>
-
-<pre><code>0.8683865773302731
-</code></pre>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">27</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20WSL(ubuntu)/">WSL(ubuntu)셋팅</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20env/">가상환경설치</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-14T00:00:00.000Z">2022-07-14</time></p><p class="title"><a href="/2022/07/14/0220714/">seborn 라이브러리</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-07T00:00:00.000Z">2022-07-07</time></p><p class="title"><a href="/2022/07/07/lecture-in-humanedu/">캐글입문</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-06T11:39:54.239Z">2022-07-06</time></p><p class="title"><a href="/2022/07/06/day0706_1200/">XGboost &amp; LightGBM</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous is-invisible is-hidden-mobile"><a href="/page/0/">Previous</a></div><div class="pagination-next"><a href="/page/2/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link is-current" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">29</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-28T00:00:00.000Z">2022-07-28</time></p><p class="title"><a href="/2022/07/28/0728%20airflow/">Apache Airflow 데이터 파이프라인 구축</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20WSL(ubuntu)/">WSL(ubuntu)셋팅</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20env/">가상환경설치</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/0727%20pkg%20set/">패키지 설치</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-14T00:00:00.000Z">2022-07-14</time></p><p class="title"><a href="/2022/07/14/0220714/">seborn 라이브러리</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
