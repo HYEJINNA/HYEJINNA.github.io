@@ -1,5 +1,406 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>내 블로그</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="내 블로그"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="내 블로그"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="내 블로그"><meta property="og:url" content="https://hyejinna.github.io/"><meta property="og:site_name" content="내 블로그"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://hyejinna.github.io/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://HYEJINNA.github.io"},"headline":"내 블로그","image":["https://hyejinna.github.io/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"내 블로그","logo":{"@type":"ImageObject","url":"https://hyejinna.github.io/img/logo.svg"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-28T00:00:00.000Z" title="2022. 6. 28. 오전 9:00:00">2022-06-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T03:28:35.887Z" title="2022. 7. 6. 오후 12:28:35">2022-07-06</time></span><span class="level-item">2 minutes read (About 295 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/28/unit29/">코딩도장 Unit29</a></h1><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;Hello, world!&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>내 블로그</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="내 블로그"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="내 블로그"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta property="og:type" content="blog"><meta property="og:title" content="내 블로그"><meta property="og:url" content="https://hyejinna.github.io/"><meta property="og:site_name" content="내 블로그"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://hyejinna.github.io/img/og_image.png"><meta property="article:author" content="John Doe"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://HYEJINNA.github.io"},"headline":"내 블로그","image":["https://hyejinna.github.io/img/og_image.png"],"author":{"@type":"Person","name":"John Doe"},"publisher":{"@type":"Organization","name":"내 블로그","logo":{"@type":"ImageObject","url":"https://hyejinna.github.io/img/logo.svg"}},"description":""}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 6.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-28T00:00:00.000Z" title="2022. 6. 28. 오전 9:00:00">2022-06-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T03:28:35.870Z" title="2022. 7. 6. 오후 12:28:35">2022-07-06</time></span><span class="level-item">10 minutes read (About 1470 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/28/day0628/">파이썬 &amp; 구글드라이브연동</a></h1><div class="content"><h2 id="반복문-복습"><a href="#반복문-복습" class="headerlink" title="반복문 복습"></a>반복문 복습</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;No : &quot;</span>, i+<span class="number">1</span>)</span><br><span class="line">  <span class="keyword">if</span> i == <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;Hello World&quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;안녕하세요&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>No :  1
+Hello World
+안녕하세요
+No :  2
+Hello World
+안녕하세요
+No :  3
+Hello World
+안녕하세요
+No :  4
+Hello World
+안녕하세요
+No :  5
+Hello World
+안녕하세요
+No :  6
+Hello World
+안녕하세요
+No :  7
+Hello World
+안녕하세요
+No :  8
+Hello World
+안녕하세요
+No :  9
+Hello World
+안녕하세요
+No :  10
+Hello World
+안녕하세요
+No :  11
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;Kaggle&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">  <span class="built_in">print</span>(i)</span><br><span class="line">  <span class="keyword">if</span> i == <span class="string">&quot;a&quot;</span>:</span><br><span class="line">    <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>K
+a
+</code></pre>
+<ul>
+<li>리스트의 값이 존재</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line"><span class="built_in">sum</span>  = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> numbers:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;numbers:&quot;</span>, num)</span><br><span class="line">  <span class="built_in">sum</span> = <span class="built_in">sum</span> + num</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;total:&quot;</span>, <span class="built_in">sum</span>)</span><br><span class="line"></span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;-- 최종결괏값 --&quot;</span>)</span><br><span class="line">  <span class="built_in">print</span>(<span class="built_in">sum</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>numbers: 1
+total: 1
+-- 최종결괏값 --
+1
+numbers: 2
+total: 3
+-- 최종결괏값 --
+3
+numbers: 3
+total: 6
+-- 최종결괏값 --
+6
+numbers: 4
+total: 10
+-- 최종결괏값 --
+10
+numbers: 5
+total: 15
+-- 최종결괏값 --
+15
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fruits = [<span class="string">&#x27;apple&#x27;</span>,<span class="string">&#x27;kiwi&#x27;</span>,<span class="string">&#x27;manggo&#x27;</span>]</span><br><span class="line">newlist=[]</span><br><span class="line"></span><br><span class="line"><span class="comment"># apple : a가 있나요? 있네요. newlist에 추가하세요.</span></span><br><span class="line"><span class="comment"># kiwi : a가 있나요? 없네요. 그럼 넘어가요.</span></span><br><span class="line"><span class="comment"># mango : a가 있나요? 있네요. newlist에 추가하세요.</span></span><br><span class="line"><span class="keyword">for</span> fruit <span class="keyword">in</span> fruits:</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&quot;조건문 밖 :&quot;</span>,fruit)</span><br><span class="line">  <span class="keyword">if</span> <span class="string">&quot;a&quot;</span> <span class="keyword">in</span> fruit:</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;조건문 안쪽 :&quot;</span>, fruit)</span><br><span class="line">   newlist.append(fruit)</span><br><span class="line"><span class="built_in">print</span>(newlist)</span><br></pre></td></tr></table></figure>
+
+<pre><code>조건문 밖 : apple
+조건문 안쪽 : apple
+조건문 밖 : kiwi
+조건문 밖 : manggo
+조건문 안쪽 : manggo
+[&#39;apple&#39;, &#39;manggo&#39;]
+</code></pre>
+<h2 id="While-Loop"><a href="#While-Loop" class="headerlink" title="While Loop"></a>While Loop</h2><p>While문 : 분석할때 거의 사용안함, 개발할때 많이 사용</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">10</span>: <span class="comment">#참일때만 반복문 코드실행됨</span></span><br><span class="line">  <span class="comment"># 코드</span></span><br><span class="line">  <span class="built_in">print</span>(i)</span><br><span class="line">  i +=<span class="number">1</span> <span class="comment"># 1씩 증가</span></span><br><span class="line">    <span class="comment">#i -=1 #1씩 감소</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>1
+2
+3
+4
+5
+6
+7
+8
+9
+</code></pre>
+<h2 id="사용자-정의함수"><a href="#사용자-정의함수" class="headerlink" title="사용자 정의함수"></a>사용자 정의함수</h2><ul>
+<li>내가 필요에 의해 직접 함수를 작성</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">함수명</span>(<span class="params">param1, param2</span>):</span><br><span class="line">  <span class="comment">#코드</span></span><br><span class="line">  <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">a = <span class="number">0</span>, b = <span class="number">1</span></span>):</span><br><span class="line">  c = a + b</span><br><span class="line">  <span class="keyword">return</span> c</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(add(a = <span class="number">5</span>, b = <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(add())</span><br></pre></td></tr></table></figure>
+
+<pre><code>9
+1
+</code></pre>
+<ul>
+<li>사칙연산 사용자 정의함수 만들기</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">na</span>(<span class="params">a=<span class="number">10</span>, b=<span class="number">100</span></span>):</span><br><span class="line">  c = a * b</span><br><span class="line">  <span class="keyword">return</span> c</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(na())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>1000
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">love</span>(<span class="params">a=<span class="number">8</span>,b=<span class="number">100</span></span>):</span><br><span class="line">  c = a / b</span><br><span class="line">  <span class="keyword">return</span> c</span><br><span class="line"><span class="built_in">print</span>(love(a=<span class="number">10</span>,b=<span class="number">20</span>))</span><br><span class="line"><span class="built_in">print</span>(love())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>0.5
+0.08
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">a, b</span>) :</span><br><span class="line">  <span class="keyword">return</span> a + b</span><br><span class="line"><span class="built_in">print</span>(add(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">a, b</span>) :</span><br><span class="line">  <span class="keyword">return</span> a - b</span><br><span class="line"><span class="built_in">print</span>(cal(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">a, b</span>) :</span><br><span class="line">  <span class="keyword">return</span> a * b</span><br><span class="line"><span class="built_in">print</span>(cal(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">a, b</span>) :</span><br><span class="line">  <span class="keyword">return</span> a / b</span><br><span class="line"><span class="built_in">print</span>(cal(<span class="number">1</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<pre><code>3
+-1
+2
+0.5
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">subtract</span>(<span class="params">a,b</span>):</span><br><span class="line">   <span class="keyword">return</span> a-b</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(subtract(a=<span class="number">5</span>,b=<span class="number">10</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>-5
+</code></pre>
+<ul>
+<li>함수 문서화(매우중요)</li>
+</ul>
+<ul>
+<li>키워드 : Docsting</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">subtract</span>(<span class="params">a,b</span>):</span><br><span class="line">  <span class="string">&quot;&quot;&quot;a,b를 빼는 함수</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">     Parameters:</span></span><br><span class="line"><span class="string">     a(int):int형 숫자 a가 입력</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">     b(int): int형 숫자 b가 입력</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">     Return:</span></span><br><span class="line"><span class="string">     int:반환값 </span></span><br><span class="line"><span class="string">   &quot;&quot;&quot;</span></span><br><span class="line">  <span class="keyword">return</span> a-b</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(subtract(a=<span class="number">5</span>,b=<span class="number">10</span>))</span><br><span class="line"><span class="built_in">print</span>(subtract.__doc__)</span><br></pre></td></tr></table></figure>
+
+<pre><code>-5
+a,b를 빼는 함수
+
+     Parameters:
+     a(int):int형 숫자 a가 입력
+
+     b(int): int형 숫자 b가 입력
+
+     Return:
+     int:반환값 
+   
+</code></pre>
+<h2 id="Numpy"><a href="#Numpy" class="headerlink" title="Numpy"></a>Numpy</h2><ul>
+<li>내장모듈(&#x3D;라이브러리&#x3D;패키지) (X)</li>
+<li>별도 라이브러리 설치</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="built_in">print</span>(np.__version__)</span><br></pre></td></tr></table></figure>
+
+<pre><code>1.21.6
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">temp = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">temp_array = np.array(temp)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(temp))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(temp_array))</span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;list&#39;&gt;
+&lt;class &#39;numpy.ndarray&#39;&gt;
+</code></pre>
+<h2 id="사칙연산"><a href="#사칙연산" class="headerlink" title="사칙연산"></a>사칙연산</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">math_score = [<span class="number">90</span>,<span class="number">80</span>,<span class="number">100</span>]</span><br><span class="line">eng_score = [<span class="number">80</span>,<span class="number">90</span>,<span class="number">100</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># math_score + eng_score</span></span><br><span class="line">math_array = np.array(math_score)</span><br><span class="line">eng_array = np.array(eng_score)</span><br><span class="line"></span><br><span class="line">total = math_array + eng_array</span><br><span class="line"><span class="built_in">print</span>(total)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(total))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[170 170 200]
+&lt;class &#39;numpy.ndarray&#39;&gt;
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 집계함수</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(np.<span class="built_in">min</span>(total))</span><br><span class="line"><span class="built_in">print</span>(np.<span class="built_in">max</span>(total))</span><br><span class="line"><span class="built_in">print</span>(np.<span class="built_in">sum</span>(total))</span><br></pre></td></tr></table></figure>
+
+<pre><code>170
+200
+540
+</code></pre>
+<h2 id="차원-확인"><a href="#차원-확인" class="headerlink" title="차원 확인"></a>차원 확인</h2><ul>
+<li>배열의 차원 확인 필요</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1차원 배열</span></span><br><span class="line">temp_arr = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(temp_arr.shape) <span class="comment"># 값이 몇개?</span></span><br><span class="line"><span class="built_in">print</span>(temp_arr.ndim) <span class="comment"># 몇 차원?</span></span><br><span class="line"><span class="built_in">print</span>(temp_arr)</span><br></pre></td></tr></table></figure>
+
+<pre><code>(3,)
+1
+[1 2 3]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2차원 배열 생성</span></span><br><span class="line">temp_arr = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]) <span class="comment"># 2묶음, 3개씩</span></span><br><span class="line"><span class="built_in">print</span>(temp_arr.shape)</span><br><span class="line"><span class="built_in">print</span>(temp_arr.ndim)</span><br><span class="line"><span class="built_in">print</span>(temp_arr)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>(2, 3)
+2
+[[1 2 3]
+ [4 5 6]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 3차원 배열 -&gt; 이미지</span></span><br><span class="line">temp_arr = np.array([[[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]], [[<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], [<span class="number">10</span>, <span class="number">11</span>, <span class="number">12</span>]]])</span><br><span class="line"><span class="built_in">print</span>(temp_arr.shape)</span><br><span class="line"><span class="built_in">print</span>(temp_arr.ndim)</span><br><span class="line"><span class="built_in">print</span>(temp_arr)</span><br></pre></td></tr></table></figure>
+
+<pre><code>(2, 2, 3)
+3
+[[[ 1  2  3]
+  [ 4  5  6]]
+
+ [[ 7  8  9]
+  [10 11 12]]]
+</code></pre>
+<h2 id="배열-생성의-다양한-방법들"><a href="#배열-생성의-다양한-방법들" class="headerlink" title="배열 생성의 다양한 방법들"></a>배열 생성의 다양한 방법들</h2><ul>
+<li>모두 0으로 채운다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="built_in">print</span>(np.__version__)</span><br></pre></td></tr></table></figure>
+
+<pre><code>1.21.6
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp_arr = np.zeros((<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>))</span><br><span class="line">temp_arr</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[[0., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 0.]],
+
+       [[0., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 0.]],
+
+       [[0., 0., 0.],
+        [0., 0., 0.],
+        [0., 0., 0.]]])
+</code></pre>
+<ul>
+<li>a모두 1로 채운다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp_arr = np.ones((<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line">temp_arr</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[1., 1., 1.],
+       [1., 1., 1.]])
+</code></pre>
+<ul>
+<li>임의의 상수값으로 채운다</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp_arr = np.full((<span class="number">3</span>,<span class="number">3</span>),<span class="number">5</span>)</span><br><span class="line">temp_arr</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([[5, 5, 5],
+       [5, 5, 5],
+       [5, 5, 5]])
+</code></pre>
+<ul>
+<li>최소, 최대 숫자의 범위를 정해두고, 각 구간별로 값을 생성</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp_arr = np.linspace(<span class="number">5</span>,<span class="number">10</span>,<span class="number">10</span>)</span><br><span class="line">temp_arr</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([ 5.        ,  5.55555556,  6.11111111,  6.66666667,  7.22222222,
+        7.77777778,  8.33333333,  8.88888889,  9.44444444, 10.        ])
+</code></pre>
+<ul>
+<li>반복문 시, 자주 등장하는 배열</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp_arr = np.arange(<span class="number">1</span>,<span class="number">11</span>,<span class="number">1</span>)</span><br><span class="line">temp_arr</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])
+</code></pre>
+<ul>
+<li>난수 생성</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> random</span><br><span class="line">x = random.rand()</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.47713558758041374
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">위와 같은 코드 다른형식 </span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy </span><br><span class="line">x = numpy.random.rand()</span><br><span class="line"><span class="built_in">print</span>(x)</span><br></pre></td></tr></table></figure>
+
+<pre><code>0.7337058404065017
+</code></pre>
+<ul>
+<li>랜덤 정수값 추출</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> random</span><br><span class="line">x = random.randint(<span class="number">100</span>,size = (<span class="number">5</span>))</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[66 59 51 62 52]
+&lt;class &#39;numpy.ndarray&#39;&gt;
+</code></pre>
+<ul>
+<li>랜덤 배열, 실수 값 추출</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> random</span><br><span class="line">x = random.rand(<span class="number">2</span>,<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(x)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(x))</span><br></pre></td></tr></table></figure>
+
+<pre><code>[[0.20589017 0.44450341 0.98789043 0.31725431 0.64770063]
+ [0.80055663 0.52180604 0.31230452 0.25684295 0.96396122]]
+&lt;class &#39;numpy.ndarray&#39;&gt;
+</code></pre>
+<h2 id="NumPy-사칙연산"><a href="#NumPy-사칙연산" class="headerlink" title="NumPy 사칙연산"></a>NumPy 사칙연산</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">array_01 = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><br><span class="line">array_02 = np.array([<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 덧셈</span></span><br><span class="line">newArr = np.add(array_01, array_02)</span><br><span class="line"><span class="built_in">print</span>(newArr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 뺄셈 </span></span><br><span class="line">newArr = np.subtract(array_01, array_02)</span><br><span class="line"><span class="built_in">print</span>(newArr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 나누기</span></span><br><span class="line">newArr = np.divide(array_01, array_02)</span><br><span class="line"><span class="built_in">print</span>(newArr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 거듭제곱</span></span><br><span class="line">array_01 = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">array_02 = np.array([<span class="number">2</span>, <span class="number">4</span>, <span class="number">2</span>])</span><br><span class="line">newArr = np.power(array_01, array_02)</span><br><span class="line"><span class="built_in">print</span>(newArr)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>[11 22 33]
+[ -9 -18 -27]
+[0.1 0.1 0.1]
+[ 1 16  9]
+</code></pre>
+<p>소수점정렬</p>
+<ul>
+<li>소수점을 정렬하는 다양한 방법</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 소수점 제거 </span></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> no</span><br><span class="line">temp_arr = np.trunc([-<span class="number">1.23</span>,<span class="number">1.23</span>])</span><br><span class="line"><span class="built_in">print</span>(temp_arr)</span><br><span class="line"></span><br><span class="line">temp_arr = np.fix([-<span class="number">1.23</span>,<span class="number">1.23</span>])</span><br><span class="line"><span class="built_in">print</span>(temp_arr)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[-1.  1.]
+[-1.  1.]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#임의의 소숫점 자리에서 반올림</span></span><br><span class="line">temp_arr = np.around([-<span class="number">1.2345678</span>, <span class="number">1.2345678</span>],<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(temp_arr)</span><br></pre></td></tr></table></figure>
+
+<pre><code>[-1.23457  1.23457]
+</code></pre>
+<h2 id="조건식-중요"><a href="#조건식-중요" class="headerlink" title="조건식 (중요)"></a>조건식 (중요)</h2><ul>
+<li>pandas 가공</li>
+<li>numpy</li>
+<li>조건식</li>
+</ul>
+<ul>
+<li>하나의 조건식</li>
+<li>다중 조건식</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">temp_arr = np.arange(<span class="number">10</span>)</span><br><span class="line">temp_arr</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 5보다 작으면 그냥 원 값 유지</span></span><br><span class="line"><span class="comment"># 5보다 크면 기존 값에 곱하기 10을 해줌</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># np.where(조건식, 참일때, 거짓일때)</span></span><br><span class="line">np.where(temp_arr &lt; <span class="number">5</span>, temp_arr, temp_arr * <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([ 0,  1,  2,  3,  4, 50, 60, 70, 80, 90])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">temp_arr = np.arange(<span class="number">10</span>)</span><br><span class="line"><span class="comment"># temp_arr</span></span><br><span class="line">cond_list = [temp_arr &gt;<span class="number">5</span>, temp_arr &lt;<span class="number">2</span>]</span><br><span class="line">choice_list = [temp_arr * <span class="number">2</span>, temp_arr + <span class="number">100</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># np.select (조건식 리스트, 결괏값리스트, default = )</span></span><br><span class="line">np.select(cond_list, choice_list, default = temp_arr)</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([100, 101,   2,   3,   4,   5,  12,  14,  16,  18])
+</code></pre>
+<h2 id="Reshape"><a href="#Reshape" class="headerlink" title="Reshape"></a>Reshape</h2><ul>
+<li>배열의 차원 또는 크기를 바꾼다</li>
+<li>곱셈만 할 줄 알면 문제없음</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">temp_array = np.ones((<span class="number">3</span>,<span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(temp_array.shape)</span><br><span class="line"><span class="built_in">print</span>(temp_array)</span><br></pre></td></tr></table></figure>
+
+<pre><code>(3, 4)
+[[1. 1. 1. 1.]
+ [1. 1. 1. 1.]
+ [1. 1. 1. 1.]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">after_reshape = temp_array.reshape(<span class="number">1</span>, <span class="number">12</span>) <span class="comment">#괄호안에 수의 곱이 12로 조합하면 결과실행</span></span><br><span class="line"><span class="built_in">print</span>(after_reshape.shape)</span><br><span class="line"><span class="built_in">print</span>(after_reshape)</span><br></pre></td></tr></table></figure>
+
+<pre><code>(1, 12)
+[[1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">after_reshape = temp_array.reshape(<span class="number">2</span>,-<span class="number">1</span>) <span class="comment">#-1넣으면 알아서 맞춰줌</span></span><br><span class="line"><span class="built_in">print</span>(after_reshape.shape)</span><br><span class="line"><span class="built_in">print</span>(after_reshape)</span><br></pre></td></tr></table></figure>
+
+<pre><code>(2, 6)
+[[1. 1. 1. 1. 1. 1.]
+ [1. 1. 1. 1. 1. 1.]]
+</code></pre>
+<h1 id="브로드-캐스팅-중요한-개념-논문작성시-사용"><a href="#브로드-캐스팅-중요한-개념-논문작성시-사용" class="headerlink" title="브로드 캐스팅 (중요한 개념, 논문작성시 사용)"></a>브로드 캐스팅 (중요한 개념, 논문작성시 사용)</h1><p>: 서로 다른 크기의 배열을 연산할때의 기본적인 규칙을 의미한다</p>
+<h2 id="pandas-튜토리얼"><a href="#pandas-튜토리얼" class="headerlink" title="pandas 튜토리얼"></a>pandas 튜토리얼</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="built_in">print</span>(pd.__version__)</span><br></pre></td></tr></table></figure>
+
+<pre><code>1.3.5
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">temp_dict = &#123;</span><br><span class="line">    <span class="string">&#x27;col1&#x27;</span> : [<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">    <span class="string">&#x27;col2&#x27;</span> : [<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(temp_dict)</span><br><span class="line"><span class="built_in">print</span>(df)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(df))</span><br></pre></td></tr></table></figure>
+
+<pre><code>   col1  col2
+0     1     3
+1     2     4
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+</code></pre>
+<h2 id="구글-드라이브-연동"><a href="#구글-드라이브-연동" class="headerlink" title="구글 드라이브 연동"></a>구글 드라이브 연동</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> drive</span><br><span class="line">drive.mount(<span class="string">&#x27;/content/drive&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<pre><code>Mounted at /content/drive
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">DATA_PATH = <span class="string">&#x27;/content/drive/MyDrive/Colab Notebooks/human_AI/Basic/Chapter 3. pandas/data/Lemonade2016.csv&#x27;</span></span><br><span class="line">lemonade = pd.read_csv(DATA_PATH)</span><br><span class="line"></span><br><span class="line">lemonade.info() <span class="comment">#str</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 32 entries, 0 to 31
+Data columns (total 7 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   Date         31 non-null     object 
+ 1   Location     32 non-null     object 
+ 2   Lemon        32 non-null     int64  
+ 3   Orange       32 non-null     int64  
+ 4   Temperature  32 non-null     int64  
+ 5   Leaflets     31 non-null     float64
+ 6   Price        32 non-null     float64
+dtypes: float64(2), int64(3), object(2)
+memory usage: 1.9+ KB
+</code></pre>
+</div></article></div><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-06-28T00:00:00.000Z" title="2022. 6. 28. 오전 9:00:00">2022-06-28</time></span><span class="level-item">Updated&nbsp;<time dateTime="2022-07-06T03:28:35.887Z" title="2022. 7. 6. 오후 12:28:35">2022-07-06</time></span><span class="level-item">2 minutes read (About 295 words)</span></div></div><h1 class="title is-3 is-size-4-mobile"><a class="link-muted" href="/2022/06/28/unit29/">코딩도장 Unit29</a></h1><div class="content"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hello()</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello</span>():</span><br><span class="line">  <span class="built_in">print</span>(<span class="string">&#x27;Hello, world!&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <pre><code>Hello world!
 </code></pre>
@@ -1275,7 +1676,7 @@ g
 <h2 id="ggplot2-시각화"><a href="#ggplot2-시각화" class="headerlink" title="ggplot2 시각화"></a>ggplot2 시각화</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line">ggplot<span class="punctuation">(</span>data <span class="operator">=</span> iris<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> Sepal.Length<span class="punctuation">,</span> </span><br><span class="line">                        y <span class="operator">=</span> Sepal.Width<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  geom_point<span class="punctuation">(</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="/day0617_files/figure-html/unnamed-chunk-1-1.png"><!-- --></p>
-</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/2/">Previous</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/page/4/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link is-current" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">29</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-28T00:00:00.000Z">2022-07-28</time></p><p class="title"><a href="/2022/07/28/0728%20airflow/">Apache Airflow 데이터 파이프라인 구축</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20WSL(ubuntu)/">WSL(ubuntu)셋팅</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20env/">가상환경설치</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/0727%20pkg%20set/">패키지 설치</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-14T00:00:00.000Z">2022-07-14</time></p><p class="title"><a href="/2022/07/14/0220714/">seborn 라이브러리</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">14</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/2/">Previous</a></div><div class="pagination-next is-invisible is-hidden-mobile"><a href="/page/4/">Next</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><a class="pagination-link" href="/page/2/">2</a></li><li><a class="pagination-link is-current" href="/page/3/">3</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">30</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-29T00:00:00.000Z">2022-07-29</time></p><p class="title"><a href="/2022/07/29/0729_spark%20e567543939744458bd142d49d62cc727/">220729 스파크를 이용한 데이터공학</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-28T00:00:00.000Z">2022-07-28</time></p><p class="title"><a href="/2022/07/28/0728%20airflow/">Apache Airflow 데이터 파이프라인 구축</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20WSL(ubuntu)/">WSL(ubuntu)셋팅</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/220727%20env/">가상환경설치</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-07-27T00:00:00.000Z">2022-07-27</time></p><p class="title"><a href="/2022/07/27/0727%20pkg%20set/">패키지 설치</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2022/07/"><span class="level-start"><span class="level-item">July 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">June 2022</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="내 블로그" height="28"></a><p class="is-size-7"><span>&copy; 2022 John Doe</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
             article: {
                 highlight: {
                     clipboard: true,
